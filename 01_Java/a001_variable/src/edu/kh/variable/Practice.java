@@ -56,7 +56,7 @@ public class Practice {
 		System.out.println(ch + iNum1);
 		System.out.println((char)(ch + iNum1));
 		
-		
+		//asdasdasd
 		
 		
 		
