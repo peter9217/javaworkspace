@@ -200,10 +200,20 @@ public class ConditionEx {
 			
 			System.out.print("키 입력 : " );
 			Double height = sc.nextDouble();
-			
+			if(height<140) {
+				result = "적정 키가 아닙니다.";
+			}else if(height < 100 || height > 200) {
+				result = "잘못 입력하셨습니다.";
+			}else {
+				result = "탑승가능";
+			}
 		
 		}
+		System.out.println(result);
 	}
+	
+	
+	// 
 	
 	
 	
