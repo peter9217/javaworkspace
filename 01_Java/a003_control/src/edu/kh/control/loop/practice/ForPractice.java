@@ -238,25 +238,24 @@ public class ForPractice {
 				}else if (i==input) {
 					System.out.print("*");
 				}else {
-					for (int k=1; k<=input; k++) {
-						if(k==1) {
-							System.out.print("*");
-						}else if(k==input) {
-							System.out.print("*");
-						}else {
-							System.out.print(" ");
-						}
-							
+					if(j==1) {
+					System.out.print("*");
+					}else if(j==input) {
+					System.out.print("*");
+					}else {
+					System.out.print(" ");
 					}
-					System.out.println("");
+							
 				}
-				
+					System.out.println("");
 			}
-			
-			
-			
+				
 		}
-	}
+			
+			
+			
+}
+	
 	
 	
 
