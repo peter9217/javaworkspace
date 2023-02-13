@@ -212,7 +212,7 @@ public class ForPractice {
 		System.out.print("정수 입력 : ");
 		int input = sc.nextInt();
 		for(int i=1; i<=input; i++) {
-			for (int k = input; i<=k; k--) {
+			for (int k = input-1; i<=k; k--) {
 				System.out.print(" ");
 			}
 			int num = input-1;

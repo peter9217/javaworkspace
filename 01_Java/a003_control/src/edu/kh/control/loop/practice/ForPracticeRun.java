@@ -7,6 +7,6 @@ public class ForPracticeRun {
 		ForPractice fp = new ForPractice();
 		
 //		fp.practice1();
-		fp.practice13();
+		fp.practice11();
 	}
 }
