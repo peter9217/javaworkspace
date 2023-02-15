@@ -169,6 +169,59 @@ public class ArrayPractice {
 	}
 	
 	public void practice10() {
+		int[] arr = new int[10];
+		int ran = 0;
 		
+		for(int i=0; i<10; i++) {
+			ran = (int)((Math.random())*10+1);
+			arr[i] = ran;
+		}
+		int min = arr[0];
+		int max = arr[0]; 
+		System.out.print("발생한 난수 : ");
+		for(int i=0; i<10; i++) {
+			 System.out.print(arr[i] + " "); 
+		}
+		
+		for(int j=0; j<10; j++) {
+			if(max<arr[(j)]) {
+				min = arr[(j)];
+			}
+		}
+		System.out.println();
+		System.out.println("최대값 : " + max);
+
+		
+		for(int k=0; k<10; k++) {
+			if(min>arr[(k)]) {
+				min = arr[(k)];
+			}
+		}
+		System.out.println("최소값 : " + min);
+
+	}
+	
+	public void practice11() {
+		int[] arr = new int[10];
+		int ran = 0;
+		
+		for(int i=0; i<arr.length; i++) {
+			arr[i] = (int)((Math.random())*10+1);
+			for(int j=0; j<i; j++) {
+				if(arr[j]==arr[i]) {
+					i--;
+					
+				}
+				
+			}
+				
+		}
+		for(int k=0; k<arr.length; k++) {
+			System.out.print(arr[k] + " ");
+		
+	}
+		
+		
+			
 	}
 }
