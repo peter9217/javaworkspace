@@ -13,7 +13,9 @@ public class ArrayPracticeRun {
 //		ap.practice8();
 //		ap.practice9();
 //		ap.practice10();
-		ap.practice11();
+//		ap.practice11();
+//		ap.practice12();
+		ap.practice13();
 		
 	}
 

@@ -49,6 +49,8 @@ public class StudentRun {
 		s1.schoolName = "KH국민학교";
 //		s2.schoolName = "KH국민학교";
 		
+		//참조 변수를 이용해서 static으로 지정된 필드 값을 바꿀 ㅅ수 있지만
+		// <클래스명.필드명>을 이용해서 다루는 것을 권장
 		Student.schoolName = "KH중학교";
 		
 		System.out.println("-----------------------");
@@ -56,7 +58,10 @@ public class StudentRun {
 		System.out.println("s2 학교명 : " + s2.schoolName);
 		
 		
-		
+		// public static final
+		// : 어디서든 공유할 수 있는 상수
+		System.out.println(Integer.MAX_VALUE);		
+		System.out.println(Integer.MIN_VALUE);		
 	}
 
 }

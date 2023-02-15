@@ -43,6 +43,8 @@ public class FieldRun extends FieldTest3 {
 		// FieldRun이 FieldTest3를 상속 받음
 		// -> FieldTest3의 필드를 FieldRun이 자신의 것 처럼 사용 가능
 		
+		
+		
 	}
 
 }

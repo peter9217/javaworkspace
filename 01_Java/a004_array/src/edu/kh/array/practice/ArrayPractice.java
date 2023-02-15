@@ -1,5 +1,6 @@
 package edu.kh.array.practice;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ArrayPractice {
@@ -210,18 +211,100 @@ public class ArrayPractice {
 			for(int j=0; j<i; j++) {
 				if(arr[j]==arr[i]) {
 					i--;
-					
 				}
-				
 			}
-				
 		}
 		for(int k=0; k<arr.length; k++) {
 			System.out.print(arr[k] + " ");
 		
+		}
+
 	}
+	
+	public void practice12() {
+		int[] arr = new int[6];
 		
-		
+		for(int i=0; i<arr.length; i++) {
+			arr[i] = (int)((Math.random())*46+1);
+			for(int j=0; j<i; j++) {
+				if(arr[j]==arr[i]) {
+					i--;
+				}
+			}
+		}
+		for (int i = 0; i < arr.length; i++) {
 			
+			for (int j = i+1; j < arr.length; j++) {
+
+				if (arr[i] > arr[j]) {
+					int num = arr[i];
+					arr[i] = arr[j];
+					arr[j] = num;
+				}
+			}			
+		}
+		
+		
+	for(int k=0; k<arr.length; k++) {
+		System.out.print(arr[k] + " ");
+		}
 	}
+	public void practice13() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("문자열 : ");
+		String str = sc.next();
+		String[] arr = new String[str.length()];
+		char[] chr = new char[arr.length];
+		
+		for(int i=0; i<arr.length; i++) {
+			chr[i]=str.charAt(i);
+		}
+		int tar = 0;
+		System.out.print("문자열에 있는 문자 : ");
+		for(int k=0; k<arr.length; k++) {
+			if (k!=arr.length-1) {
+				System.out.print(chr[k] + ", ");
+				tar++;
+			}else {
+				System.out.print(chr[k] + " ");
+				tar++;
+			}
+			
+		}
+		System.out.println();
+		System.out.print("문자 개수 : ");
+		System.out.print(tar);
+		
+	}
+	
+	public void practice14() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("배열의 크기를 입력하세요 : ");
+		int size = sc.nextInt();
+		String[] arr = new String[size];
+		for (int i=0; i<size; i++) {
+			System.out.printf("%d번째 문자열 : ",(i+1));
+			arr[i] = sc.next();
+			
+		}
+		int num = 0;
+		String flag = "f";
+		do {
+			System.out.print("더 값을 입력하시겠습니까?(Y/N) : ");
+			flag = sc.next();
+			if (flag=="Y"||flag=="y") {
+				System.out.print("더 입렵하고 싶은 개수 : ");
+				int num1 = sc.nextInt();
+				size += num1;
+				System.out.printf("%d번째 문자열  : ",num);
+				
+				String[] arr1 = new String[size];
+				System.arraycopy(arr, 0, arr1, 0, arr.length);
+				System.out.println();
+			}
+			
+		} while ();
+		
+	}
+	
 }
