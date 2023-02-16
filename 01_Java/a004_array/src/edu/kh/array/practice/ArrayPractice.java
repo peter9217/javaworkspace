@@ -157,7 +157,7 @@ public class ArrayPractice {
 		int[] arr = new int[10];
 		int ran = 0;
 		for(int i=0; i<10; i++) {
-			ran = (int)((Math.random())*11);
+			ran = (int)((Math.random())*10+1);
 			arr[i] = ran;
 		}
 		System.out.print("발생한 난수 : ");
@@ -186,7 +186,7 @@ public class ArrayPractice {
 		
 		for(int j=0; j<10; j++) {
 			if(max<arr[(j)]) {
-				min = arr[(j)];
+				max = arr[(j)];
 			}
 		}
 		System.out.println();
@@ -326,14 +326,175 @@ public class ArrayPractice {
 
 	}
 
-//	public void practice15() {
-//		int[][] arr = new int[3][3];
-//		for(int i=0; i<3; i++) {
-//			for(int j=0; j<4; j++) {
-//				arr[i][j] = ("");
-//				
-//			}
-//		}
-//	}
+	public void practice15() {
+		String[][] arr = new String[3][3];
+		for(int i=0; i<3; i++) {
+			for(int j=0; j<3; j++) {
+				arr[j][i] = String.format("(%d, %d)", j,i);
+				
+			}
+		}
+		for(int i=0; i<3; i++) {
+			for(int j=0; j<3; j++) {
+				System.out.print(arr[i][j]);
+				
+			}
+			System.out.println();
+		}
+	}
+	
+	public void practice16() {
+		int[][] arr = new int[4][4];
+		int n = 1;
+		for(int i=0; i<arr.length; i++) {
+			for(int j=0; j<arr.length; j++) {
+				
+				arr[i][j] = n;
+				n++;
+				
+			}
+		}
+		for(int i=0; i<arr.length; i++) {
+			for(int j=0; j<arr.length; j++) {
+				System.out.printf("%3d",arr[i][j]);
+				
+			}
+			System.out.println();
+		}
+		
+	}
+	
+	public void practice17() {
+		int[][] arr = new int[4][4];
+		int n = 16;
+		for(int i=0; i<arr.length; i++) {
+			for(int j=0; j<arr.length; j++) {
+				
+				arr[i][j] = n;
+				n--;
+				
+			}
+		}
+		for(int i=0; i<arr.length; i++) {
+			for(int j=0; j<arr.length; j++) {
+				System.out.printf("%3d",arr[i][j]);
+				
+			}
+			System.out.println();
+		}
+		
+	}
+	
+	public void practice18() {
+		int[][] arr = new int[4][4];
+		
+				
+		for(int i=0; i<arr.length; i++) {
+			for(int j=0; j<arr.length; j++) {
+				int n = (int)(Math.random()*10 +1);
+				if(i==3) {
+					arr[i][j] = arr[0][j]+arr[1][j]+arr[2][j];
+				}else if(j==3) {
+					arr[i][j] = arr[i][0]+arr[i][1]+arr[i][2];
+				}else{
+					arr[i][j] = n;
+				
+				}
+			}
+		}
+		for(int i=0; i<arr.length; i++) {
+			for(int j=0; j<arr.length; j++) {
+				System.out.printf("%3d",arr[i][j]);
+				
+			}
+			System.out.println();
+		}
+		
+	}
+	public void practice19() {
+		Scanner sc = new Scanner(System.in);
+		int row = 0;
+		int col = 0;
+		
+		
+		do {
+			System.out.print("행 크기 : ");
+			row = sc.nextInt();
+			System.out.print("열 크기 : ");
+			col = sc.nextInt();
+			
+			if (row<0||row>10||col<0||col>10) {
+				System.out.println("반드시 1~10 사이의 정수를 입력해야 합니다.");
+			}
+			System.out.println("--------------------");
+		}while(!(row>0&&row<11)||!(col>0&&col<11));
+		char[][] arr = new char[row][col];
+		
+		for(int i=0; i<row; i++) {
+			for(int j=0; j<col; j++) {
+				int cha = (int)(Math.random()*(65+(row*col)));
+				
+				if(cha<65||cha>(90)) {
+					j--;
+				
+				}else {
+					arr[i][j] = (char)cha;
+				}
+			
+				
+			}
+		}			
+		System.out.println("--------------------");
+		for(int i=0; i<arr.length; i++) {
+			for(int j=0; j<arr[i].length; j++) {
+				System.out.print(arr[i][j]);
+			}System.out.println("");
+		}
+		
+	}
+	
+	
+	public void practice20() {
+		Scanner sc = new Scanner(System.in);
+		int row = 0;
+		int man = 0; 
+		System.out.print("행 크기 : ");
+		row = sc.nextInt();
+		int[][] col = new int[row][0];
+		int colarr = 0;
+		char[][] arr = new char[row][0];
+		for (int i = 0; i < row; i++) {
+			System.out.printf("%d열 크기 : ",i);
+			colarr = sc.nextInt();
+			man += colarr*row;
+			arr[i] = new char[colarr];
+		}
+		
+		for (int i = 0; i < row; i++) {
+			for (int j = 0; j < (arr[i].length); j++) {
+				int cha = (int)(Math.random()*(97+man));
+				
+				
+				if(cha<97||cha>(122)) {
+					j--;
+				
+				}else {
+					arr[i][j] = (char)cha;
+				}
+				
+				
+			}
+		}			
+		System.out.println("--------------------");
+		for(int i=0; i<arr.length; i++) {
+			for(int j=0; j<arr[i].length; j++) {
+				System.out.print(arr[i][j] + " ");
+			}System.out.println("");
+		}
+		
+	}
+	
+		
+
 	
 }
