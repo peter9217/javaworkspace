@@ -281,30 +281,59 @@ public class ArrayPractice {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("배열의 크기를 입력하세요 : ");
 		int size = sc.nextInt();
-		String[] arr = new String[size];
-		for (int i=0; i<size; i++) {
-			System.out.printf("%d번째 문자열 : ",(i+1));
-			arr[i] = sc.next();
-			
+		int size1 = size;
+		String[] arr1 = new String[size];
+		String[] arr2 = new String[size];
+		for (int i = 0; i < size; i++) {
+			System.out.printf("%d번째 문자열 : ", (i + 1));
+			arr1[i] = sc.next();
+
 		}
 		int num = 0;
-		String flag = "f";
-		do {
+		System.out.print("더 값을 입력하시겠습니까?(Y/N) : ");
+		String flag = sc.next();
+
+		while (flag.equals("y") || flag.equals("Y")) {
+
+			System.out.print("더 입력하고 싶은 개수 : ");
+			int num1 = sc.nextInt();
+			size += num1;
+			arr2 = new String[size];
+			for (int i = size1; i < size; i++) {
+				System.out.printf("%d번째 문자열  : ", i + 1);
+				String tar = sc.next();
+
+				System.arraycopy(arr1, 0, arr2, 0, arr1.length);
+				arr2[i] = tar;
+
+				size1 = size;
+
+			}
+			arr1 = arr2.clone();
+
 			System.out.print("더 값을 입력하시겠습니까?(Y/N) : ");
 			flag = sc.next();
-			if (flag=="Y"||flag=="y") {
-				System.out.print("더 입렵하고 싶은 개수 : ");
-				int num1 = sc.nextInt();
-				size += num1;
-				System.out.printf("%d번째 문자열  : ",num);
-				
-				String[] arr1 = new String[size];
-				System.arraycopy(arr, 0, arr1, 0, arr.length);
-				System.out.println();
+
+		}
+		System.out.print("[");
+		for (int k = 0; k < arr1.length; k++) {
+			if (k==(arr2.length-1)) {
+				System.out.print(arr1[k] + "]");
+				break;
 			}
-			
-		} while ();
-		
+			System.out.print(arr1[k] + ", ");
+		}
+
 	}
+
+//	public void practice15() {
+//		int[][] arr = new int[3][3];
+//		for(int i=0; i<3; i++) {
+//			for(int j=0; j<4; j++) {
+//				arr[i][j] = ("");
+//				
+//			}
+//		}
+//	}
 	
 }
