@@ -494,7 +494,143 @@ public class ArrayPractice {
 		
 	}
 	
-		
+	
+	public void practice21() {
+		String[] students = { "강건강", "남나나", "도대담", "류라라", "문미미", "박보배", "송성실", "윤예의", "진재주", "차천축", "피풍표", "홍하하" };
+		String[][] arr1 = new String[3][2];
+		String[][] arr2 = new String[3][2];
+		int count = 0;
+		while (count < students.length) {
+			if (count < 6) {
+				for (int i = 0; i < arr1.length; i++) {
+					for (int j = 0; j < arr1[i].length; j++) {
+						arr1[i][j] = students[count];
+						count++;
 
+					}
+				}
+			} else {
+				for (int i = 0; i < arr2.length; i++) {
+					for (int j = 0; j < arr1[2].length; j++) {
+						
+						arr2[i][j] = students[count];
+						
+						count++;
+					}
+				}
+				
+			}
+			
+		}
+		System.out.println("== 1분단 ==");
+		for(int i=0; i<arr1.length; i++) {
+			for(int j=0; j<arr1[i].length; j++) {
+				System.out.print(arr1[i][j] + " ");
+			}System.out.println("");
+		}
+		System.out.println("== 2분단 ==");
+		for(int i=0; i<arr2.length; i++) {
+			for(int j=0; j<arr2[i].length; j++) {
+				System.out.print(arr2[i][j] + " ");
+			}System.out.println("");
+		}
+		
+	}
+	
+	public void practice22() {
+		String[] students = { "강건강", "남나나", "도대담", "류라라", "문미미", "박보배", "송성실", "윤예의", "진재주", "차천축", "피풍표", "홍하하" };
+		String[][] arr1 = new String[3][2];
+		String[][] arr2 = new String[3][2];
+		int count = 0;
+		while (count < students.length) {
+			if (count < 6) {
+				for (int i = 0; i < arr1.length; i++) {
+					for (int j = 0; j < arr1[i].length; j++) {
+						arr1[i][j] = students[count];
+						count++;
+
+					}
+				}
+			} else {
+				for (int i = 0; i < arr2.length; i++) {
+					for (int j = 0; j < arr1[2].length; j++) {
+						
+						arr2[i][j] = students[count];
+						
+						count++;
+					}
+				}
+				
+			}
+			
+		}
+		System.out.println("== 1분단 ==");
+		for(int i=0; i<arr1.length; i++) {
+			for(int j=0; j<arr1[i].length; j++) {
+				System.out.print(arr1[i][j] + " ");
+			}System.out.println("");
+		}
+		System.out.println("== 2분단 ==");
+		for(int i=0; i<arr2.length; i++) {
+			for(int j=0; j<arr2[i].length; j++) {
+				System.out.print(arr2[i][j] + " ");
+			}System.out.println("");
+		}
+		System.out.println("============================");
+		Scanner sc = new Scanner(System.in);
+		System.out.print("검색할 학생 이름을 입력하세요 : ");
+		String who = sc.next();
+		
+		
+		for(int i=0; i<arr1.length; i++) {
+			for(int j=0; j<arr1[i].length; j++) {
+				if(arr1[i][j].equals(who)) {
+					if (j%2==0) {
+						System.out.printf("검색하신 %s 학생은 1분단 %d번째 줄 왼쪽에 있습니다.",who ,(i+1));
+					}
+					else {
+						System.out.printf("검색하신 %s 학생은 1분단 %d번째 줄 오른쪽에 있습니다.",who ,(i+1));
+					}
+				}
+			}
+		}
+		for(int i=0; i<arr1.length; i++) {
+			for(int j=0; j<arr1[i].length; j++) {
+				if(arr2[i][j].equals(who)) {
+					if (j%2==0) {
+						System.out.printf("검색하신 %s 학생은 2분단 %d번째 줄 왼쪽에 있습니다.",who ,(i+1));
+					}
+					else {
+						System.out.printf("검색하신 %s 학생은 2분단 %d번째 줄 오른쪽에 있습니다.",who ,(i+1));
+					}
+				}
+			}
+		}
+	}
+	public void practice23() {
+		String[][] arr = new String[6][6];
+		Scanner sc = new Scanner(System.in);
+		System.out.print("행 인덱스 입력 : ");
+		int row = sc.nextInt();
+		System.out.print("열 인덱스 입력 : ");
+		int col = sc.nextInt();
+		
+		for(int i=0; i<arr.length; i++) {
+			for(int j=0; j<arr[i].length; j++) {
+				if (i==0&&j==0) {
+					arr[i][j]=" ";
+				} else if(i==0) {
+					arr[i][j] = Integer.toString(j);
+				} else if(j==0) {
+					arr[i][j] = Integer.toString(i); 
+				}
+			}
+		}
+		for(int i=0; i<arr.length; i++) {
+			for(int j=0; j<arr[i].length; j++) {
+				System.out.print(arr[i][j] + " ");
+			}System.out.println("");
+		}
+	}
 	
 }

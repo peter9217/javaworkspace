@@ -15,6 +15,10 @@ public class OperatorEx2 {
 		 * 
 		 * */
 		
+		for (int i=0; i<5; i++) {
+			System.out.println();
+		}
+		
 		// 증감 연산 확인
 		int num1 = 10;
 		int num2 = 10;
@@ -50,7 +54,7 @@ public class OperatorEx2 {
 		System.out.println("num4-- : " + (num4--));
 		System.out.println("연산 후 num4 : " + num4);
 		
-		System.out.println("num4++ + -3 : " + (num4++ + -3));
+		System.out.println("num4++ + -3 : " + (num4++ -3));
 		System.out.println("연산 후 num4 : " + num4);
 		
 		// -----------------------
