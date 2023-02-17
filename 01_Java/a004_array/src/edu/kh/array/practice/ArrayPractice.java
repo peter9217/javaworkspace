@@ -3,6 +3,7 @@ package edu.kh.array.practice;
 import java.util.Arrays;
 import java.util.Scanner;
 
+
 public class ArrayPractice {
 	public void practice1() {
 		int[] arr = new int[9];
@@ -330,7 +331,7 @@ public class ArrayPractice {
 		String[][] arr = new String[3][3];
 		for(int i=0; i<3; i++) {
 			for(int j=0; j<3; j++) {
-				arr[j][i] = String.format("(%d, %d)", j,i);
+				arr[j][i] = String.fordccmat("(%d, %d)", j,i);
 				
 			}
 		}
@@ -617,15 +618,20 @@ public class ArrayPractice {
 		
 		for(int i=0; i<arr.length; i++) {
 			for(int j=0; j<arr[i].length; j++) {
+				
 				if (i==0&&j==0) {
 					arr[i][j]=" ";
 				} else if(i==0) {
-					arr[i][j] = Integer.toString(j);
+					arr[i][j] = Integer.toString(j-1);
 				} else if(j==0) {
-					arr[i][j] = Integer.toString(i); 
+					arr[i][j] = Integer.toString(i-1); 
+				} else {
+					arr[i][j] = " ";
 				}
+				
 			}
 		}
+		arr[row+1][col+1] = "x";
 		for(int i=0; i<arr.length; i++) {
 			for(int j=0; j<arr[i].length; j++) {
 				System.out.print(arr[i][j] + " ");
@@ -633,4 +639,175 @@ public class ArrayPractice {
 		}
 	}
 	
+	public void practice24() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("행 인덱스 입력 : ");
+		int row = sc.nextInt();
+		System.out.print("열 인덱스 입력 : ");
+		int col = sc.nextInt();
+		do {
+			String[][] arr = new String[6][6];
+			for(int i=0; i<arr.length; i++) {
+				for(int j=0; j<arr[i].length; j++) {
+					
+					if (i==0&&j==0) {
+						arr[i][j]=" ";
+					} else if(i==0) {
+						arr[i][j] = Integer.toString(j-1);
+					} else if(j==0) {
+						arr[i][j] = Integer.toString(i-1); 
+					} else {
+						arr[i][j] = " ";
+					}
+					
+				}
+			}
+			arr[row+1][col+1] = "x";
+			for(int i=0; i<arr.length; i++) {
+				for(int j=0; j<arr[i].length; j++) {
+					System.out.print(arr[i][j] + " ");
+				}System.out.println("");
+			}
+			System.out.println("");
+			System.out.print("행 인덱스 입력 >> ");
+			row = sc.nextInt();
+			
+		}while (row!=99);
+		System.out.print("프로그램 종료");
+	} 
+	
+	public void bingoGame() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("빙고판 크기 지정 : ");
+		int rowCol = sc.nextInt();
+		String[][] bingo = new String[rowCol][rowCol];
+		
+		int[] random = new int[rowCol*rowCol];
+		for(int i=0; i<random.length; i++) {
+			random[i] = (int)(Math.random()*((rowCol*rowCol)+1));
+			for(int j=0; j<i; j++) {
+				if(random[j]==random[i]||random[i]==0) {
+					i--;
+				}
+			}
+		}
+		int count = 0;
+		for(int i =0; i<rowCol; i++) {
+			for(int j =0; j<rowCol; j++) {
+				bingo[i][j] = String.format("%3d", random[count]);
+				count++;
+			}
+		}
+		for(int i=0; i<bingo.length; i++) {
+			for(int j=0; j<bingo[i].length; j++) {
+				System.out.print(bingo[i][j] + " ");
+			}System.out.println("");
+		}
+		System.out.println("============ 빙고게임 시작 ==============");
+		int bingoCount = 0;
+		String tar;
+		String star = "  ★";
+		int starCount = 0;
+		while(bingoCount < 3) {
+			System.out.print("정수를 입력하시오 : ");
+			int num = sc.nextInt();
+			tar = String.format("%3s", num);
+			for(int i=0; i<bingo.length; i++) {
+				for(int j=0; j<bingo[i].length; j++) {
+					if( bingo[i][j].equals(tar)) {
+						bingo[i][j] = star;
+					}
+					
+				}
+			}
+			System.out.println();
+			for(int i=0; i<bingo.length; i++) {
+				for(int j=0; j<bingo[i].length; j++) {
+					System.out.print(bingo[i][j]);
+					if (bingo[i][j]==star) {
+						for(int k=0; k<bingo.length; k++) {
+							if(bingo[i][k].equals(star)) {
+								starCount++;
+							}
+							
+						}
+						if (starCount == 5) {
+							bingoCount++;
+						} else {
+							starCount = 0;
+						}
+						
+					}
+				}System.out.println("");
+			}
+			
+		}
+		for(int i=0; i<bingo.length; i++) {
+			for(int j=0; j<bingo[i].length; j++) {
+				System.out.print(bingo[i][j] + " ");
+			}System.out.println("");
+		}
+	
+		
+	}
+	public void practice26() {
+	      
+	      Scanner sc = new Scanner(System.in);
+	      System.out.print("배열의 크기를 입력하세요 : ");
+	      int arrSize = sc.nextInt();
+	      String[] strArr = new String[arrSize];
+	      
+	      int strCount = 1;
+	      
+	      for(int i = 0; i < strArr.length; i++) {
+	         System.out.print(strCount + "번째 문자열 : ");
+	         strArr[i] = sc.next();
+	         strCount++;
+	      }
+	      
+	      String[] totalArray;
+	      
+	      System.out.print("더 값을 입력하시겠습니까?(Y/N) : ");
+	      String yesOrNo = sc.next();
+	      
+//	      if(yesOrNo.equals("n")) {/////////////수정
+//	         System.out.println(Arrays.toString(strArr));          
+//	      }
+	      
+	      
+	      while(yesOrNo.equals("y")) {
+	         
+	    	  System.out.print("더 입력하고 싶은 개수 : ");
+		      int arrSize2 = sc.nextInt(); //
+		      arrSize = arrSize+arrSize2;    // 추가되는 사이즈 계산
+//	         String[] strArr2 = new String[arrSize2];
+	         totalArray = new String[arrSize];
+	         System.arraycopy(strArr, 0, totalArray, 0, strArr.length); // 1. 
+	         for(int i = strArr.length; i < totalArray.length; i++) {  // 처음 배열의 크기부터 토탈어레이에 넣기 위해 strarr로 시작 totalarray까지 포문
+	            System.out.print(strCount + "번째 문자열 : ");
+	            totalArray[i] = sc.next();
+	            strCount++;
+	         }
+//	         System.arraycopy(strArr, 0, totalArray, 0, strArr.length);
+//	         System.arraycopy(strArr2, 0, totalArray, strArr.length, strArr2.length);
+	         strArr = totalArray.clone(); // 토탈 어레이에 클론
+	         System.out.print("더 값을 입력하시겠습니까?(Y/N) : ");
+	         yesOrNo = sc.next();
+	         
+//	         if(yesOrNo2.equals("n")) {
+//	            System.out.println(Arrays.toString(totalArray)); 
+//	            break;
+//	         }
+	         
+	         
+//	         System.out.println(Arrays.toString(strArr));
+//	         System.out.println(Arrays.toString(strArr2));
+//	         System.out.println(Arrays.toString(totalArray));
+	      }
+	      System.out.println(Arrays.toString(strArr));
+	      
+//	      Arrays.toString(totalArray)
+//	      System.arraycopy(array1, 0, totalArray, 0, array1.length);
+//	      System.arraycopy(array2, 0, totalArray, array1.length, array2.length);
+	   }
 }
