@@ -331,7 +331,7 @@ public class ArrayPractice {
 		String[][] arr = new String[3][3];
 		for(int i=0; i<3; i++) {
 			for(int j=0; j<3; j++) {
-				arr[j][i] = String.fordccmat("(%d, %d)", j,i);
+				arr[j][i] = String.format("(%d, %d)", j,i);
 				
 			}
 		}
