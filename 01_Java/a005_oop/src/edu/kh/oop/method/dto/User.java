@@ -64,7 +64,7 @@ public class User {
 		this.userPw = userPw;
 	}
 	public void setUserName(String userName) {
-		this.userPw = userName;
+		this.userName = userName;
 	}
 	public void setUserGender(char userGender) {
 		this.userGender = userGender;

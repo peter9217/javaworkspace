@@ -6,7 +6,6 @@ import edu.kh.oop.method.view.UserView;
 public class UserService {
 	
 	
-	
 	// 1. 회원 가입
 	public User signUp(String userId, String userPw, String userPwConfirm, String userName, char userGender) {
 		
@@ -31,7 +30,7 @@ public class UserService {
 	
 	// 2. 로그인
 	public void login(String userId, String userPw, User signUpUser) {
-		                // 입력 받은 값                //가입한 회원 정보
+		                // 입력 받은 값              //가입한 회원 정보
 		
 		// 아이디 일치 여부 검사
 		boolean idCheck = userId.equals(signUpUser.getUserId());
