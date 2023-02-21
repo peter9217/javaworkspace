@@ -1,5 +1,8 @@
 package edu.kh.objectarray.Service;
 
+import java.util.Arrays;
+import java.util.Random;
+
 import edu.kh.objectarray.dto.Student;
 
 // 기능 제공용 클래스(비지니스 로직 처리)
@@ -16,6 +19,17 @@ public class StudentService {
 		studentArr[0] = new Student(3, 5, 17, "홍길동");
 		studentArr[1] = new Student(2, 3, 11, "김철수");
 		studentArr[2] = new Student(1, 7, 3, "최미영");
+		
+		Random random = new Random();
+		for(Student s : studentArr) {
+			if(s==null) break;
+			
+			//(int)(Math.random()*101) == random.nextInt(101)
+			s.setKor(random.nextInt(101));
+			s.setEng(random.nextInt(101));
+			s.setMath(random.nextInt(101));
+		}
+		
 	}
 	
 	// param(parameter) : 매개변수
@@ -136,6 +150,32 @@ public class StudentService {
 		studentArr[index].setEng(eng);
 		studentArr[index].setMath(math);
 		return true;
+	}
+	
+	/** 6. 학생 총점 합계, 평균, 최고점, 최저점
+	 * @return arr : int[] (요소 순서대로 합계, 평균, 최고점, 최저점)
+	 */
+	public int[] sumAvgMaxMin() {
+		int[] arr = new int[studentArr.length];
+		int size = 0;
+		for(int i=0; i<studentArr.length; i++) {
+			if(studentArr[i]==null) break;
+			size++;
+			int sum = studentArr[i].getEng() + studentArr[i].getKor() + studentArr[i].getMath(); 
+			arr[0] += sum;
+			arr[1] = arr[0]/size;
+			arr[2] = studentArr[0].getEng() + studentArr[0].getKor() + studentArr[0].getMath();
+			if (arr[2]<sum) {
+				arr[2] = sum;
+			}
+			arr[3] = studentArr[0].getEng() + studentArr[0].getKor() + studentArr[0].getMath();
+			if (arr[3]>sum) {
+				arr[3] = sum;
+			}
+			
+		}
+		return arr;
+		
 	}
 }
 

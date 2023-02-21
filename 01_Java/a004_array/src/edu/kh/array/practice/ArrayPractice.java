@@ -282,12 +282,13 @@ public class ArrayPractice {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("배열의 크기를 입력하세요 : ");
 		int size = sc.nextInt();
+		sc.nextLine();
 		int size1 = size;
 		String[] arr1 = new String[size];
 		String[] arr2 = new String[size];
 		for (int i = 0; i < size; i++) {
 			System.out.printf("%d번째 문자열 : ", (i + 1));
-			arr1[i] = sc.next();
+			arr1[i] = sc.nextLine();
 
 		}
 		int num = 0;
@@ -298,11 +299,12 @@ public class ArrayPractice {
 
 			System.out.print("더 입력하고 싶은 개수 : ");
 			int num1 = sc.nextInt();
+			sc.nextLine();
 			size += num1;
 			arr2 = new String[size];
 			for (int i = size1; i < size; i++) {
 				System.out.printf("%d번째 문자열  : ", i + 1);
-				String tar = sc.next();
+				String tar = sc.nextLine();
 
 				System.arraycopy(arr1, 0, arr2, 0, arr1.length);
 				arr2[i] = tar;
@@ -810,4 +812,31 @@ public class ArrayPractice {
 //	      System.arraycopy(array1, 0, totalArray, 0, array1.length);
 //	      System.arraycopy(array2, 0, totalArray, array1.length, array2.length);
 	   }
+	public void ex66() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("nextInt() : ");
+		int a = sc.nextInt();
+		
+		System.out.println("nextLine() : ");
+		String s = sc.nextLine();
+		
+		System.out.println("종료");
+		// -----문제점-----
+		//nextInt() 이후 입력 버퍼에 남아있는 (엔터) 때문에 다음 nextLine() 수행 시
+		// 버퍼에 남아있는 (엔터)를 읽어버리기 때문에 추가적인 입력을 시도하지 못하고 
+		// 다음 코드로 넘어가는 문제 발생.
+		
+		//=====해결방법=====
+		// 입력을 위한 nextLine() 수행 전
+		// 입력 버퍼에서 (엔터)를 제거 -> 빈 공간에 sc.nextLine()구문을 한번 작성(엔터 제거)
+		
+		
+		
+	}
+	
+	
+	
+	
 }
+
+
