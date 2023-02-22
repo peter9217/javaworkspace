@@ -8,10 +8,12 @@ public class TestRun {
 	public static void main(String[] args) {
 		
 		// 부모, 자식1,2 객체 생성
-//		Parent p = new Parent(1_000_000_000, "김");
+		Parent p = new Parent(1_000_000_000, "김");
 		
 		Child1 c1 = new Child1("아반떼");
 		Child2 c2 = new Child2("시그니엘");
+		
+		
 		
 		// 상속(extends)
 		// - 부모 클래스가 가지고 있는 필드, 메서드를 
@@ -31,6 +33,10 @@ public class TestRun {
 		
 		// 부모 클래스의 코드를 수정하면 자식 모두에게 적용된 (공통적인 규약,
 		// 유지보수성 향상)
+		
+		System.out.println("---------------------");
+		// toString() : 객체가 가지고 있는 필드를 하나의 문자열로 만들어서 반환
+		System.out.println(c1.toString());
 	}
 
 }
