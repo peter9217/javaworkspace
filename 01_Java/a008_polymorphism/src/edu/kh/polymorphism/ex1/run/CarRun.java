@@ -6,7 +6,9 @@ public class CarRun {
 	public static void main(String[] args) {
 		
 		CarService service = new CarService();
-		
+//		service.ex2();
+//		service.ex3();
+		service.ex5();
 	}
 
 }
