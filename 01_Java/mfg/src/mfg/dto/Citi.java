@@ -2,14 +2,13 @@ package mfg.dto;
 
 public  class Citi {
 	
-	public String name;
-	private int team = 0;
-	public int life = 1;
-	public String jp;
-	public void Citi() {}
+	private String name;
+	private String team;
+	private int life = 1;
+	private String jp;
+	public Citi() {}
 	
-	public Citi(String name, String jp) {
-		this.jp = jp;
+	public Citi(String name) {
 		this.name = name;
 	}
 	
@@ -21,11 +20,11 @@ public  class Citi {
 		this.name = name;
 	}
 
-	public int getTeam() {
+	public String getTeam() {
 		return team;
 	}
 
-	public void setTeam(int team) {
+	public void setTeam(String team) {
 		this.team = team;
 	}
 

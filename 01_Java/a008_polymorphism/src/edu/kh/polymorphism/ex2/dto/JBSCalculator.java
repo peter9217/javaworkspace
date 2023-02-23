@@ -1,7 +1,7 @@
 package edu.kh.polymorphism.ex2.dto;
 
 // 각자 계산기 구현하기
-public class JBSCalculator implements Calculator{
+public class JBSCalculator extends Person implements Calculator, KH{
 
 	@Override
 	public int plus(int a, int b) {
@@ -43,6 +43,12 @@ public class JBSCalculator implements Calculator{
 	public int square(int a, int x) {
 		
 		return (int)Math.pow(a, x); 
+	}
+
+	@Override
+	public void lesson() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 

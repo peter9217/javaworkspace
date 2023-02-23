@@ -1,5 +1,6 @@
 package mfg.view;
 
+import mfg.dto.Citi;
 import mfg.service.*;
 import java.util.Scanner;
 
@@ -13,13 +14,9 @@ public class View {
 		int input = 0;
 		
 		do {
-			System.out.println("----- [학생 관리 프로그램] -----");
-			System.out.println("1. 학생 추가");
-			System.out.println("2. 학생 전체 조회");
-			System.out.println("3. 학생 정보 조회(인덱스)");
-			System.out.println("4. 학생 정보 조회(이름)");
-			System.out.println("5. 학생 정보 수정(인덱스)");
-			System.out.println("6. 점수 합계, 평균, 최고점, 최저점 조회");
+			System.out.println("----- [게임] -----");
+			System.out.println("1. 멤버 추가");
+			System.out.println("2. 공격");
 			System.out.println("0. 종료");
 			System.out.println("-------------------------------");
 			
@@ -28,8 +25,8 @@ public class View {
 			System.out.println();
 			
 			switch(input) {
-//			case 1 : addStudent(); break;
-//			case 2 : selectAll(); break;
+			case 1 : addMem(); break;
+			case 2 : shot(); break;
 //			case 3 : selectIndex(); break;
 //			case 4 : selectName(); break;
 //			case 5 : updateStudent(); break;
@@ -44,6 +41,39 @@ public class View {
 			System.out.println();
 			
 		}while(input !=0);
+	}
+	public void addMem() {
+		System.out.println("[멤버 추가]");
+		System.out.print("이름 : ");
+		String name = sc.next();
+	
+	
+		//멤버 추가 서비스 호출
+		boolean result = service.addMem(name);
+		
+		if(result) { // true인 경우 == 멤버 추가 성공
+			System.out.println(name + " 멤버이 추가되었습니다!");
+			
+		} else { //false인 경우 == 멤버 추가 실패
+			System.out.println("더 이상 멤버을 추가할 수 없습니다.");
+		}
+	}
+	
+	public void shot() {
+		System.out.println("수행자 : ");
+		String name = sc.next();
+		System.out.println("샷 타겟 : ");
+		String target = sc.next();
+		boolean result = service.Shot(name, target);
+
+		if (result) { // true인 경우 == 학생 추가 성공
+			System.out.println(name + "이 " + target + "을 공격했습니다.");
+			
+			
+
+		} else { // false인 경우 == 실패
+			System.out.println("");
+		}
 	}
 
 }
