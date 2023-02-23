@@ -29,12 +29,6 @@ public class MfService {
 		return false;
 	}
 	
-	// 멤버랜덤
-	public Citi[] Random(Citi[] member) {
-		 int ran = ((int) Math.random())*((int)(member.length));
-		 Citi[] mem = member.clone();
-		return mem;
-	}
 	
 	//샷
 	public boolean Shot(String mem, String target) {
@@ -52,6 +46,13 @@ public class MfService {
 		
 		
 		
+	}
+	
+	// 멤버랜덤
+	public Citi[] Random(Citi[] member) {
+		 int ran = ((int) Math.random())*((int)(member.length));
+		 Citi[] mem = member.clone();
+		return mem;
 	}
 	
 	
