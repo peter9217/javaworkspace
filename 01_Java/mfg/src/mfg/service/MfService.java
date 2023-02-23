@@ -1,13 +1,14 @@
 package mfg.service;
 import java.util.Random;
+import java.util.Arrays;
 
 
 import mfg.dto.Citi;
 
-public class Service {
+public class MfService {
 	
 	public Citi[] member = new Citi[10];
-	public Service() {}
+	public MfService() {}
 	public boolean addMember(String name, String jp) {
 		for(int i=0; i<member.length; i++) {
 			

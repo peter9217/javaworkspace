@@ -1,13 +1,13 @@
 package mfg.view;
 
-import java.security.Provider.Service;
+import mfg.service.*;
 import java.util.Scanner;
 
 
 public class View {
 	private Scanner sc = new Scanner(System.in);
 	
-	public Service service = new Service();
+	public MfService service = new MfService();
 	
 	public void displayMenu() {
 		int input = 0;
@@ -28,12 +28,12 @@ public class View {
 			System.out.println();
 			
 			switch(input) {
-			case 1 : addStudent(); break;
-			case 2 : selectAll(); break;
-			case 3 : selectIndex(); break;
-			case 4 : selectName(); break;
-			case 5 : updateStudent(); break;
-			case 6 : sumAvgMaxMin(); break;
+//			case 1 : addStudent(); break;
+//			case 2 : selectAll(); break;
+//			case 3 : selectIndex(); break;
+//			case 4 : selectName(); break;
+//			case 5 : updateStudent(); break;
+//			case 6 : sumAvgMaxMin(); break;
 			
 			case 0 : System.out.println("[프로그램이 종료됩니다.]"); break;
 			default : System.out.println("[잘못 입력 하셨습니다.");
