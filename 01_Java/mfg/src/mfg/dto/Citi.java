@@ -5,7 +5,8 @@ public  class Citi {
 	private String name;
 	private String team;
 	private int life = 1;
-	private String jp;
+	private boolean protect = false;
+	private int shot = 0;
 	public Citi() {}
 	
 	public Citi(String name) {
@@ -35,13 +36,21 @@ public  class Citi {
 	public void setLife(int life) {
 		this.life = life;
 	}
-
-	public String getJp() {
-		return jp;
+	
+	public boolean getProtect() {
+		return protect;
+	}
+	
+	public void setProtect(boolean protect) {
+		this.protect = protect;
 	}
 
-	public void setJp(String jp) {
-		this.jp = jp;
+	public int getShot() {
+		return shot;
+	}
+
+	public void setShot(int shot) {
+		this.shot = shot;
 	}
 	
 	
