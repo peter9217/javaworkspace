@@ -7,7 +7,9 @@ public class ExceptionRun {
 		ExceptionService service = new ExceptionService();
 //		service.ex1();
 //		service.ex2();
-		service.ex3();
+//		service.ex3();
+//		service.ex4();
+		service.startEx5();
 		
 	}
 
