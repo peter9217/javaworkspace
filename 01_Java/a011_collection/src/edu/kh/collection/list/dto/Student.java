@@ -128,7 +128,7 @@ public class Student implements Comparable<Student>{
 		// 별도의 다른 기준이 없다면 score 순서로 정렬
 		// compareTo() 메서드에서 반환 되는 값이 0 이하 : 순서를 그대로 유지
 		// 0 초과(양수) : 큰 값이 오른쪽(끝쪽)으로 이동
-		//				-> 리턴값이 음수이면 현재 객체를 오른쪽으로 이동
+		//				-> 리턴값이 양수이면 현재 객체를 오른쪽으로 이동
 		
 		return this.score - other.score;
 	}
