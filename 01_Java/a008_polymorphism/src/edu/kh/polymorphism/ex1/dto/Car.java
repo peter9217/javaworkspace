@@ -12,7 +12,6 @@ public class Car  {
 	//매개 변수 생성자 alt + shift + s -> o
 	public Car(int wheel, int seat, String fuel) {
 		//extends Object
-		super();
 		this.wheel = wheel;
 		this.seat = seat;
 		this.fuel = fuel;

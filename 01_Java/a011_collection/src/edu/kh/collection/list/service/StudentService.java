@@ -70,9 +70,9 @@ public class StudentService {
 				st = s.toString();
 			}
 		}
-		
 		return st;
 	}
+	
 	
 	public List<Student> searchAddress(String address) {
 		List st = new ArrayList(0);

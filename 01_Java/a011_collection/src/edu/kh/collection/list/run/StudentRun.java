@@ -1,6 +1,5 @@
 package edu.kh.collection.list.run;
 
-import edu.kh.collection.list.service.StudentService;
 import edu.kh.collection.list.view.StudentView;
 
 public class StudentRun {
