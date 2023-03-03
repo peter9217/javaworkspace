@@ -1,6 +1,7 @@
 package edu.kh.game.dto;
+import java.io.Serializable;
 import java.util.Objects;
-public class Item {
+public class Equipment implements Serializable{
 	private String name;
 	private int Status = 0;
 	private int evasion = 0;
@@ -29,11 +30,11 @@ public class Item {
 		this.evasion = evasion;
 	}
 
-	public Item() {
+	public Equipment() {
 		super();
 	}
 
-	public Item(String name, int status, int evasion) {
+	public Equipment(String name, int status, int evasion) {
 		super();
 		this.name = name;
 		this.Status = status;

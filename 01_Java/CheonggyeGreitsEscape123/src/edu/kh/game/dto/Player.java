@@ -1,9 +1,10 @@
 package edu.kh.game.dto;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Player {
+public class Player implements Serializable{
    
    private String name;
    private int hp;
@@ -11,7 +12,6 @@ public class Player {
    private int power;
    private int stamina;
    private int floor;
-   private String[] item = new String[5];
    
    
    public Player() {
@@ -32,7 +32,6 @@ public class Player {
 
    public Player(String[] item) {
       super();
-      this.item = item;
    }
 
    public String getName() {
@@ -88,50 +87,35 @@ public class Player {
    public int getFloor() {
       return floor;
    }
-
-
+   
    public void setFloor(int floor) {
-      this.floor = floor;
+	   this.floor = floor;
    }
 
+@Override
+public int hashCode() {
+	return Objects.hash(defense, floor, hp, name, power, stamina);
+}
 
-   public String getItem(int index) {//아이템 로드
-      return item[index];
-   }
-
-
-   public void setItem(int index, String item) {//아이템 획득
-      this.item[index] = item;
-   }
-
-   public void setItem2(int index) {//아이템 사용
-      this.item[index] = null;
-   }
-
-   @Override
-   public int hashCode() {
-      final int prime = 31;
-      int result = 1;
-      result = prime * result + Arrays.hashCode(item);
-      result = prime * result + Objects.hash(defense, floor, hp, name, power, stamina);
-      return result;
-   }
+@Override
+public boolean equals(Object obj) {
+	if (this == obj)
+		return true;
+	if (obj == null)
+		return false;
+	if (getClass() != obj.getClass())
+		return false;
+	Player other = (Player) obj;
+	return defense == other.defense && floor == other.floor && hp == other.hp && Objects.equals(name, other.name)
+			&& power == other.power && stamina == other.stamina;
+}
 
 
-   @Override
-   public boolean equals(Object obj) {
-      if (this == obj)
-         return true;
-      if (obj == null)
-         return false;
-      if (getClass() != obj.getClass())
-         return false;
-      Player other = (Player) obj;
-      return defense == other.defense && floor == other.floor && hp == other.hp && Arrays.equals(item, other.item)
-            && Objects.equals(name, other.name) && power == other.power && stamina == other.stamina;
-   }
+   
+   
 
 
+  
 
 
 }
