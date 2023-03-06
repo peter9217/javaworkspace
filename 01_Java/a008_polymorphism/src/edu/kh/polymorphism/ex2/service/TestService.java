@@ -35,19 +35,17 @@ public class TestService {
 		}
 		
 		
-		
-		
 	}
 	
 	public void ex2() {
 		//인터페이스
-		//1. 인터페이스는 상수형 핑드(public static final)만 작성 가능 확인
+		//1. 인터페이스는 상수형 필드(public static final)만 작성 가능 확인
 		//	- 인터페이스에 작성했지만 클래스에 작성하는 static 필드와 사용법 동일
 		//	- 
 		System.out.println(KH.KH_ADDRESS);
 		System.out.println(KH.A);
 		
-//		//2. 인터페이스로 객체 생성 X, 부모 타입 탐조 변수 O
+//		//2. 인터페이스로 객체 생성 X, 부모 타입 참조 변수 O
 //		KH k = new KH() {
 //			
 //			@Override

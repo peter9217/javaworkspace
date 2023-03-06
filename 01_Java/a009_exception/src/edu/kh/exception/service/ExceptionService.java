@@ -33,8 +33,7 @@ public class ExceptionService {
 		
 		
 		
-		// Unchecked Exception : 컴파일 단계에서 예외가 발생할 가능성이 있는지
-		// 확인하지 않는 예외
+		// Unchecked Exception : 컴파일 단계에서 예외가 발생할 가능성이 있는지 확인하지 않는 예외
 		// -> 개발자의 부주의 대부분 쉽게 해결
 		
 		// -> 치명적인 문제가 아님

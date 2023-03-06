@@ -38,6 +38,7 @@ public class Parent /*extends */ {
 		this.lastName = lastName;
 	}
 	
+	@Override
 	public String toString() {
 		return money + " / " + lastName;
 	}
