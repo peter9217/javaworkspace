@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 
@@ -20,7 +21,7 @@ public class Service {
 	
 	Equipment equipment = new Equipment("신발", 3, 10);
 	Zombie zom = new Zombie("qkr", 2, 1);
-	private Player p1 = new Player("당신", 5, 0, 1, 3, 7, false);
+	private Player p1 = new Player("당신", 5, 0, 1, 3, 7, true);
 	private String[] p1Item = new String[5];
 	// name, hp, defense, power, stamina, floor, item1, item2, item3, item4, item5
 	private boolean runCheck = false;
@@ -30,6 +31,10 @@ public class Service {
 			return true;
 		}
 		return false;
+	}
+	
+	public boolean viewKey() {
+		return p1.getKey();
 	}
 	
 	public int viewHp() {// 현재 HP
@@ -88,34 +93,62 @@ public class Service {
 	}
 
 	// 아이템 랜덤값 들어오면 해당 아이템을 null배열 or "" 에 넣어주기
-	public void addItem(int itemNum) {
-		String item = "";
-		if (itemNum == 1)
-			item = "의료상자";
-		if (itemNum == 2)
-			item = "붕대";
-		if (itemNum == 3)
-			item = "빵";
-		if (itemNum == 4)
-			item = "컵라면";
-		if (itemNum == 5)
-			item = "커피";
-		if (itemNum == 6) {
-			item = "열쇠";
-			p1.setKey(true);
-		}
+	
+	Random random = new Random();
+	   
+	   public int whatItem() {
+	      int whatItem = random.nextInt(100) + 1;
+	      int getItemRandom = random.nextInt(100) + 1;
+	      
+	      
+	         if(getItemRandom >= 1 && getItemRandom <= 40) {//40퍼 확률 아이템 얻기
+	            
+	            if(whatItem >= 1 && whatItem <= 15) {//의료상자
+	               return 1;
+	            }else if(whatItem >= 16 && whatItem <= 35) {//붕대
+	               return 2;
+	            }else if(whatItem >= 36 && whatItem <= 55) {//커피
+	               return 3;
+	            }else if(whatItem >= 56 && whatItem <= 77) {//빵
+	               return 4;
+	            }else {//컵라면
+	               return 5;
+	            }
+	         }else {
+	            return 0;
+	         }
+	      
+	   }
+	   
+	   //아이템 랜덤값 들어오면 해당 아이템을 null배열 or "" 에 넣어주기
+	   public void addItem(int itemNum) {
+	      String item = "";
+	      if(itemNum == 1) item = "의료상자";
+	      if(itemNum == 2) item = "붕대";
+	      if(itemNum == 3) item = "빵";
+	      if(itemNum == 4) item = "컵라면";
+	      if(itemNum == 5) item = "커피";
+	      if(itemNum == 6) {
+	         item = "열쇠";
+	         p1.setKey(true);
+	      }
+	      
+	      if(itemNum >= 1 && itemNum <= 5) {
+	         for(int i = 0; i < p1Item.length-1; i++) {
+	            if(p1Item[i] == null){
+	               p1Item[i] = item;
+	               break;
+	            }
+	         }
+	      }
+	      if(itemNum != 0) {
+	         System.out.printf("[%s 을/를 얻었습니다.]", item);
+	      }else {
+	         System.out.println("[아이템을 찾지 못했습니다.]");
+	      }
+	      
+	   }
 
-		if (itemNum >= 1 && itemNum <= 5) {
-			for (int i = 0; i < p1Item.length - 1; i++) {
-				if (p1Item[i] == null) {
-					p1Item[i] = item;
-					break;
-				}
-			}
-		}
-
-		System.out.printf("%d을/를 얻었습니다.", item);
-	}
 
 	public void useItem(int itemNum) {// 해당인덱스 1~5까지 고르면 사용
 		itemNum -= 1;
@@ -153,9 +186,19 @@ public class Service {
 		}
 
 	}
+	
 
-	public void useKey() { // 키 사용
-		p1.setKey(false);
+	public boolean isKey() { 
+		if(p1.getKey()==true) {
+			p1.setKey(false);
+			return true;
+		}
+		
+		return false; 
+	}
+	public void getKey() { 
+		p1.setKey(true);
+		
 	}
 
 	// 플레이어 행동 관련
@@ -169,6 +212,7 @@ public class Service {
 	public int random() {
 		int random = (int) (Math.random() * 100) + 1;
 
+		
 		return random;
 	}
 
@@ -188,6 +232,7 @@ public class Service {
 			System.out.println("공격을 당했지만 좀비를 처리했습니다.");
 			p1.setHp(p1.getHp() - zom.getPower());
 			
+			
 		}
 		return false;
 	}
@@ -205,7 +250,6 @@ public class Service {
 			} else {
 				System.out.println("도망에 실패하였습니다.");
 				p1.setHp(p1.getHp() - 1);
-				p1.setStamina(p1.getStamina() - 1);
 				return false;
 			}
 

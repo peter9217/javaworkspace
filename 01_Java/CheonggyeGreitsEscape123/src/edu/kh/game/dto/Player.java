@@ -86,7 +86,7 @@ public class Player implements Serializable {
 		this.item = item;
 	}
 
-	public boolean isKey() {
+	public boolean getKey() {
 		return key;
 	}
 
