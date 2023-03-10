@@ -5,19 +5,150 @@ import java.util.Scanner;
 import edu.kh.game.service.Service;
 import edu.kh.game.dto.*;
 
-
 public class GameView {
+	static Scanner sc = new Scanner(System.in);
+	   public static String name;
+	   public static Service gameService = new Service();
+	   public static Building floor = new Building();
 
-	private Scanner sc = new Scanner(System.in);
-	private Service gameService = new Service();
-	private Building floor = new Building();
+	   /* 인트로, 아웃트로 NOTATION
+	    * - ●(내레이션)●
+	    * - [(게임 설명)]
+	    * - 대화는 처음에 두 칸 띄우고, 한 마디 뒤에는 enter();
+	    * - 한 루틴 진행 후에는 clearScreen();
+	    */
+	   
+	   // 화면 5행 개행
+	   public static void clearScreen() {
+	      for(int i=0; i<5; i++) System.out.println("");
+	   }
+	   
+	   // 대화 출력 엔터
+	   public static void enter() {
+	      Scanner sc = new Scanner(System.in);
+	      System.out.print("");
+	      sc.nextLine();
+	   }
+	   
+	   // 플레이어 이름 짓기
+	   public static void playerNameSet() {
+	      Scanner sc = new Scanner(System.in);
+	      System.out.println("[플레이어 이름을 지어주세요.]");
+	      System.out.print("이름: ");
+	      name = sc.next();
+	      Player p1 = new Player(name);
+	   }
+	   
+	   // 시작메뉴 화면
+	   public void displayMenu() {
+	      System.out.println("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+	      System.out.println("┃====================================┃");
+	      System.out.println("┃      Cheong-gye Greits Escape      ┃");
+	      System.out.println("┃====================================┃");
+	      System.out.println("┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫");
+	      System.out.println("┃  /     /       / /   /     /   /   ┃");
+	      System.out.println("┃1. 게임 시작   Game Start   /      /┃");
+	      System.out.println("┃2. 게임 종료   Exit  /     /  /  /  ┃");
+	      System.out.println("┃    / /      /        /      /   /  ┃");
+	      System.out.println("┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫");
+	      System.out.println("┃                     dev_20230313   ┃");
+	      System.out.println("┃                     JYH/PJW/JBS    ┃");
+	      System.out.println("┃                     JSY/CGT/LSJ    ┃");
+	      System.out.println("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
+	      System.out.println();
+	      System.out.println("[게임을 시작하려면 1을 입력해주세요.]");
+	      System.out.println("[게임을 종료하려면 2를 입력해주세요.]");
+	      
+	      boolean startCheck = true;
+	      Scanner sc = new Scanner(System.in);
+	      
+	      while(startCheck) {
+	         System.out.print("입력: ");
+	         String startInput = sc.nextLine();
+	         if(startInput.equals("1")) {
+	            clearScreen();
+	            playerNameSet(); /* 플레이어 이름 짓기 */
+	            clearScreen();
+	            System.out.printf("[%s님, 게임을 시작합니다.]\n", name); 
+	            for(int i=3; i>=1; i--) {
+	               try {
+	                  System.out.print(i + "     ");
+	                  Thread.sleep(1000);
+	               }catch(InterruptedException e) {
+	                  e.printStackTrace();
+	               }
+	            }
+	            clearScreen();
+	            System.out.println("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+	            System.out.println("┃            Game Start              ┃");
+	            System.out.println("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
+	            displayIntro(); /* 게임 인트로 */
+	            break;
+	         }else if(startInput.equals("2")) {
+	            clearScreen();
+	            System.out.println("[게임이 종료됩니다.]");
+	            for(int i=3; i>=1; i--) {
+	               try {
+	                  System.out.print(i + "     ");
+	                  Thread.sleep(1000);
+	               }catch(InterruptedException e) {
+	                  e.printStackTrace();
+	               }
+	            }
+	            clearScreen();
+	            System.out.println("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+	            System.out.println("┃               Exit                 ┃");
+	            System.out.println("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
+	            
+	               // 이스터에그
+	               String easteregg = sc.next();
+	               if(easteregg.toUpperCase().equals("HI")) {
+	                  System.out.println("?: ...");
+	                  try {
+	                     Thread.sleep(2500);
+	                  } catch (InterruptedException e) {
+	                     e.printStackTrace();
+	                  }
+	                  System.out.println("백동현 강사님 바~보");
+	               }
+	            break;
+	         }else if(!(startInput.equals("1") || startInput.equals("2"))) {
+	            System.out.println("[1 또는 2를 입력해주세요.]");
+	            startCheck = true;
+	         }
+	      }
+	   }
+
+	   // 게임 인트로
+	   public void displayIntro() {
+	      System.out.println("●평화로운 청계 그레이츠 빌딩 옥상정원●"); enter();
+	      System.out.println("  \"정말 기분 좋은 오후야~\""); enter();
+	      System.out.println("  \"그러게 정말 오늘 날씨도 맑고 정말 상쾌하다!\""); enter();
+	      System.out.println("  \"그런데 어디선가 이상한 소리가 들리지 않아?\""); enter();
+	      System.out.println("  \"응? 이상한 소리?\""); enter();
+	      System.out.println("  \"(비명소리) 끄아아악!\""); enter();
+	      System.out.println("  \"뭐지?\""); enter();
+	      System.out.println("  \"(안내방송) 비상, 비상. 빌딩 내부에 있으신 분은\n"
+	            + "  모두 빌딩 밖으로 대피해주시기 바랍니다.\""); enter();
+	      System.out.println("  \"으악!?\""); enter();
+	      System.out.println("  \"???\""); enter();
+	      System.out.println("  \"좀.. 좀비다!\""); enter();
+	      System.out.println("  \"모두 뛰어!\""); enter();
+	      System.out.printf("●이윽고 %s은(는) 옥상정원 구석으로\n"
+	            + "  대피에 성공한다.●\n", name); enter();
+	      System.out.printf("●하지만 %s은(는) 이 많은 좀비를 뚫고\n"
+	            + "  1층까지 무사히 도달할 수 있을까?●", name); enter(); clearScreen();
+	      displayGame(); /* 게임 화면 */
+	   
+	   }
+
+	
 
 	public void displayGame() {
 		int input = 0;
 		String straight = "┃";
-		
-		while (viewFloor() > 0) {
 
+		while (viewFloor() > 0) {
 
 			System.out.println();
 			System.out.println("┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
@@ -34,7 +165,7 @@ public class GameView {
 			System.out.printf("┃열쇠 : %s┃방어구 :        ┃\n", viewKey());
 			System.out.println("┃━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
 			System.out.print("메뉴 선택 >> ");
-			
+
 			input = sc.nextInt();
 			sc.nextLine(); // 입력 버퍼 개행문자 제거
 			System.out.println();
@@ -87,7 +218,7 @@ public class GameView {
 	public void checkedRoom() {
 
 		int input = 0;
-		while (input != 1&&input !=9) {
+		while (input != 1) {
 			System.out.println();
 			System.out.println();
 			System.out.println("┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
@@ -101,7 +232,9 @@ public class GameView {
 			System.out.println("    1.돌아가기                                  ");
 			System.out.println("                                     ");
 			System.out.println("    9. 아이템 사용                       ");
-			System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+			System.out.println("┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
+			System.out.printf("┃열쇠 : %s┃방어구 :        ┃\n", viewKey());
+			System.out.println("┃━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
 			System.out.print("메뉴 선택 >> ");
 			input = sc.nextInt();
 			sc.nextLine(); // 입력 버퍼 개행문자 제거
@@ -118,6 +251,7 @@ public class GameView {
 			}
 		}
 	}
+
 	////////////////////////////////////////////////////////////////////////////
 	public void keyGet() {
 
@@ -139,7 +273,9 @@ public class GameView {
 			System.out.println("    1.돌아가기                                  ");
 			System.out.println("                                     ");
 			System.out.println("                          ");
-			System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+			System.out.println("┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
+			System.out.printf("┃열쇠 : %s┃방어구 :        ┃\n", viewKey());
+			System.out.println("┃━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
 			System.out.print("메뉴 선택 >> ");
 			input = sc.nextInt();
 			sc.nextLine(); // 입력 버퍼 개행문자 제거
@@ -148,7 +284,7 @@ public class GameView {
 			switch (input) {
 			case 1:
 				break;
-			
+
 			default:
 				System.out.println("[메뉴에 존재하는 번호만 입력 해주세요]");
 			}
@@ -174,7 +310,9 @@ public class GameView {
 			System.out.println("    1.돌아가기                                  ");
 			System.out.println("                                     ");
 			System.out.println("                           ");
-			System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+			System.out.println("┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
+			System.out.printf("┃열쇠 : %s┃방어구 :        ┃\n", viewKey());
+			System.out.println("┃━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
 			System.out.print("메뉴 선택 >> ");
 			input = sc.nextInt();
 			sc.nextLine(); // 입력 버퍼 개행문자 제거
@@ -183,7 +321,7 @@ public class GameView {
 			switch (input) {
 			case 1:
 				break;
-			
+
 			default:
 				System.out.println("[메뉴에 존재하는 번호만 입력 해주세요]");
 			}
@@ -208,7 +346,9 @@ public class GameView {
 			System.out.println("                                    ");
 			System.out.println("                                     ");
 			System.out.println("                          ");
-			System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+			System.out.println("┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
+			System.out.printf("┃열쇠 : %s┃방어구 :        ┃\n", viewKey());
+			System.out.println("┃━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
 			System.out.print("메뉴 선택 >> ");
 			input = sc.nextInt();
 			sc.nextLine(); // 입력 버퍼 개행문자 제거
@@ -230,57 +370,24 @@ public class GameView {
 	public void checkRoom() {
 		int input = 0;
 		String straight = "┃";
-		while (input != 1&&input != 2&&input != 9) {
-		if ((int) (Math.random() * 100) <= 60) {
-			System.out.println();
-			System.out.println();
-			System.out.println("┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
-			System.out.printf("┃HP : %d/5┃STN : %d/3   ┃현재 위치 : %d F ┃\n", viewHp(), viewStamina(), viewFloor());
-			System.out.println("┃━━━━━━━━┻━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
-			System.out.println("                                     ");
-			System.out.println("             좀비가 나타났습니다.                ");
-			System.out.println("                                     ");
-			System.out.println("                                     ");
-			System.out.println("    1.공격하기                       ");
-			System.out.println("    2.도망가기                                  ");
-			System.out.println("                                     ");
-			System.out.println("    9. 아이템 사용                       ");
-			System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
-			System.out.print("메뉴 선택 >> ");
-			input = sc.nextInt();
-			sc.nextLine(); // 입력 버퍼 개행문자 제거
-			System.out.println();
-
-			switch (input) {
-			case 1:
-				Attackview();
-				break;
-			case 2:
-				run();
-
-				break;
-			case 9:
-//      itemUse();
-				break;
-			default:
-				System.out.println("[메뉴에 존재하는 번호만 입력 해주세요]");
-			}
-		} else {
-			while (input != 1&&input != 9) {
+		while (input != 1 && input != 2) {
+			if ((int) (Math.random() * 100) <= 60) {
 				System.out.println();
 				System.out.println();
 				System.out.println("┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
 				System.out.printf("┃HP : %d/5┃STN : %d/3   ┃현재 위치 : %d F ┃\n", viewHp(), viewStamina(), viewFloor());
 				System.out.println("┃━━━━━━━━┻━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
 				System.out.println("                                     ");
-				System.out.println("            아무것도 없었다                ");
+				System.out.println("             좀비가 나타났습니다.                ");
 				System.out.println("                                     ");
 				System.out.println("                                     ");
-				System.out.println("                           ");
-				System.out.println("    1.돌아가기                                  ");
+				System.out.println("    1.공격하기                       ");
+				System.out.println("    2.도망가기                                  ");
 				System.out.println("                                     ");
 				System.out.println("    9. 아이템 사용                       ");
-				System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+				System.out.println("┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
+				System.out.printf("┃열쇠 : %s┃방어구 :        ┃\n", viewKey());
+				System.out.println("┃━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
 				System.out.print("메뉴 선택 >> ");
 				input = sc.nextInt();
 				sc.nextLine(); // 입력 버퍼 개행문자 제거
@@ -288,6 +395,11 @@ public class GameView {
 
 				switch (input) {
 				case 1:
+					Attackview();
+					break;
+				case 2:
+					run();
+
 					break;
 				case 9:
 //      itemUse();
@@ -295,93 +407,333 @@ public class GameView {
 				default:
 					System.out.println("[메뉴에 존재하는 번호만 입력 해주세요]");
 				}
+			} else {
+				while (input != 1) {
+					System.out.println();
+					System.out.println();
+					System.out.println("┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
+					System.out.printf("┃HP : %d/5┃STN : %d/3   ┃현재 위치 : %d F ┃\n", viewHp(), viewStamina(),
+							viewFloor());
+					System.out.println("┃━━━━━━━━┻━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
+					System.out.println("                                     ");
+					System.out.println("            아무것도 없었다                ");
+					System.out.println("                                     ");
+					System.out.println("                                     ");
+					System.out.println("                           ");
+					System.out.println("    1.돌아가기                                  ");
+					System.out.println("                                     ");
+					System.out.println("    9. 아이템 사용                       ");
+					System.out.println("┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
+					System.out.printf("┃열쇠 : %s┃방어구 :        ┃\n", viewKey());
+					System.out.println("┃━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
+					System.out.print("메뉴 선택 >> ");
+					input = sc.nextInt();
+					sc.nextLine(); // 입력 버퍼 개행문자 제거
+					System.out.println();
+
+					switch (input) {
+					case 1:
+						break;
+					case 9:
+//      itemUse();
+						break;
+					default:
+						System.out.println("[메뉴에 존재하는 번호만 입력 해주세요]");
+					}
+				}
 			}
-		}}
-		
+		}
+
 	}
 	//////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////
+
+	public void lastFloor() { // 1층 구현
+		int input = 0;
+		String straight = "┃";
+		if ((int) (Math.random() * 100) <= 60) {
+			System.out.println();
+			System.out.println();
+			System.out.println("┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
+			System.out.printf("┃HP : %d/5┃STN : %d/3   ┃현재 위치 : %d F ┃\n", viewHp(), viewStamina(), viewFloor());
+			System.out.println("┃━━━━━━━━┻━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
+			System.out.println("                                     ");
+			System.out.println("    이제 나가기만 하면 된다.               ");
+			System.out.println("                   ");
+			System.out.println("                                     ");
+			System.out.println("                               ");
+			System.out.println("                                      ");
+			System.out.println("    1.나가기                               ");
+			System.out.println("                        ");
+			System.out.println("┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
+			System.out.printf("┃열쇠 : %s┃방어구 :        ┃\n", viewKey());
+			System.out.println("┃━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
+			System.out.print("메뉴 선택 >> ");
+			input = sc.nextInt();
+			sc.nextLine(); // 입력 버퍼 개행문자 제거
+			System.out.println();
+
+			switch (input) {
+			case 1:
+				// some();
+				zeroZom3();
+				break;
+			case 2:
+				cantRun();
+				break;
+			case 9:
+//	      itemUse();
+				break;
+			default:
+				System.out.println("[메뉴에 존재하는 번호만 입력 해주세요]");
+			}
+		}
+	}
+	public void cantRun() {
+		int input = 0;
+		while (input != 1) {
+			String straight = "┃";
+			System.out.println();
+			System.out.println();
+			System.out.println("┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
+			System.out.printf("┃HP : %d/5┃STN : %d/3   ┃현재 위치 : %d F ┃\n", viewHp(), viewStamina(), viewFloor());
+			System.out.println("┃━━━━━━━━┻━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
+			System.out.println("                                     ");
+			System.out.println("    여기서 도망친다면 탈출 할 수                 ");
+			System.out.println("    없습니다.                        ");
+			System.out.println("                                     ");
+			System.out.println("                                      ");
+			System.out.println("                                      ");
+			System.out.println("    1.돌아가기                                 ");
+			System.out.println("                           ");
+			System.out.println("┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
+			System.out.printf("┃열쇠 : %s┃방어구 :        ┃\n", viewKey());
+			System.out.println("┃━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
+			System.out.print("메뉴 선택 >> ");
+			input = sc.nextInt();
+			sc.nextLine(); // 입력 버퍼 개행문자 제거
+			System.out.println();
+
+			switch (input) {
+			case 1:
+				
+				break;
+			
+			default:
+				System.out.println("[메뉴에 존재하는 번호만 입력 해주세요]");
+			}
+		}
+	}
+	public void zeroZom3() {
+		int input = 0;
+		while (input != 1) {
+			String straight = "┃";
+			System.out.println();
+			System.out.println();
+			System.out.println("┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
+			System.out.printf("┃HP : %d/5┃STN : %d/3   ┃현재 위치 : %d F ┃\n", viewHp(), viewStamina(), viewFloor());
+			System.out.println("┃━━━━━━━━┻━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
+			System.out.println("    나가기 직전 건물의 수호자      ");
+			System.out.println("    경비 좀비가 나타났습니다.                 ");
+			System.out.println("    경비 좀비는 일반 좀비와는 다르게                        ");
+			System.out.println("    강해보입니다.                                 ");
+			System.out.println("                                      ");
+			System.out.println("    1.공격하기                                  ");
+			System.out.println("    2.도망가기                                 ");
+			System.out.println("    9. 아이템 사용                       ");
+			System.out.println("┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
+			System.out.printf("┃열쇠 : %s┃방어구 :        ┃\n", viewKey());
+			System.out.println("┃━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
+			System.out.print("메뉴 선택 >> ");
+			input = sc.nextInt();
+			sc.nextLine(); // 입력 버퍼 개행문자 제거
+			System.out.println();
+			
+			switch (input) {
+			case 1:
+				bossAttackview();
+				break;
+			case 2:
+				cantRun();
+				break;
+			case 9:
+//      itemUse();
+				break;
+			default:
+				System.out.println("[메뉴에 존재하는 번호만 입력 해주세요]");
+			}
+		}
+	}
+	public void zeroZom2() {
+		int input = 0;
+		while (input != 1) {
+			String straight = "┃";
+			System.out.println();
+			System.out.println();
+			System.out.println("┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
+			System.out.printf("┃HP : %d/5┃STN : %d/3   ┃현재 위치 : %d F ┃\n", viewHp(), viewStamina(), viewFloor());
+			System.out.println("┃━━━━━━━━┻━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
+			System.out.println("                                     ");
+			System.out.println("    경비 좀비는 타격을 입었지만                   ");
+			System.out.println("    아직 쓰러지지 않습니다.                        ");
+			System.out.println("                                     ");
+			System.out.println("                                      ");
+			System.out.println("    1.공격하기                                  ");
+			System.out.println("    2.도망가기                                 ");
+			System.out.println("    9. 아이템 사용                       ");
+			System.out.println("┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
+			System.out.printf("┃열쇠 : %s┃방어구 :        ┃\n", viewKey());
+			System.out.println("┃━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
+			System.out.print("메뉴 선택 >> ");
+			input = sc.nextInt();
+			sc.nextLine(); // 입력 버퍼 개행문자 제거
+			System.out.println();
+			
+			switch (input) {
+			case 1:
+				bossAttackview();
+				break;
+			case 2:
+				cantRun();
+				break;
+			case 9:
+//      itemUse();
+				break;
+			default:
+				System.out.println("[메뉴에 존재하는 번호만 입력 해주세요]");
+			}
+		}
+	}
+	public void zeroZom1() {
+		int input = 0;
+		while (input != 1) {
+			String straight = "┃";
+			System.out.println();
+			System.out.println();
+			System.out.println("┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
+			System.out.printf("┃HP : %d/5┃STN : %d/3   ┃현재 위치 : %d F ┃\n", viewHp(), viewStamina(), viewFloor());
+			System.out.println("┃━━━━━━━━┻━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
+			System.out.println("                                     ");
+			System.out.println("    누적된 피해로 인해                  ");
+			System.out.println("    경비 좀비는 휘청거립니다.                        ");
+			System.out.println("                                     ");
+			System.out.println("                                      ");
+			System.out.println("    1.공격하기                                  ");
+			System.out.println("    2.도망가기                                 ");
+			System.out.println("    9. 아이템 사용                       ");
+			System.out.println("┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
+			System.out.printf("┃열쇠 : %s┃방어구 :        ┃\n", viewKey());
+			System.out.println("┃━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
+			System.out.print("메뉴 선택 >> ");
+			input = sc.nextInt();
+			sc.nextLine(); // 입력 버퍼 개행문자 제거
+			System.out.println();
+			
+			switch (input) {
+			case 1:
+				bossAttackview();
+				break;
+			case 2:
+				cantRun();
+				break;
+			case 9:
+//      itemUse();
+				break;
+			default:
+				System.out.println("[메뉴에 존재하는 번호만 입력 해주세요]");
+			}
+		}
+	}
+	public void zeroZom0() {
+		int input = 0;
+		while (input != 1) {
+			String straight = "┃";
+			System.out.println();
+			System.out.println();
+			System.out.println("┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
+			System.out.printf("┃HP : %d/5┃STN : %d/3   ┃현재 위치 : %d F ┃\n", viewHp(), viewStamina(), viewFloor());
+			System.out.println("┃━━━━━━━━┻━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
+			System.out.println("                                     ");
+			System.out.println("    경비 좀비를 처리했습니다.                  ");
+			System.out.println("                           ");
+			System.out.println("                                     ");
+			System.out.println("                                      ");
+			System.out.println("    1.나가기                                  ");
+			System.out.println("                                     ");
+			System.out.println("                          ");
+			System.out.println("┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
+			System.out.printf("┃열쇠 : %s┃방어구 :        ┃\n", viewKey());
+			System.out.println("┃━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
+			System.out.print("메뉴 선택 >> ");
+			input = sc.nextInt();
+			sc.nextLine(); // 입력 버퍼 개행문자 제거
+			System.out.println();
+			
+			switch (input) {
+			case 1:
+				//ending();
+				break;
+			
+			default:
+				System.out.println("[메뉴에 존재하는 번호만 입력 해주세요]");
+			}
+		}
+	}
 	
-//	public void aaaaaaaaaaaaaaaa() { 2층 구현
-//		int input = 0;
-//		String straight = "┃";
-//		if ((int) (Math.random() * 100) <= 60) {
-//			System.out.println();
-//			System.out.println();
-//			System.out.println("┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
-//			System.out.printf("┃HP : %d/5┃STN : %d/3   ┃현재 위치 : %d F ┃\n", viewHp(), viewStamina(), viewFloor());
-//			System.out.println("┃━━━━━━━━┻━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
-//			System.out.println("                                     ");
-//			System.out.println("            강의실에 입장했습니다                ");
-//			System.out.println("            졸음이 쏟아집니다.       ");
-//			System.out.println("                                     ");
-//			System.out.println("    1.쉬기                           ");
-//			System.out.println("    2.나가기                                  ");
-//			System.out.println("                                     ");
-//			System.out.println("    9. 아이템 사용                       ");
-//			System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
-//			System.out.print("메뉴 선택 >> ");
-//			input = sc.nextInt();
-//			sc.nextLine(); // 입력 버퍼 개행문자 제거
-//			System.out.println();
-//
-//			switch (input) {
-//			case 1:
-//				aaaaaaaaa5a();
-//				break;
-//			case 2:
-//				
-//				break;
-//			case 9:
-////	      itemUse();
-//				break;
-//			default:
-//				System.out.println("[메뉴에 존재하는 번호만 입력 해주세요]");
-//			}
-//		}
-//	}
-//	public void aaaaaaaaa5a() {
-//		int input = 0;
-//		String straight = "┃";
-//		if ((int) (Math.random() * 100) <= 60) {
-//			System.out.println();
-//			System.out.println();
-//			System.out.println("┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
-//			System.out.printf("┃HP : %d/5┃STN : %d/3   ┃현재 위치 : %d F ┃\n", viewHp(), viewStamina(), viewFloor());
-//			System.out.println("┃━━━━━━━━┻━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
-//			System.out.println("                                     ");
-//			System.out.println("            백동현강사님 좀비를 만났습니다.                ");
-//			System.out.println("                                    ");
-//			System.out.println("                                     ");
-//			System.out.println("    1.공부하기                       ");
-//			System.out.println("    2.도망가기                                  ");
-//			System.out.println("                                     ");
-//			System.out.println("    9. 아이템 사용                       ");
-//			System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
-//			System.out.print("메뉴 선택 >> ");
-//			input = sc.nextInt();
-//			sc.nextLine(); // 입력 버퍼 개행문자 제거
-//			System.out.println();
-//
-//			switch (input) {
-//			case 1:
-//				
-//				break;
-//			case 2:
-//				run();
-//
-//				break;
-//			case 9:
-////	      itemUse();
-//				break;
-//			default:
-//				System.out.println("[메뉴에 존재하는 번호만 입력 해주세요]");
-//			}
-//		}
-//	}
-	
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+	public void out() {
+		int input = 0;
+		String straight = "┃";
+		int zom = 3;
+		while (zom!=0) {
+			
+		
+		while (input != 1 && input != 2 && input != 9) {
+			if ((int) (Math.random() * 100) <= 60) {
+				System.out.println();
+				System.out.println();
+				System.out.println("┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
+				System.out.printf("┃HP : %d/5┃STN : %d/3   ┃현재 위치 : %d F ┃\n", viewHp(), viewStamina(), viewFloor());
+				System.out.println("┃━━━━━━━━┻━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
+				System.out.println("                                     ");
+				System.out.println("             좀비가 나타났습니다.                ");
+				System.out.println("                                     ");
+				System.out.println("                                     ");
+				System.out.println("    1.공격하기                       ");
+				System.out.println("    2.도망가기                                  ");
+				System.out.println("                                     ");
+				System.out.println("    9. 아이템 사용                       ");
+				System.out.println("┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
+				System.out.printf("┃열쇠 : %s┃방어구 :        ┃\n", viewKey());
+				System.out.println("┃━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
+				System.out.print("메뉴 선택 >> ");
+				input = sc.nextInt();
+				sc.nextLine(); // 입력 버퍼 개행문자 제거
+				System.out.println();
+
+				switch (input) {
+				case 1:
+					Attackview();
+					break;
+				case 2:
+					run();
+
+					break;
+				case 9:
+//	      itemUse();
+					break;
+				default:
+					System.out.println("[메뉴에 존재하는 번호만 입력 해주세요]");
+				}
+			}
+		}
+		}
+	}
+
 	//////////
 
 	/////////////////////////////////////////////////////////////////////////////////////////
@@ -434,7 +786,7 @@ public class GameView {
 		int input = 0;
 		String straight = "┃";
 		if (gameService.attack()) {
-			while (input != 1&&input != 9) {
+			while (input != 1 && input != 9) {
 				System.out.println();
 				System.out.println();
 				System.out.println("┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
@@ -448,7 +800,9 @@ public class GameView {
 				System.out.println("    1.돌아가기                                  ");
 				System.out.println("                                     ");
 				System.out.println("    9. 아이템 사용                       ");
-				System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+				System.out.println("┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
+				System.out.printf("┃열쇠 : %s┃방어구 :        ┃\n", viewKey());
+				System.out.println("┃━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
 				System.out.print("메뉴 선택 >> ");
 				input = sc.nextInt();
 				sc.nextLine(); // 입력 버퍼 개행문자 제거
@@ -466,7 +820,7 @@ public class GameView {
 				}
 			}
 		} else {
-			while (input != 1&&input != 9) {
+			while (input != 1 && input != 9) {
 				System.out.println();
 				System.out.println();
 				System.out.println("┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
@@ -480,7 +834,9 @@ public class GameView {
 				System.out.println("    1.돌아가기                                  ");
 				System.out.println("                                     ");
 				System.out.println("    9. 아이템 사용                       ");
-				System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+				System.out.println("┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
+				System.out.printf("┃열쇠 : %s┃방어구 :        ┃\n", viewKey());
+				System.out.println("┃━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
 				System.out.print("메뉴 선택 >> ");
 				input = sc.nextInt();
 				sc.nextLine(); // 입력 버퍼 개행문자 제거
@@ -501,43 +857,208 @@ public class GameView {
 	}
 
 	/////////////////////////////////////////////////////////////////////////////
+	public void bossAttackview() {
+		int input = 0;
+		String straight = "┃";
+		if (gameService.attack()) {
+			while (input != 1 && input != 9) {
+				System.out.println();
+				System.out.println();
+				System.out.println("┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
+				System.out.printf("┃HP : %d/5┃STN : %d/3   ┃현재 위치 : %d F ┃\n", viewHp(), viewStamina(), viewFloor());
+				System.out.println("┃━━━━━━━━┻━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
+				System.out.println("                                     ");
+				System.out.println("    재빠르게 회피하고                 ");
+				System.out.println("    좀비를 공격하였습니다.                        ");
+				System.out.println("                                     ");
+				System.out.println("                           ");
+				System.out.println("    1.돌아가기                                  ");
+				System.out.println("                                     ");
+				System.out.println("    9. 아이템 사용                       ");
+				System.out.println("┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
+				System.out.printf("┃열쇠 : %s┃방어구 :        ┃\n", viewKey());
+				System.out.println("┃━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
+				System.out.print("메뉴 선택 >> ");
+				input = sc.nextInt();
+				sc.nextLine(); // 입력 버퍼 개행문자 제거
+				System.out.println();
+				
+				switch (input) {
+				case 1:
+					
+					break;
+				case 9:
+//      itemUse();
+					break;
+				default:
+					System.out.println("[메뉴에 존재하는 번호만 입력 해주세요]");
+				}
+			}
+		} else {
+			while (input != 1 && input != 9) {
+				System.out.println();
+				System.out.println();
+				System.out.println("┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
+				System.out.printf("┃HP : %d/5┃STN : %d/3   ┃현재 위치 : %d F ┃\n", viewHp(), viewStamina(), viewFloor());
+				System.out.println("┃━━━━━━━━┻━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
+				System.out.println("                                     ");
+				System.out.println("    서로 공격을 주고 받았습니다.                ");
+				System.out.println("                            ");
+				System.out.println("                                     ");
+				System.out.println("                           ");
+				System.out.println("    1.돌아가기                                  ");
+				System.out.println("                                     ");
+				System.out.println("    9. 아이템 사용                       ");
+				System.out.println("┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
+				System.out.printf("┃열쇠 : %s┃방어구 :        ┃\n", viewKey());
+				System.out.println("┃━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
+				System.out.print("메뉴 선택 >> ");
+				input = sc.nextInt();
+				sc.nextLine(); // 입력 버퍼 개행문자 제거
+				System.out.println();
+				
+				switch (input) {
+				case 1:
+					
+					break;
+				case 9:
+//       itemUse();
+					break;
+				default:
+					System.out.println("[메뉴에 존재하는 번호만 입력 해주세요]");
+				}
+			}
+		}
+	}
+	public void itemMenu() {
+	      int input = 0;
+	      String straight = "┃";
+	      System.out.println();
+	      System.out.println();
+	      System.out.println("┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
+	      System.out.printf("┃HP : %d/5┃STN : %d/3   ┃현재 위치 : %d F ┃\n", viewHp(), viewStamina(), viewFloor());
+	      System.out.println("┃━━━━━━━━┻━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
+	      System.out.println("                                     ");
+	      System.out.println("          "gameService.itemView()                );
+	      System.out.println("                                 ");
+	      System.out.println("     사용할 아이템을 선택해 주세요.                             ");
+	      System.out.println("                                      ");
+	      System.out.println("    1. 1번아이템                                   ");
+	      System.out.println("    2. 2번아이템                                 ");
+	      System.out.println("    3. 3번아이템                                 ");
+	      System.out.println("    4. 4번아이템                                 ");
+	      System.out.println("    5. 5번아이템                                 ");
+	      System.out.println("                                    ");
+	      System.out.println("    9. 돌아가기                       ");
+	      System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+	      System.out.print("메뉴 선택 >> ");
+	      input = sc.nextInt();
+	      sc.nextLine(); // 입력 버퍼 개행문자 제거
+	      System.out.println();
+
+	      switch (input) {
+	      case 1:
+	         useItem(1);
+	         break;
+	      case 2:
+	         useItem(2);
+	         break;
+	      case 3:
+	         useItem(3);
+	         break;
+	      case 4:
+	         useItem(4);
+	         break;
+	      case 5:
+	         useItem(5);
+	         break;
+	      
+	      case 9:
+//	      itemUse();
+	         break;
+	      default:
+	         System.out.println("[메뉴에 존재하는 번호만 입력 해주세요]");
+
+	      }
+	   }
+	
+	/////////////////////////////////////////////////////////////////////////////
 
 	public void runcheck() {
 		int input = 0;
-		while (input != 1&&input != 2&&input != 9) {
-		String straight = "┃";
-		System.out.println();
-		System.out.println();
-		System.out.println("┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
-		System.out.printf("┃HP : %d/5┃STN : %d/3   ┃현재 위치 : %d F ┃\n", viewHp(), viewStamina(), viewFloor());
-		System.out.println("┃━━━━━━━━┻━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
-		System.out.println("                                     ");
-		System.out.println("          도망에 실패했습니다.                ");
-		System.out.println("          좀비에게 피해를 입습니다.                        ");
-		System.out.println("                                     ");
-		System.out.println("    1.공격하기                                  ");
-		System.out.println("    2.도망가기                                  ");
-		System.out.println("                                     ");
-		System.out.println("    9. 아이템 사용                       ");
-		System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
-		System.out.print("메뉴 선택 >> ");
-		input = sc.nextInt();
-		sc.nextLine(); // 입력 버퍼 개행문자 제거
-		System.out.println();
+		while (input != 1 && input != 2 && input != 9) {
+			String straight = "┃";
+			System.out.println();
+			System.out.println();
+			System.out.println("┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
+			System.out.printf("┃HP : %d/5┃STN : %d/3   ┃현재 위치 : %d F ┃\n", viewHp(), viewStamina(), viewFloor());
+			System.out.println("┃━━━━━━━━┻━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
+			System.out.println("                                     ");
+			System.out.println("          도망에 실패했습니다.                ");
+			System.out.println("          좀비에게 피해를 입습니다.                        ");
+			System.out.println("                                     ");
+			System.out.println("    1.공격하기                                  ");
+			System.out.println("    2.도망가기                                  ");
+			System.out.println("                                     ");
+			System.out.println("    9. 아이템 사용                       ");
+			System.out.println("┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
+			System.out.printf("┃열쇠 : %s┃방어구 :        ┃\n", viewKey());
+			System.out.println("┃━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
+			System.out.print("메뉴 선택 >> ");
+			input = sc.nextInt();
+			sc.nextLine(); // 입력 버퍼 개행문자 제거
+			System.out.println();
 
-		switch (input) {
-		case 1:
-			Attackview();
-			break;
-		case 2:
-			run();
-			break;
-		case 9:
+			switch (input) {
+			case 1:
+				Attackview();
+				break;
+			case 2:
+				run();
+				break;
+			case 9:
 //      itemUse();
-			break;
-		default:
-			System.out.println("[메뉴에 존재하는 번호만 입력 해주세요]");
+				break;
+			default:
+				System.out.println("[메뉴에 존재하는 번호만 입력 해주세요]");
+			}
 		}
+	}
+	
+	/////// 탕비실
+	public void tang() {
+		int input = 0;
+		while (input != 1) {
+			String straight = "┃";
+			System.out.println();
+			System.out.println();
+			System.out.println("┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
+			System.out.printf("┃HP : %d/5┃STN : %d/3   ┃현재 위치 : %d F ┃\n", viewHp(), viewStamina(), viewFloor());
+			System.out.println("┃━━━━━━━━┻━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
+			System.out.println("                                     ");
+			System.out.println("    탕비실에서 체력과 스태미너를                ");
+			System.out.println("    회복합니다                        ");
+			System.out.println("                                     ");
+			System.out.println("                                      ");
+			System.out.println("    1. 돌아가기                                  ");
+			System.out.println("                                     ");
+			System.out.println("    9. 아이템 사용                       ");
+			System.out.println("┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓");
+			System.out.printf("┃열쇠 : %s┃방어구 :        ┃\n", viewKey());
+			System.out.println("┃━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┫");
+			System.out.print("메뉴 선택 >> ");
+			input = sc.nextInt();
+			sc.nextLine(); // 입력 버퍼 개행문자 제거
+			System.out.println();
+			
+			switch (input) {
+			case 1:
+				
+				break;
+			
+			default:
+				System.out.println("[메뉴에 존재하는 번호만 입력 해주세요]");
+			}
 		}
 	}
 
@@ -588,20 +1109,25 @@ public class GameView {
 		} else {
 			if (floor.getFloor(viewFloor() - 1, i).equals("탕비실")) {
 				gameService.addItem(gameService.whatItem());
+				gameService.tang();
+				tang();
+				
+			}else {
+				if (floor.getFloor(viewFloor() - 1, i).equals(floor.getFloor2(viewFloor() - 1, i))) {
+					checkedRoom();
+				} else {
+					floor.getFloor(viewFloor() - 1, i);
+					System.out.println(floor.getFloor(viewFloor() - 1, i));
+					floor.setFloor(viewFloor() - 1, i, floor.getFloor(viewFloor() - 1, i));
+					checkRoom();
+				}
+				if (floor.keyCheck(viewFloor() - 1, i).equals("열쇠를 발견하였습니다.")) {
+					gameService.getKey();
+					keyGet();
+				}
 			}
 
-			if (floor.getFloor(viewFloor() - 1, i).equals(floor.getFloor2(viewFloor() - 1, i))) {
-				checkedRoom();
-			} else {
-				floor.getFloor(viewFloor() - 1, i);
-				System.out.println(floor.getFloor(viewFloor() - 1, i));
-				floor.setFloor(viewFloor() - 1, i, floor.getFloor(viewFloor() - 1, i));
-				checkRoom();
-			}
-			if (floor.keyCheck(viewFloor() - 1, i).equals("열쇠를 발견하였습니다.")) {
-				gameService.getKey();
-				keyGet();
-			}
+			
 		}
 
 	}
@@ -635,14 +1161,14 @@ public class GameView {
 	private int viewFloor() {
 		return gameService.viewFloor();
 	}
+
 	private String viewKey() {
-		if(gameService.viewKey()==true) {
+		if (gameService.viewKey() == true) {
 			return "키가 있습니다.";
-		}else {
+		} else {
 			return "키가 없습니다.";
 		}
-		
-			
+
 	}
 
 	public void moveFloor(boolean move) { // 층 이동

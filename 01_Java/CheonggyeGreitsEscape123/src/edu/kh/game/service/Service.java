@@ -25,6 +25,8 @@ public class Service {
 	private String[] p1Item = new String[5];
 	// name, hp, defense, power, stamina, floor, item1, item2, item3, item4, item5
 	private boolean runCheck = false;
+	
+	
 
 	public boolean runCheck() {
 		if(runCheck = true) {
@@ -35,6 +37,11 @@ public class Service {
 	
 	public boolean viewKey() {
 		return p1.getKey();
+	}
+	
+	public void tang() {
+		getPlayerHp(1);
+		getStamina(1);
 	}
 	
 	public int viewHp() {// 현재 HP
@@ -61,6 +68,7 @@ public class Service {
 		p1.setHp(nowHp);
 		return p1.getHp();
 	}
+	
 
 	public int hitPlayer(int damage) { // 플레이어 맞음
 		int nowHp = p1.getHp() - damage;
@@ -122,32 +130,53 @@ public class Service {
 	   
 	   //아이템 랜덤값 들어오면 해당 아이템을 null배열 or "" 에 넣어주기
 	   public void addItem(int itemNum) {
-	      String item = "";
-	      if(itemNum == 1) item = "의료상자";
-	      if(itemNum == 2) item = "붕대";
-	      if(itemNum == 3) item = "빵";
-	      if(itemNum == 4) item = "컵라면";
-	      if(itemNum == 5) item = "커피";
-	      if(itemNum == 6) {
-	         item = "열쇠";
-	         p1.setKey(true);
-	      }
-	      
-	      if(itemNum >= 1 && itemNum <= 5) {
-	         for(int i = 0; i < p1Item.length-1; i++) {
-	            if(p1Item[i] == null){
-	               p1Item[i] = item;
-	               break;
+	        int count = 0;
+	        for(int i = 0; i < p1Item.length; i++) {
+	           if(p1Item[i] != null) {
+	              count++;
+	           }
+	        }
+	        if(count == 5) {
+	           System.out.println("[아이템 획득에 실패했습니다.]");
+	           System.out.println("[가방에 빈칸이 없습니다.]");
+	           System.exit(0);
+	        }
+	         String item = "";
+	         if(itemNum == 1) item = "의료상자";
+	         if(itemNum == 2) item = "붕대";
+	         if(itemNum == 3) item = "빵";
+	         if(itemNum == 4) item = "컵라면";
+	         if(itemNum == 5) item = "커피";
+	         if(itemNum == 6) {
+	            item = "열쇠";
+	            p1.setKey(true);
+	         }
+	         
+	         if(itemNum >= 1 && itemNum <= 5) {
+	            for(int i = 0; i < p1Item.length; i++) {
+	               if(p1Item[i] == null){
+	                  p1Item[i] = item;
+	                  break;
+	               }
 	            }
 	         }
+	         if(itemNum != 0) {
+	            System.out.printf("[%s 을/를 얻었습니다.]", item);
+	         }else {
+	            System.out.println("[아이템을 찾지 못했습니다.]");
+	         }
+	         
 	      }
-	      if(itemNum != 0) {
-	         System.out.printf("[%s 을/를 얻었습니다.]", item);
-	      }else {
-	         System.out.println("[아이템을 찾지 못했습니다.]");
-	      }
-	      
-	   }
+	   public void itemView() {
+		      System.out.println("[현재 소지 중인 아이템 목록]");
+		      for(int i = 0; i < p1Item.length; i++) {
+		         if(p1Item[i] != (null)) {
+		            System.out.println(i+1 + ". " +  "\"" + p1Item[i] + "\"");
+		         }else {
+		            System.out.println(i+1 + ". " +  "-----");
+		         }
+		      }
+		   }
 
 
 	public void useItem(int itemNum) {// 해당인덱스 1~5까지 고르면 사용
