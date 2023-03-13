@@ -13,7 +13,7 @@ public class IORun {
 //		service.objectOutput();
 //		service.objectInput();
 //		service.listOutput();
-		service.listinput();
+		service.listInput();
 		
 	}
 
