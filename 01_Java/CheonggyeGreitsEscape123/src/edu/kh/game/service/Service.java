@@ -327,7 +327,7 @@ public class Service {
 
 		ObjectOutputStream oos = null;
 		try {
-			oos = new ObjectOutputStream(new FvileOutputStream("object/save.dat"));
+			oos = new ObjectOutputStream(new FileOutputStream("object/save.dat"));
 			Player i = p1;
 			Equipment e = equipment;
 			Map<String, Object> saveFile = new LinkedHashMap<>();
