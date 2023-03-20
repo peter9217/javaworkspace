@@ -25,7 +25,7 @@ SELECT EMP_ID, EMP_NAME, PHONE FROM EMPLOYEE;
 -- DEPARTMENT 테이블의 모든 행, 열 조회
 SELECT * FROM DEPARTMENT;
 
---DEPARTMENT 테이블에서 부서명만 조회
+-- DEPARTMENT 테이블에서 부서명만 조회
 --> 테이블 정보에서 컬럼명, COMMENT 확인
 SELECT DEPT_TITLE FROM DEPARTMENT;
 
@@ -37,7 +37,7 @@ SELECT DEPT_TITLE FROM DEPARTMENT;
 -- SELECT 문 작성 시 컬럼명에 산술 연산을 작성하면 
 -- 조회되는 결과 컬럼 값에 산술 연산이 반영된다.
 
---EMPLOYEE 테이블에서 모든 사원의 사번, 이름, 급여, 급여+100만을 조회
+-- EMPLOYEE 테이블에서 모든 사원의 사번, 이름, 급여, 급여+100만을 조회
 
 SELECT EMP_ID, EMP_NAME, SALARY, SALARY+1000000 FROM EMPLOYEE;
 
@@ -261,7 +261,7 @@ SELECT EMP_NAME, SALARY FROM EMPLOYEE WHERE SALARY >= '3000000';
  * */
 
 -- EMPLOYEE 테이블레서 모든 사원의 이름, 급여를 급여 오름차순으로 조회
-SELECT EMP_NAME, SALARY FROM EMPLOYEE ORDER BY SALARY; /*ASC;*/ <-기본값
+SELECT EMP_NAME, SALARY FROM EMPLOYEE ORDER BY SALARY; /*ASC; <-기본값*/
 
 -- 급여가 200만 이상인 사원을 급여 오름차순으로 조회
 SELECT EMP_NAME FROM EMPLOYEE ORDER BY EMP_NAME;

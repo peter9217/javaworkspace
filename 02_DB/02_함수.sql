@@ -33,7 +33,7 @@ SELECT 'AABAACAABBAA', INSTR('AABAACAABBAA','B',5,2) FROM DUAL; -- 3
 						--    12345
 
 -- EMPLOYEE 테이블에서 사원명, 이메일 중 '@' 위치 조회
-SELECT EMP_NAME, EMAIL, INSTR(EMAIL, '@') FROM EMPLOYEE;
+SELECT EMP_NAME, EMAIL, SUBSTR(EMAIL, 1,INSTR(EMAIL, '@')-1) FROM EMPLOYEE;
 
 ----------------------------------------------------------
 --SUBSTR(문자열|컬럼명, 시작 위치 [, 길이]ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ)
@@ -95,7 +95,7 @@ SELECT 123.5, CEIL(123.5), FLOOR(123.5) FROM DUAL;
 -- 1) 양수 : 지정된 위치의 소수점까지 표현
 -- 2) 음수 : 지정된 위치의 정수 자리수까지 표현
 
-SELECT 123.456, ROUND(123.456), ROUND(123.456, 1), ROUND(123.456, 2), ROUND(123.456, 0), ROUND(166.456, -1),ROUND(123.456, -2) FROM DUAL;
+SELECT 123.456, ROUND(123.456), ROUND(123.456, 1), ROUND(123.456, 2), ROUND(123.456, 0), ROUND(164.456, -1),ROUND(123.456, -2) FROM DUAL;
 									-- 소수점 첫째			--둘째 자리			정수				 1의 자리 반올림		10의 자리 반올림
 
 -----------------------------------------------------
@@ -160,7 +160,7 @@ SELECT EMP_NAME 이름, EXTRACT(YEAR FROM HIRE_DATE) 년, EXTRACT(MONTH FROM HIR
 
 SELECT 1234, TO_CHAR(1234, '99999'), TO_CHAR(1234, '00000') FROM DUAL;
 
-SELECT 1000000, TO_CHAR(1000000, 'L9999999'), TO_CHAR(1000000, '$9999999'), TO_CHAR(1000000, '$9,999,999') FROM DUAL;
+SELECT 1000000, TO_CHAR(1000000, 'L9999999'), TO_CHAR(1000000, '$9999999'), TO_CHAR(SALARY, '$9,999,999') FROM EMPLOYEE;
 
 -- EMPLOYEE 테이블에서 사번, 이름, 연봉, 조회 (\100,000,000 형식으로 조회)
 SELECT EMP_ID, EMP_NAME, TO_CHAR(SALARY*12, 'L999,999,999') 연봉 FROM EMPLOYEE;
@@ -218,7 +218,7 @@ SELECT TO_DATE('490115','YYMMDD'), TO_DATE('490115','RRMMDD'),TO_DATE('500115','
 -----------------------------------------------------------
 
 -- TO_NUMBER(문자열 [,포맷]) : 문자열 -> 숫자
-SELECT TO_NUMBER('$1,500', '$9,999') FROM DUAL;
+SELECT TO_NUMBER('$1,500', '$999,999') FROM DUAL;
 
 -----------------------------------------------------------
 
