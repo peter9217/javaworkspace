@@ -46,10 +46,13 @@ COMMIT; -- 수행된 DML의 결과를 DB에 반영(저장)
 
 -- (참고) INSERT시 VALUES 대신 서브쿼리 사용 가능
 CREATE TABLE EMP_01( EMP_ID NUMBER, EMP_NAME VARCHAR2(30), DEPT_TITLE VARCHAR2(20));
+
 INSERT INTO EMP_01
 SELECT EMP_ID, EMP_NAME, DEPT_TITLE FROM EMPLOYEE2 LEFT JOIN DEPARTMENT2 ON 
 (DEPT_CODE = DEPT_ID);
+
 SELECT * FROM EMP_01;
+
 COMMIT;
 --------------------------------------------------------------------------------------------------------------------
 
@@ -59,7 +62,7 @@ COMMIT;
 
 SELECT*FROM DEPARTMENT2;
 -- [작성법]
--- UPDATE 테이블명 SET 컬럼명 = 바꿀값 [WHERE 컬럼명 비교연산자 비교값];
+-- UPDATE 테이블명 SET ㄹ컬럼명 = 바꿀값 [WHERE 컬럼명 비교연산자 비교값];
 
 -- DEPARTMENT2 테이블에서 DEPT_ID가 'D9'인 부서 정보 조회
 SELECT*FROM DEPARTMENT2 WHERE DEPT_ID = 'D9';

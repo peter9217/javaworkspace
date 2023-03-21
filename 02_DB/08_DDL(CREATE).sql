@@ -49,11 +49,11 @@ SELECT * FROM User_tables;
         
     VARCHAR2(크기) : 가변길이 문자형 (4000 BYTE)
         -> ex) VARCHAR2(10) 컬럼에 'ABC' 3BYTE 문자열만 저장하면 나머지 7BYTE를 반환함.
-        
+    
     DATE : 날짜 타입
     BLOB : 대용량 이진 데이터 (4GB)
     CLOB : 대용량 문자 데이터 (4GB)
-*/
+*/	
 
 -- MEMBER 테이블 생성
 CREATE TABLE MEMBER(MEMBER_ID VARCHAR2(20), MEMBER_PWD VARCHAR2(20), MEMBER_NAME VARCHAR2(15), MEMBER_SSN CHAR(14), ENROLL_DATE DATE DEFAULT SYSDATE); -- 한글 2글자~5글자 (3BYTE), 주민번호 항상 14글자, 가입일-DATE
@@ -85,14 +85,12 @@ INSERT INTO MEMBER VALUES('MEM01', '123ASD', '홍길동', '912345-1234567', SYSD
 --  데이터  삽입 확인
 SELECT * FROM MEMBER;
 
-
 -- 추가 샘플 데이터 삽입
 -- 가입일 -> SYSDATE를 활용
 INSERT INTO MEMBER VALUES('MEM02', 'QWER1234', '김영희', '923344-2345678', SYSDATE);
 
 -- 가입일 -> DEFAULT 활용(테이블 생성 시 정의된 값이 반영됨)
 INSERT INTO MEMBER VALUES('MEM03', 'ASDF1234', '김철수', '945634-1233345', DEFAULT);
-
 
 -- 가입일 -> INSERT 시 미작성 하는 경우 -> DEAFULT 값이 반영됨
 INSERT INTO MEMBER(MEMBER_ID, MEMBER_PWD, MEMBER_NAME, MEMBER_SSN) 
