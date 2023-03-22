@@ -2,6 +2,10 @@ package edu.kh.jdbc.model.dto;
 
 import java.sql.Date;
 
+/**
+ * @author user1
+ *
+ */
 public class Emp {
 	private int empId; 		// 사원 번호(사번)
 	private String empName; // 사원 이름
@@ -22,6 +26,88 @@ public class Emp {
 	private String jobName; // 직급명
 	
 	public Emp() { }
+	
+	/** 재직자 검색
+ 	 * @param empName
+	 * @param empNo
+	 * @param email
+	 * @param phone
+	 * @param salary
+	 * @param departmentTitle
+	 * @param jobName
+	 */
+	public Emp(String empName, String empNo, String email, String phone, int salary, String departmentTitle,
+			String jobName) {
+		super();
+		this.empName = empName;
+		this.empNo = empNo;
+		this.email = email;
+		this.phone = phone;
+		this.salary = salary;
+		this.departmentTitle = departmentTitle;
+		this.jobName = jobName;
+	}
+	
+	
+	/** 퇴사자 검색
+	 * @param empId
+	 * @param empName
+	 * @param email
+	 * @param phone
+	 * @param entDate
+	 */
+	public Emp(int empId, String empName, String email, String phone, String entDate) {
+		super();
+		this.empId = empId;
+		this.empName = empName;
+		this.email = email;
+		this.phone = phone;
+		this.entDate = entDate;
+	}
+
+	
+	
+	/** 사원 수정
+	 * @param email
+	 * @param phone
+	 * @param salary
+	 * @param bonus
+	 */
+	public Emp(int empId, String email, String phone, int salary, double bonus) {
+		super();
+		this.empId = empId;
+		this.email = email;
+		this.phone = phone;
+		this.salary = salary;
+		this.bonus = bonus;
+	}
+
+	/** 사원 추가
+	 * @param empName
+	 * @param empNo
+	 * @param email
+	 * @param phone
+	 * @param salary
+	 * @param deptCode
+	 * @param jobCode
+	 * @param salLevel
+	 * @param bonus
+	 * @param managerId
+	 */
+	public Emp(String empName, String empNo, String email, String phone, int salary, String deptCode, String jobCode,
+			String salLevel, double bonus, int managerId) {
+		super();
+		this.empName = empName;
+		this.empNo = empNo;
+		this.email = email;
+		this.phone = phone;
+		this.salary = salary;
+		this.deptCode = deptCode;
+		this.jobCode = jobCode;
+		this.salLevel = salLevel;
+		this.bonus = bonus;
+		this.managerId = managerId;
+	}
 
 	public int getEmpId() {
 		return empId;
@@ -118,6 +204,8 @@ public class Emp {
 	public void setHireDate(Date hireDate) {
 		this.hireDate = hireDate;
 	}
+	
+	
 
 	public String getEntYN() {
 		return entYN;
@@ -159,6 +247,7 @@ public class Emp {
 				+ entYN + ", entDate=" + entDate + ", departmentTitle=" + departmentTitle + ", jobName=" + jobName
 				+ "]";
 	}
+
 	
 	
 	
