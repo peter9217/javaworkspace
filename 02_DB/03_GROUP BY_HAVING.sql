@@ -20,7 +20,7 @@ SELECT DEPT_CODE, SUM(SALARY) FROM EMPLOYEE GROUP BY DEPT_CODE;
  * 5. SELECT 컬럼명, 함수, 계산식, 리터럴 [[AS] 별칭]
  * 6. ORDER BY 컬럼명|별칭|컬럼순서 정렬방식 [NULLS FIRST|LAST]
  * */
-
+FWGHSO
 -- * GROUP BY 절 : 같은 값들이 여러 개 기록된 행을 하나의 그룹으로 묶음
 
 -- 부서별 급여 평균
