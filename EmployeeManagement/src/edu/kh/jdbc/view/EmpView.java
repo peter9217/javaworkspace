@@ -1,8 +1,10 @@
 package edu.kh.jdbc.view;
 
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 import edu.kh.jdbc.model.dto.Dep;
@@ -324,10 +326,53 @@ public class EmpView {
 	// "사번이 일치하는 않거나, 이미 퇴직된 사원입니다." 출력
 
 	private void retireEmp() {
-		int i=0;
+//		int i=0;
+//		System.out.println("퇴직");
+//		System.out.print("퇴직할 사람 사번 : ");
+//		int empId = sc.nextInt();
+//		System.out.println("정말 퇴직처리 하시겠습니까?");
+//		char yn = sc.next().toUpperCase().charAt(0);
+//		if (yn == 'N') {
+//			System.out.println("취소 되었습니다.");
+//			return;
+//		}
+//		if(yn != 'Y') {
+//			System.out.println("잘못 입력하셨습니다.");
+//			return;
+//		}
+//		try {
+//			i = service.retireEmp(empId);
+//			if(i>0) {
+//				System.out.println("변경 완료");
+//			}else {
+//				System.out.println("사번이 일치하는 않거나, 이미 퇴직된 사원입니다.");
+//			}
+//			
+//		} catch (Exception e) {
+//			System.out.println("에러 발생");
+//			e.printStackTrace();
+//		}
+		// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^2번째 방법
+				
 		System.out.println("퇴직");
 		System.out.print("퇴직할 사람 사번 : ");
 		int empId = sc.nextInt();
+		sc.nextLine();
+		try {
+			// 1. 사번이 일치하는 사원이 있는지 + 있어도 퇴직한 사원인지 확인
+			int check = service.checkEmp(empId);
+			
+			if(check == 0) {
+				System.out.println("[사번이 일치하는 사원이 존재하지 않습니다.]");
+				return;
+			}
+			if(check==1) {
+				System.out.println("[이미 퇴직 처리된 사원입니다.]");
+				return;
+			}
+			// 2. 사원이 존재하고 퇴직하지 않았으면 정말 퇴직처리 할 것인지 확인 후 서비스 호출
+						// 
+			
 		System.out.println("정말 퇴직처리 하시겠습니까?");
 		char yn = sc.next().toUpperCase().charAt(0);
 		if (yn == 'N') {
@@ -339,17 +384,25 @@ public class EmpView {
 			return;
 		}
 		try {
-			i = service.retireEmp(empId);
-			if(i>0) {
-				System.out.println("변경 완료");
-			}else {
-				System.out.println("사번이 일치하는 않거나, 이미 퇴직된 사원입니다.");
-			}
+			service.retireEmp(empId);
+			System.out.println("변경 완료");
+			
+			// --> 퇴직 서비스는 성공 또는 예외만 존재
+			// --> 반환 값이 따로 필요 없음
 			
 		} catch (Exception e) {
 			System.out.println("에러 발생");
 			e.printStackTrace();
 		}
+			
+			
+			
+		} catch (Exception e) {
+			System.out.println("[퇴직 처리 중 예외 발생]");
+			// TODO: handle exception
+		}
+		
+		
 	}
 	
 	// 가장 최근(입사일이 늦은) 사원 5명의
@@ -370,24 +423,53 @@ public class EmpView {
 			System.out.println("에러 발생");
 			e.printStackTrace();
 		} 
-		// TODO Auto-generated method stub
-
 	}
+	
+	
+	
+	
 	// 부서명, 인원 수, 급여 평균
 	private void deptASalary() {
+//		try {
+//			List<Dep> dep = service.deptASalary();
+//			for (Dep i : dep) {
+//				System.out.printf("%s / %d / %d \n ", i.getName(), i.getMembers(), i.getSalary());
+//			}
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		// DTO가 없을 때 Map을 사용하는 이유
+		// 1. DTO를 작성하는게 코드 낭비인 경우
+		// 2. DTO와 Map의 구조가 유사하기 때문에
+		
+//		Emp emp = new Emp();
+//		emp.setEmpId(200);
+//		emp.setEmpName("고길동");
+//		emp.getEmpId();
+//		emp.getEmpName();
+		
+		// tip. DTO의 필드를 Map의 Key라고 생각
+		
+//		Map<String, Object> map = new HashMap();
+//		map.put("empId", 200);
+//		map.put("empName", "고길동");
+//		
+//		map.get("empId");
+//		map.get("empName");		
+		
+		// 다량의 객체 저장
+		List<Map<String, Object>> MapList;
+		
+		// 서비스 호출
 		try {
-			List<Dep> dep = service.deptASalary();
-			for (Dep i : dep) {
-				System.out.printf("%s / %d / %d \n ", i.getName(), i.getMembers(), i.getSalary());
-			}
+			List<Map<String, Object>> mapList = service.selectDepartment();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-
 	
-
 	
 	}
 

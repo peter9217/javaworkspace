@@ -4,6 +4,7 @@ import static edu.kh.jdbc.common.JDBCTemplate.*;
 
 import java.sql.Connection;
 import java.util.List;
+import java.util.Map;
 
 import edu.kh.jdbc.model.dao.EmpDAO;
 import edu.kh.jdbc.model.dto.Dep;
@@ -60,10 +61,12 @@ public class EmpService {
 	}
 	
 	// - ENT_YN -> 'Y' , ENT_DATE -> SYSDATE로 수정
-	public int retireEmp(int empId) throws Exception {
+	public void retireEmp(int empId) throws Exception {
 		Connection conn = getConnection();
-		int i = dao.retireEmp(conn, empId);
-		return i;
+		dao.retireEmp(conn, empId);
+		commit(conn);
+		close(conn);
+		return ;
 	}
 
 	public List<Emp> recentEmp() throws Exception{
@@ -79,5 +82,18 @@ public class EmpService {
 		Connection conn = getConnection();
 		List<Dep> dep = dao.deptASalary(conn); 
 		return dep;
+	}
+
+	public int checkEmp(int empId) throws Exception {
+		Connection conn = getConnection();
+		int i = dao.checkEmp(conn, empId);
+		return i;
+	}
+
+	public List<Map<String, Object>> selectDepartment() throws Exception {
+		Connection conn = getConnection();
+		List<Map<String, Object>> mapList = dao.selectDepartment(conn);
+		close(conn);
+		return mapList;
 	}
 }

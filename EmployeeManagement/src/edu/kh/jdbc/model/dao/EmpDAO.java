@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import edu.kh.jdbc.model.dto.Dep;
 import edu.kh.jdbc.model.dto.Emp;
@@ -138,6 +139,7 @@ public class EmpDAO {
 		}
 		return i;
 	}
+	
 	//이메일, 전화번호, 급여, 보너스 수정
 	public int updateEmp(Connection conn, Emp emp) throws Exception {
 		int i;
@@ -158,7 +160,14 @@ public class EmpDAO {
 		return i;
 		
 	}
-
+	
+	// SELECT문 : executeQuery(SQL)
+	// DML문 : executeUpdate(SQL)
+	// SQL 작성하는 경우 : Statement 객체 사용 할 때
+	
+	
+	
+	
 	public int deleteEmp(Connection conn, int empId) throws Exception {
 		int i = 0;
 		String sql = "DELETE FROM EMPLOYEE WHERE EMP_ID = ?";
@@ -173,17 +182,17 @@ public class EmpDAO {
 	}
 	
 	// - ENT_YN -> 'Y' , ENT_DATE -> SYSDATE로 수정
-	public int retireEmp(Connection conn, int empId) throws Exception {
-		int i = 0;
+	public void retireEmp(Connection conn, int empId) throws Exception {
+		
 		String sql = "UPDATE EMPLOYEE SET ENT_YN = 'Y', ENT_DATE = SYSDATE WHERE EMP_ID = ? AND ENT_YN='N'";
 		try {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setInt(1, empId);
-			i = pstmt.executeUpdate();
+			pstmt.executeQuery();
 		} finally {
 			close(pstmt);
 		}
-		return i;
+		return ;
 	}
 	
 	// 가장 최근(입사일이 늦은) 사원 5명의
@@ -192,7 +201,7 @@ public class EmpDAO {
 
 	public List<Emp> recentEmp(Connection conn) throws Exception {
 		List<Emp> emp= new ArrayList<>();
-		String sql = "SELECT EMP_ID, EMP_NAME, DEPT_TITLE, HIRE_DATE FROM (SELECT EMP_ID, EMP_NAME, DEPT_TITLE, HIRE_DATE FROM EMPLOYEE JOIN DEPARTMENT ON(DEPT_ID=DEPT_CODE) ORDER BY HIRE_DATE DESC) WHERE ROWNUM<6";
+		String sql = "SELECT EMP_ID, EMP_NAME, DEPT_TITLE, HIRE_DATE FROM (SELECT EMP_ID, EMP_NAME, DEPT_TITLE, HIRE_DATE FROM EMPLOYEE LEFT JOIN DEPARTMENT ON(DEPT_ID=DEPT_CODE) ORDER BY HIRE_DATE DESC) WHERE ROWNUM<6";
 		try {
 			pstmt=conn.prepareStatement(sql);
 			rs=pstmt.executeQuery();
@@ -231,6 +240,54 @@ public class EmpDAO {
 		}
 		
 		return dep;
+	}
+
+	public int checkEmp(Connection conn, int empId) throws Exception {
+		int i=0;
+		String sql = "SELECT DEPT_TITLE, ROUND(COUNT(DEPT_TITLE), 0), AVG(SALARY) FROM EMPLOYEE JOIN DEPARTMENT ON(DEPT_ID=DEPT_CODE) GROUP BY DEPT_TITLE, DEPT_ID ORDER BY DEPT_ID";
+		
+		stmt = conn.createStatement();
+		rs = stmt.executeQuery(sql);
+		while (rs.next()) {
+			String deptTitle = rs.getString("DEPT_TITLE");
+		}
+		return i;
+	}
+//		try {
+//			
+//
+//			}
+//		} finally {
+//			close(rs);
+//			close(pstmt);
+//
+//		}
+//		
+//		return i;
+//	}
+
+	public List<Map<String, Object>> selectDepartment(Connection conn) throws Exception{
+		// 1. 결과 저장용 객체 생성
+		List<Map<String, Object>> mapList = new ArrayList<>();
+		
+		try {
+			// 2. SQL 작성 후 수행
+			String sql = "SELECT DEPT_TITLE, COUNT(*) 인원, FLOOR(AVG(SALARY)) 평균 FROM EMPLOYEE LEFT JOIN DEPARTMENT ON(DEPT_CODE=DEPT_ID) GROUP BY DEPT_TITLE ORDER BY DEPT_CODE"; 
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				for(int i, i<, i++) {
+					mapList.get(i).put("DEPT_TITLE", rs.getInt(1));
+					mapList.get(i).put("COUNT", rs.getInt(2));
+					mapList.get(i).put("SALARY", rs.getInt(3));				
+					
+				}
+			}
+		}finally {
+			
+		}
+		
+		return null;
 	}
 
 	
