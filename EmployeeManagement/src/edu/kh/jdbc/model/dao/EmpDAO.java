@@ -276,12 +276,12 @@ public class EmpDAO {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				for(int i, i<, i++) {
-					mapList.get(i).put("DEPT_TITLE", rs.getInt(1));
-					mapList.get(i).put("COUNT", rs.getInt(2));
-					mapList.get(i).put("SALARY", rs.getInt(3));				
-					
-				}
+//				for(int i, i<, i++) {
+//					mapList.get(i).put("DEPT_TITLE", rs.getInt(1));
+//					mapList.get(i).put("COUNT", rs.getInt(2));
+//					mapList.get(i).put("SALARY", rs.getInt(3));				
+//					
+//				}
 			}
 		}finally {
 			
