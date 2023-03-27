@@ -151,9 +151,9 @@ public class MainView {
 			// M 또는 F가 입력될 때까지 무한 반복
 			while(true) {
 				System.out.println("성별(M/F)");
-				memberGender = sc.next().toUpperCase();
+				memberGender = sc.nextLine().toUpperCase();
 				
-				if(memberGender.equals("M") || memberGender.equals("f")) {
+				if(memberGender.equals("M") || memberGender.equals("F")) {
 					break;
 				}else {
 					System.out.println("\n*** M 또는 F만 입력해주세요 ***\n");

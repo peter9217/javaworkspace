@@ -13,7 +13,7 @@
 
 	<!-- 회원 가입 -->
 	<entry key = "signUp">
-		INSERT INTO "MEMBER" VALUES(SEQ_MEMBER_NO.NEXTVAL, ?, ?, ?, ?, DEFAULT, DEFAULT)pstmt.executeUpdate()
+		INSERT INTO "MEMBER" VALUES(SEQ_MEMBER_NO.NEXTVAL, ?, ?, ?, ?, DEFAULT, DEFAULT)
 	</entry>	
 	
 </properties>

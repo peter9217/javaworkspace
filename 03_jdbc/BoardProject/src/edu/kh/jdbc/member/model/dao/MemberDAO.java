@@ -55,6 +55,51 @@ public class MemberDAO {
 			close(stmt);
 		}
 		return memList;
+	}
+
+	public int updateMember(Connection conn, String memberName, String memberGender, int memberNo) throws Exception {
+		int i = 0;
+		try {
+			String sql = prop.getProperty("updateMember");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberName);
+			pstmt.setString(2, memberGender);
+			pstmt.setInt(3, memberNo);
+			i = pstmt.executeUpdate();
+		} finally {
+			close(pstmt);
+		}
+		return i;
+	}
+
+	public int updatePassword(Connection conn, String nowPw, String newPw, int memberNo) throws Exception {
+		int i = 0;
+		try {
+			String sql = prop.getProperty("updatePw");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, newPw);
+			pstmt.setInt(2, memberNo);
+			pstmt.setString(3, nowPw);
+			i = pstmt.executeUpdate();
+		} finally {
+			close(pstmt);
+		}
+		return i;
+	}
+
+	public int unRegistMember(Connection conn, String pw, int memberNo) throws Exception {
+		int i = 0;
+		try {
+			String sql = prop.getProperty("deleteMem");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			pstmt.setString(2, pw);
+			i = pstmt.executeUpdate();
+		} finally {
+			close(pstmt);
+			
+		}
+		return i;
 	}	
 	
 	
