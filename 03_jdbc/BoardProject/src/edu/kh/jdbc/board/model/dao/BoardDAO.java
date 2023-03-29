@@ -31,7 +31,7 @@ public class BoardDAO {
 	/** 게시글 목록 조회 SQL 수행
 	 * @param conn
 	 * @return boardList
-	 * 
+	 * d
 	 */
 	public List<Board> selectAllBoard(Connection conn) throws Exception {
 		List<Board> list = new ArrayList<>();
