@@ -50,7 +50,7 @@ Insert into DEPARTMENT (DEPT_ID,DEPT_TITLE,LOCATION_ID) values ('D9','총무부'
 
 --------------------------------------------------------
 --  DDL for Table EMPLOYEE
---------------------------------------------------------
+--------------------------------------------------------ㅇ
 
   CREATE TABLE "EMPLOYEE" 
    (	"EMP_ID" VARCHAR2(3 BYTE), 
