@@ -6,15 +6,18 @@ import java.util.List;
 
 import edu.kg.jdbc.board.dto.Board;
 import edu.kh.jdbc.board.model.dao.BoardDAO;
+import edu.kh.jdbc.board.model.dao.CommentDAO;
+import edu.kh.jdbc.board.model.dto.Comment;
 
 public class BoardService {
 	private BoardDAO dao = new BoardDAO();
+	private CommentDAO commentDao = new CommentDAO();
 
 	public List<Board> selectAllBoard() throws Exception {
 		Connection conn = getConnection();
+		
 		List<Board> list = dao.selectAllBoard(conn);
 		close(conn);
-		
 		
 		return list;
 	}
@@ -30,6 +33,11 @@ public class BoardService {
 		Connection conn = getConnection();
 		Board board = dao.selectBoard(conn, input);
 		if(board != null) {
+			// 해당 게시글에 대한 목록 조회
+			List<Comment> commentList = commentDao.selectCommentList(conn, input);
+			// board에 댓글 목록 세팅
+			board.setCommentList(commentList);
+			
 			if(memberNo!=board.getMemberNo()) {
 				int result = dao.updateReadCount(conn, input);
 				if(result>0) {
