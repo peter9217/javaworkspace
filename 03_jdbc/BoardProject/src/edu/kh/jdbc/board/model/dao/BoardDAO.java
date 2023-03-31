@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import edu.kg.jdbc.board.dto.Board;
+import edu.kh.jdbc.board.dto.Board;
 
 
 public class BoardDAO {

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>피자 주문</title>
+</head>
+<body>
+    고객명 : <input type="text"><br><br>
+    전화번호 : <input type="text"><br><br>
+    E-mail : <input type="text"><br><br>
+    피자선택 : <select name="선택" size="1"></li>
+        <option value="seo">맛있는</option>
+        <option value="qntks" selected>피자를 선택하세요</option>
+        <option value="thrch">맛없는</option>
+        <option value="eowjs">비싼</option>
+        </select>
+        <form>
+            <fieldset>
+            <legend>피자 사이즈</legend>
+            <input type="radio" name="size" value="s" id="s"> <label for="s">Small</label><br><br>
+            <input type="radio" name="size" value="m" id="m"><label for="m"> Medium</label><br><br>
+            <input type="radio" name="size" value="l" id="l"><label for="l"> Large</label><br><br>
+        </fieldset>
+        </form>
+        <form>
+            <fieldset>
+            <legend>토핑 선택</legend>
+            <input type="checkbox" value="a" > 베이컨<br><br>
+            <input type="checkbox" value="b" > 치즈<br><br>
+            <input type="checkbox" value="c" > 양파<br><br>
+            <input type="checkbox" value="d" > 버섯<br><br>
+        </fieldset>
+        </form>
+        <br>
+    희망 배송시간 : <input type="time"><br><br>
+    배송시 요청사항 : <textarea name="" id="" cols="20" rows="3"></textarea>
+    <br><br><button type="submit">주문하기</button>
+</body>
+</html>

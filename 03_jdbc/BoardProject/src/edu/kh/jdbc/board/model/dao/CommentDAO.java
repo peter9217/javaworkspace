@@ -27,13 +27,11 @@ public class CommentDAO {
 			prop.loadFromXML(new FileInputStream("comment-sql.xml"));
 		} catch (Exception  e) {
 			e.printStackTrace();
-
 		}
 	}
 	
 	public List<Comment> selectCommentList(Connection conn, int input) throws Exception {
 		List<Comment> commentList = new ArrayList<>();
-		
 		try {
 			String sql = prop.getProperty("comment");
 			pstmt = conn.prepareStatement(sql);
@@ -47,14 +45,11 @@ public class CommentDAO {
 				c.setMemberName(rs.getString(4));
 				c.setCreateDate(rs.getString(5));
 				commentList.add(c);
-				
 			}
 		} finally {
 			close(rs);
 			close(pstmt);
-			
 		}
-		
 		return commentList; 
 	}
 
@@ -68,7 +63,6 @@ public class CommentDAO {
 			pstmt.setInt(2, memberNo);
 			pstmt.setInt(3, boardNo);
 			i = pstmt.executeUpdate();
-			
 		} finally {
 			close(pstmt);
 		}
@@ -100,7 +94,6 @@ public class CommentDAO {
 			pstmt.setString(1, string);
 			pstmt.setInt(2, commentNo);
 			i = pstmt.executeUpdate();
-			
 		} finally {
 			close(pstmt);
 		}
@@ -137,11 +130,29 @@ public class CommentDAO {
 		} finally {
 			close(pstmt);
 		}
-		
 		return i;
 	}
 	
-	
+	 public Comment selectComment(Connection conn, int input, int memberNo, int boardNo) throws Exception{
+	      Comment comment = null;
+	      try {
+	         String sql = prop.getProperty("selectComment");
+	         pstmt = conn.prepareStatement(sql);
+	         pstmt.setInt(1, memberNo);
+	         pstmt.setInt(2, boardNo);
+	         pstmt.setInt(3, input);
+	         rs = pstmt.executeQuery();
+	         if(rs.next()) {
+	            int commentNo = rs.getInt("COMMENT_NO");
+	            comment = new Comment();
+	            comment.setCommentNo(commentNo);
+	         }
+	      } finally {
+	         close(rs);
+	         close(pstmt);
+	      }
+	      return comment ;
+	   }
 }
 	
 	

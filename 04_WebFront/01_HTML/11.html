@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>납품</title>
+</head>
+<body>
+    <form>
+    <fieldset>
+        <legend>납품자 정보</legend>
+        <ol>
+        <li>
+        납품자명 : <input type="text" name="inputName" required> </li><br>
+        <li>email : <input type="email" name="inputEmail" placeholder="answer@naver.com" required> </li><br>
+        <li>홈페이지 : <input type="url" name="inputurl" value="https://"> </li><br>
+
+        <li>지역 : <select name="선택" size="1"></li>
+            <option value="seo">서울</option>
+            <option value="qntks" selected>부산</option>
+            <option value="thrch">속초</option>
+            <option value="eowjs">대전</option>
+            </select>
+            </ol>
+            </fieldset>
+            
+            <fieldset>
+                <legend>납품 정보</legend>
+                <ul>
+                    <li>
+                        상품명 : <input type="text" name="inputName" required> </li><br>
+                    <li>납품 수량 : <input type="number" name="inputNumber" placeholder="최소 100" min="100" required> </li><br>
+                    <li>납품 등급 : <input type="range" name="r" id="a" min="0" max="100" value="50">
+            
+                    <li>기타사항 : <textarea name="i" id="i" cols="20" rows="5"></textarea>
+            
+                        </select>
+            
+                        </ol>
+                        <br>
+                        
+            </fieldset>
+            <button type="submit">send message</button>
+        </form>
+            </body>
+</html>

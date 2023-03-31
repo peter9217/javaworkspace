@@ -1,4 +1,4 @@
-package edu.kg.jdbc.board.dto;
+package edu.kh.jdbc.board.dto;
 
 import java.util.List;
 

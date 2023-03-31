@@ -4,7 +4,7 @@ import static edu.kh.jdbc.common.JDBCTemplate.*;
 import java.sql.Connection;
 import java.util.List;
 
-import edu.kg.jdbc.board.dto.Board;
+import edu.kh.jdbc.board.dto.Board;
 import edu.kh.jdbc.board.model.dao.BoardDAO;
 import edu.kh.jdbc.board.model.dao.CommentDAO;
 import edu.kh.jdbc.board.model.dto.Comment;

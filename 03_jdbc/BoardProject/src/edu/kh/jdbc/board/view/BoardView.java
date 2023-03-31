@@ -5,7 +5,7 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-import edu.kg.jdbc.board.dto.Board;
+import edu.kh.jdbc.board.dto.Board;
 import edu.kh.jdbc.board.model.dto.Comment;
 import edu.kh.jdbc.board.model.service.BoardService;
 import edu.kh.jdbc.board.model.service.CommentService;
