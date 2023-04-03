@@ -1,0 +1,41 @@
+/* :only-child */
+#test > p:only-child{
+    /* #test1의 자식으로 p태그 혼자만 있을 때 선택 */
+    background-color: steelblue;
+}
+
+/* :only-of-type */
+#test2>p:only-of-type{
+    background-color: turquoise;
+}
+
+/* :empty */
+#test3:empty{
+    height:30px;
+    background-color: coral;
+}
+
+/* 클래스가 여러 개 작성된 요소만 특 */
+.test4.cls4{
+    background-color: darkslategray;
+}
+
+
+/* 문제 */
+/* #test5 자식 중 4번 선택 */
+
+#test5>li:nth-of-type(4) {
+    background-color: aqua;
+}
+
+#test5>li:not(.c5) {
+    background-color: darkviolet;
+}
+
+/* #test6의 후손 중 10번만 선택 */
+/* #test6>li:nth-of-type(5)>span{ */
+/* #test6>li:last-of-type()>span{ */
+/* #test6>li:nth-last-child(3)>span{ */
+#test6>li:nth-last-of-type(1)>span{
+    background-color: hotpink;
+}
