@@ -5,6 +5,7 @@ div{
     - border-box : content+padding+border의 합이 width/height와 같도록 content의 크기를 자동 조절
     /* */
     box-sizing: border-box; 
+    /* content-box : content; */
 }
 
 .container-1{
@@ -49,8 +50,8 @@ div{
 
 /**/
 .container-2{
-    width: 250px;
-    height: 250px;
+    width: 300px;
+    height: 300px;
 
     position : relative; /* 기준 >> 자식요소 상대위치 지정 가능*/
 }
@@ -63,8 +64,8 @@ div{
     position : absolute;
     top:0;
     bottom: 0;
-    right: 0;
-    left: 0;
+    right: 0px;
+    left: 0px;
     margin: auto;
 }
 

@@ -22,7 +22,7 @@
 /* 감싸는 요소 스타일 지정 */
 .container-1{
     border: 3px solid black;
-    width: 323px;
+    width: 320px;
     height: 450px;
 }
 
@@ -46,9 +46,11 @@
 }
 
 .container-2{
+    border:3px solid black;
     width: 300px;
     height: 500px;
 }
+
 
 /* 좌우 2분할 */
 .container-3{
@@ -60,8 +62,6 @@
     border: 5px solid black;
     width: 300px;
     height: 300px;
-    display: inline-block;
-    
 }
 
 .container-3 > div {
@@ -69,23 +69,19 @@
     width: 50%;
     height: 100%;
 }
-/* .container-4 > div {
+.container-5 > div {
     display: inline-block; 
     width: 50%;
-    height: 50%;
-} */
-/* .container-3 > div:first-child{ background-color: aqua;}
+    height: 500%;
+}
+.container-3 > div:first-child{ background-color: aqua;}
 .container-3 > div:last-child{background-color: chartreuse;}
 
-.container-4 > div:first-child{ background-color: aqua;}
-.container-4 > div:nth-of-type(2) { background-color: red;}
-.container-4 > div:nth-of-type(3) { background-color: yellow;}
-.container-4 > div:last-child{background-color: chartreuse;} */
 
 .row{
     width:100%; /*  block 형식이여서 생략가능 */
     height: 50%;
-    
+
 }
 
 .col{
