@@ -19,8 +19,8 @@
     /* justify-content: center; */
     /* flex-direction: column; */
     /* justify-content: space-around; */
-    justify-content: space-evenly;
-    /* justify-content: space-between; */
+    /* justify-content: space-evenly; */
+    justify-content: space-between;
 
 
     /* align-items : 교차축을 기준으로 item 정렬 */

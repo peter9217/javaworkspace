@@ -19,10 +19,10 @@
 
     /* align-content : cross axis(교차축)을 기준으로 포장된(wrap) item들을 정렬 */
 
-    align-content: flex-start;
+    /* align-content: flex-start; */
     /* align-content: flex-end; */
     /* align-content: center; */
-    /* align-content: space-around; */
+    align-content: space-around;
     /* align-content: space-evenly; */
     /* align-content: space-between; */
 

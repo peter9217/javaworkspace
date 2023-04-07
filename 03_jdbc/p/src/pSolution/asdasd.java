@@ -22,34 +22,12 @@ public class asdasd {
 
 		public static int[] solution(int[][] score) {
 			int[] answer = new int[score.length];
-
-			int num = 1;
-			int j = score[0][0] + score[0][1];
-			int p =0;
+			int num = score.length+1;
 			for (int i = 0; i < score.length; i++) {
-
-				for (int k = 0; k < score.length; k++) {
-					if (j < score[k][0] + score[k][1]) {
-						j = score[k][0] + score[k][1];
-					}
-				}
-				for (int h = 0; h < score.length; h++) {
-					if (j == score[h][0] + score[h][1]) {
-						answer[h] = num;
-						score[h][0] = -1;
-						score[h][1] = -1;
-						p++;
-					}
-
-				}
-				j = 0;
-				for(int q=0; q<p; q++) {
-					num++;
-				}
-				p=0;
-				
+				for(int j=0; j<score.length; j++) if(score[i][0]+score[i][1]>=score[j][0]+score[j][1]) num--;
+				answer[i] = num;
+				num=score.length+1;
 			}
-
 	        return answer;
 	   }
 
