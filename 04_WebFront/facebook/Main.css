@@ -1,3 +1,9 @@
+*{
+    border: #455ba8;
+    border: 3px;
+
+}
+
 .upper{
     background-color: black;
     width: 1000px;
@@ -8,7 +14,6 @@
 
 .flex-container{
     height: 2400px;
-    background-color: #643232;
     display: flex;
     flex-direction: row;
     flex-direction: column;
@@ -16,7 +21,7 @@
 }   
 .main-container1{
     height: 750px;
-    background-color: #311414;
+    width: 3000px;
     display: flex;
     flex-direction: row;
     flex-direction: column;
@@ -24,11 +29,13 @@
 }   
 .main-container2{
     height: 2400px;
-    background-color: #e20e0e;
+    width: 1430px;
+    background-color: #ccc;
     display: flex;
     flex-direction: row;
     flex-direction: column;
     align-items: center;
+    
 }   
 
 .item {
@@ -43,36 +50,58 @@
     background-color: rgb(201, 201, 201);
 }
 .item3{
-    background-color: yellow;
-    height: 70%;
+    background-color: #ccc;
+    height: 90%;
+    width: 940px;
+    display: flex;
+    align-items: end;
+    flex-direction: column-reverse;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 .item4{ 
     display: flex;
-    background-color: green;
-    height: 30%;
+    height: 10%;
+    width: 908px;
     align-items: end;
-    justify-content: space-between;
 }
 .item5{ 
-    background-color: blue;
     height: 50px;
+    width: 908px;
     display: flex;
+    
 }
-.item6{ background-color: navy;}
+.item6{ 
+    background-color: navy;
+    width: 908px;
+}
+
+
+
 .myname1{
     display: flex;
     border: red;
-    width: 50px;
+    
     height: 50px;
+    width: 908px;
     
 }
 .main1-1{
     display : flex;
     border: 1px solid black;
-    background-color: white;
-    width: 100px;
-    height: 100px;
+    width: 250px;
+    height: 250px;
     align-items: end;
+    border-radius: 50%;
+    
+}
+.myPic{
+    width: 200px;
+    height: 200px;
+}
+
+.name{
+    width:50%
 }
 
 .main1-2{
@@ -85,7 +114,7 @@
     border: 1px solid black;
     width: 120px;
     height: 50px;
-    align-self: end;
+    padding-right: 30px;
     
 }
 .myname2{
@@ -94,9 +123,21 @@
     width: auto;
     height: 50px;
 }
+.main-line{
+    width: 908px;
+    border: 1.5px solid #ccc;
+    border-radius: 10px;
+}
+
+div>nav {
+    display: flex;
+    /* li 태그 앞에 기호 삭제 */
+    list-style: none;
+    height: 100%;
+}
+
 nav li{
-    /* grow shrink basis */
-    flex: 0 1 150px;
+    flex: 0 1 75px;
 }
 
 nav a{
@@ -105,11 +146,103 @@ nav a{
     font-size:15px;
     font-weight: bold;
     display:block;
-    text-align:center;    
+    text-align:center; 
     border-radius:5px;
+    padding : 11px 0;
+    
+    
 }
 nav a:hover{
-    background-color: #455ba8;
+    background-color: #ccc;
     transition-duration: 0.1s;
-    height: 100%
+    height: 100%;
+}
+
+.item1-1{
+    background-color: #ccc;
+    height: 15px;
+    width: 908px;
+    display: flex;
+
+}
+.item1-2{
+    display: flex;
+    background-color: white;
+    height: 36px;
+    width: 908px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    align-items: center;
+    
+}
+.item1-3{
+    display: flex;
+    background-color: yellow;
+    height: 341px;
+    width: 908px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    
+}
+.who{
+    display: flex;
+    height: 323px;
+    width: 211px;
+    margin: 10px;
+    flex-direction: column;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.who-pic{   
+    height: 70%;
+    background-color: red;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    
+}
+.who-name{
+    height: 10%;
+    padding-top: 10px;
+    background-color: white;
+    
+}
+.add-friend{
+    height: 20%;
+    width: 200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: white;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+div li{
+    flex: 0 1 75px;
+}
+div a{
+    text-decoration: none;
+    color : black;
+    font-size:15px;
+    font-weight: bold;
+    display:block;
+    text-align:center; 
+    border-radius:5px;
+    padding : 11px 0;
+    
+    
+    
+}
+
+.grid-container{
+    background-color: #ccc;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 100px;
+    gap : 10px;
+    grid-template-areas: 
+        "a a a"
+        "b c c"
+        "b d .";
 }
