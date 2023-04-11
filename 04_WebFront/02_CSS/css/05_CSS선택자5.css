@@ -1,5 +1,5 @@
 /* :only-child */
-#test > p:only-child{
+#test1 > p:only-child{
     /* #test1의 자식으로 p태그 혼자만 있을 때 선택 */
     background-color: steelblue;
 }

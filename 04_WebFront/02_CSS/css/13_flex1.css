@@ -6,10 +6,10 @@
     display: flex;
 
     /* flex-direction : 중심 축 방향 + 시작/끝 지정 */
-    flex-direction: row;
-    /* flex-direction: row-reverse;
-    flex-direction: column;
-    flex-direction: column-reverse; */
+    /* flex-direction: row; */
+    /* flex-direction: row-reverse;  */
+    /* flex-direction: column; */
+    /* flex-direction: column-reverse; */
 
 
     /* justify-content : 중심축 방향을 기준으로 item 정렬 */
@@ -20,7 +20,7 @@
     /* flex-direction: column; */
     /* justify-content: space-around; */
     /* justify-content: space-evenly; */
-    justify-content: space-between;
+    /* justify-content: space-between; */
 
 
     /* align-items : 교차축을 기준으로 item 정렬 */

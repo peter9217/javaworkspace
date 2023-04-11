@@ -20,28 +20,54 @@
     align-items: center;
 }   
 .main-container1{
-    height: 750px;
-    width: 3000px;
+    height: 980px;
     display: flex;
     flex-direction: row;
     flex-direction: column;
     align-items: center;
 }   
 .main-container2{
-    height: 2400px;
-    width: 1430px;
-    background-color: #ccc;
+    width: 1920px;
+    height: 3000px;
+    height: auto;
+    background-color: hsl(195, 15%, 90%);
     display: flex;
     flex-direction: row;
     flex-direction: column;
     align-items: center;
     
 }   
-
-.item {
-    width: 700px;
-    height: 500px;
+#backLogo{
+    width: 1250px;
+    height: 1000px;
+    border-radius: 10px;
 }
+
+.backLogobutton{
+    background-color: white;
+    width: 144px;
+    height: 20px;
+}
+.storypuls{
+    color: white;
+    background-color: blue;
+    width: 144px;
+    height: 20px;
+    margin-right: 10px;
+}
+.plo{
+    background-color: #ccc;
+    width: 144px;
+    height: 20px;
+}
+
+#homeLogo{
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border : 2px solid white;
+}
+
 
 .item1{ 
     background-color: white;
@@ -51,23 +77,22 @@
 }
 .item3{
     background-color: #ccc;
-    height: 90%;
     width: 940px;
     display: flex;
     align-items: end;
-    flex-direction: column-reverse;
+    flex-direction: column;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
 }
 .item4{ 
     display: flex;
-    height: 10%;
-    width: 908px;
+    height: 86px;
+    width: 1186px;
     align-items: end;
 }
 .item5{ 
     height: 50px;
-    width: 908px;
+    width: 1186px;
     display: flex;
     
 }
@@ -78,50 +103,38 @@
 
 
 
-.myname1{
-    display: flex;
-    border: red;
+.main1-2{
+    justify-self: end;
     
-    height: 50px;
-    width: 908px;
-    
-}
-.main1-1{
-    display : flex;
-    border: 1px solid black;
-    width: 250px;
-    height: 250px;
-    align-items: end;
-    border-radius: 50%;
     
 }
 .myPic{
-    width: 200px;
-    height: 200px;
+    background-color: aliceblue;
+    width: 100px;
+    height: 100px;
 }
 
 .name{
-    width:50%
+    width:75%;
+    
+    
 }
 
-.main1-2{
-    display : flex;
-    border: 1px solid black;
-    flex-direction: column;
-}
+
 .myname1{
     display : flex;
-    border: 1px solid black;
-    width: 120px;
-    height: 50px;
-    padding-right: 30px;
+    width: 200px;
+    height: 45px;
+    margin-top: -59px;
+    margin-right: -150px;
+
     
 }
 .myname2{
     display : flex;
-    border: 1px solid black;
     width: auto;
     height: 50px;
+
 }
 .main-line{
     width: 908px;
@@ -152,6 +165,7 @@ nav a{
     
     
 }
+/* border 바텀 주기 */
 nav a:hover{
     background-color: #ccc;
     transition-duration: 0.1s;
@@ -159,17 +173,19 @@ nav a:hover{
 }
 
 .item1-1{
-    background-color: #ccc;
     height: 15px;
-    width: 908px;
+    width: 1186px;
     display: flex;
+
+}
+.item1-3-1{
 
 }
 .item1-2{
     display: flex;
     background-color: white;
     height: 36px;
-    width: 908px;
+    width: 1186px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     align-items: center;
@@ -177,9 +193,9 @@ nav a:hover{
 }
 .item1-3{
     display: flex;
-    background-color: yellow;
+    background-color: white;
     height: 341px;
-    width: 908px;
+    width: 1186px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     
@@ -190,12 +206,12 @@ nav a:hover{
     width: 211px;
     margin: 10px;
     flex-direction: column;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #dadada;
 }
 .who-pic{   
     height: 70%;
-    background-color: red;
+    background-color: #ccc;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     
@@ -203,6 +219,13 @@ nav a:hover{
 .who-name{
     height: 10%;
     padding-top: 10px;
+    background-color: white;
+    
+}
+.so{
+    height: 10%;
+    padding-top: 1px;
+    text-align: left;
     background-color: white;
     
 }
@@ -216,6 +239,11 @@ nav a:hover{
     background-color: white;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+}
+.add-friend2{
+    width: 150px;
+    background-color: rgb(199, 228, 247);
+    color: blue;
 }
 
 div li{
@@ -246,3 +274,80 @@ div a{
         "b c c"
         "b d .";
 }
+
+.item2-1{
+    width: 1202px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top : 15px;    
+    border-radius: 5px;
+}
+
+.item2-2{
+    width: 490px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.item2-3{
+    height: 360px;
+    width: 680px;
+    background-color: blue;
+    display: flex;
+}
+
+.item2-2-1{
+    background-color: white;
+    text-align: center;
+    border-radius: 10px;
+}
+.item2-2-2{
+    background-color: white;
+    width: 490px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.item2-2-2-1{
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+
+.item2-2-3{
+    background-color: white;
+    width: 490px;
+    height: 60px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.intro-1{
+    background-color: #ccc;
+    margin : 20px
+}
+.intro-1:hover {
+    background-color: hsl(0, 3%, 62%);
+}
+
+.my-info{
+    color:blue;
+    margin-right: 20px;
+}
+
+.my-info:hover {
+    background-color: hwb(0 95% 3%);
+    width: 150px;
+    
+}
+
+/* *******************반응형************************************* */

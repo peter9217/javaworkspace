@@ -99,7 +99,7 @@ img{
 
 /* 변형 딜레이(transition-delay */
 .test4{
-    transition-delay: 2s;
+    transition-delay: 1s;
 }
 
 .test4:hover{
