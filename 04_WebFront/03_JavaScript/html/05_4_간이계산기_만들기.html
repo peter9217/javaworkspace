@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    두 수를 입력 받아 버튼에 작성된 연산을 수행하는 계산기 만들기
+    <!-- 
+        if, for, while, switch, break, continue
+    -->
+    <hr>
+
+    첫 번째 값 : <input type="text" id="first"><br>
+    두 번째 값 : <input type="text" id="second"><br>
+
+    <button class="a" onclick="Test1(this)">+</button>
+    <button class="s" onclick="Test1(this)">-</button>
+    <button class="d" onclick="Test1(this)">*</button>
+    <button class="f" onclick="Test1(this)">/</button>
+    <button class="g" onclick="Test1(this)">%</button>
+<!-- 매개변수 this는 무엇일까? this == 클릭된 버튼(요소)
+-> this는 이벤트가 발생한 요소 자체를 나타냄 -->
+
+    <br><br>
+    계산 결과 : <span class="r" id="result"></span>
+
+    <script>
+        // 작성된 HTML 요소에 원하는 속성(id, class, onclick)을 작성하고 
+        // 필요한 JS 코드(function)를 이요하여 계산기 만들기
+
+        function Test1(d){
+            const num1=Number(document.getElementById("first").value);
+            const num2=Number(document.getElementById("second").value);
+            
+            //eval(코드 형식으로 해석함) 속도+보안 이슈
+            //  --> new Function("return 코드 형식의 문자열") ()로 문제 해결
+            document.getElementById("result").innerText
+            // = eval(num1 + d.innerText + num2);
+            = new Function("return " + num1 + d.innerText + num2)();
+            
+        }
+
+
+
+    </script>
+
+</body>
+</html>

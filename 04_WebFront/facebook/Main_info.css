@@ -350,6 +350,29 @@ div a{
     
 }
 
+.info{
+    background-color: white;
+    height: 100px;
+    width: 1186px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    flex-direction: row;
+    display: flex;
+    list-style: none;
+}
+
+.info-1{
+    width: 287px;
+    height: 422px;
+    background-color: red;
+    
+}
+
+.info-2{
+    width: 744px;
+    height: 422px;
+    background-color: blue;
+}
 
 
 
