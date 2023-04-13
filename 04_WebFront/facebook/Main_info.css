@@ -1,9 +1,7 @@
-*{
-    border: #455ba8;
-    border: 3px;
 
+button{
+    border:0;
 }
-
 .upper{
     background-color: black;
     width: 1000px;
@@ -35,6 +33,7 @@
     flex-direction: row;
     flex-direction: column;
     align-items: center;
+    border: 1px solid  hwb(0 78% 21%);
     
 }   
 #backLogo{
@@ -47,15 +46,40 @@
     background-color: white;
     width: 144px;
     height: 20px;
+    text-decoration: none;
+    color : black;
+    font-size:15px;
+    font-weight: bold;
+    display:block;
+    text-align:center; 
+    border-radius:5px;
+    padding : 11px 0;
 }
 .storypuls{
+    text-decoration: none;
+    color : black;
+    font-size:15px;
+    font-weight: bold;
+    display:block;
+    text-align:center; 
+    border-radius:5px;
+    padding : 11px 0;
     color: white;
     background-color: blue;
     width: 144px;
     height: 20px;
     margin-right: 10px;
+    
 }
 .plo{
+    text-decoration: none;
+    color : black;
+    font-size:15px;
+    font-weight: bold;
+    display:block;
+    text-align:center; 
+    border-radius:5px;
+    padding : 11px 0;
     background-color: #ccc;
     width: 144px;
     height: 20px;
@@ -94,6 +118,7 @@
     height: 50px;
     width: 1186px;
     display: flex;
+    border-top: 1px solid #ccc;
     
 }
 .item6{ 
@@ -135,11 +160,6 @@
     width: auto;
     height: 50px;
 
-}
-.main-line{
-    width: 908px;
-    border: 1.5px solid #ccc;
-    border-radius: 10px;
 }
 
 div>nav {
@@ -248,19 +268,6 @@ nav a:hover{
 div li{
     flex: 0 1 75px;
 }
-div a{
-    text-decoration: none;
-    color : black;
-    font-size:15px;
-    font-weight: bold;
-    display:block;
-    text-align:center; 
-    border-radius:5px;
-    padding : 11px 0;
-    
-    
-    
-}
 
 .grid-container{
     background-color: #ccc;
@@ -352,29 +359,106 @@ div a{
 
 .info{
     background-color: white;
-    height: 100px;
     width: 1186px;
     border-radius: 15px;
     margin-bottom: 10px;
     flex-direction: row;
     display: flex;
     list-style: none;
+    border: 1px solid  hwb(0 78% 21%);
 }
 
 .info-1{
-    width: 287px;
-    height: 422px;
-    background-color: red;
+    width: 280px;
+    border-right: 1px solid  hwb(0 78% 21%);
     
 }
 
 .info-2{
-    width: 744px;
+    width: 890px;
     height: 422px;
-    background-color: blue;
+    border-left: 1px solid hwb(0 78% 21%);
+}
+.info-li{
+    text-decoration: none;
+    color : black;
+    font-size:20px;
+    font-weight: bold;
+    text-align:center; 
+    border-radius:5px;
+    display: flex;
+    padding : 15px;
+}
+.info-li:hover{
+    text-decoration: underline;
+}
+
+.info-lia{
+    text-decoration: none;
+    color : hwb(0 40% 60%);
+    font-size:15px;
+    font-weight: bold;
+    border-radius:5px;
+    display: flex;
+    padding : 10px;
+    margin: 5px;
+
+}
+.info-lia:hover{
+    background-color: #f0f2f3;
+    margin: 5px;
+}
+
+.info-2-1{
+    display : flex;
+    flex-direction: row;
+    color: hsl(212, 80%, 52%);
+    padding:10px;
+    font-weight: bold;
+    font-size: 15px;
+    
+}
+.info-outline{
+    text-decoration: none;
+    color : rgb(9, 83, 219);
+    background-color: hwb(212 80% 3%);
+    font-size:15px;
+    font-weight: bold;
+    border-radius:5px;
+    display: flex;
+    padding : 10px;
+    margin: 5px;
+
+}
+.info-outline-1{
+    display : none;
+    color : hsl(212, 80%, 52%);
+    padding :10px;
+    font-weight : bold;
+    font-size : 15px;
+    
 }
 
 
+.info-experience{
+    text-decoration: none;
+    color : hwb(0 40% 60%);
+    /* background-color: hwb(212 80% 3%); */
+    font-size:15px;
+    font-weight: bold;
+    border-radius:5px;
+    display: flex;
+    padding : 10px;
+    margin: 5px;
+
+}
+.info-experience-1{
+    display : none;
+    color : hsl(212, 80%, 52%);
+    padding :10px;
+    font-weight : bold;
+    font-size : 15px;
+}
 
 
 
