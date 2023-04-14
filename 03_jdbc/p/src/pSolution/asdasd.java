@@ -2,28 +2,44 @@ package pSolution;
 
 public class asdasd {
 	public static void main(String[] args) {
-	      int[][] score1 = {{80, 70}, {90, 50}, {40, 70}, {50, 80}};
-	      int[][] score2 = {{80, 70}, {70, 80}, {30, 50}, {90, 100}, {100, 90}, {100, 100}, {10, 30}};
-	      int[] answer1 = solution(score1);
-	      int[] answer2 = solution(score2);
+	      int[] ingredient = {2, 1, 1, 2, 3, 1, 2, 3, 1};
 	      // [1, 2, 4, 3]
-	      for(int i : answer1) 
-	         System.out.print(i + " ");
-	      System.out.println();
 	      // [4, 4, 6, 2, 2, 1, 7]
-	      for(int i : answer2)
-				System.out.print(i + " ");
-		}
-
-		public static int[] solution(int[][] score) {
-			int[] answer = new int[score.length];
-			int num = score.length+1;
-			for (int i = 0; i < score.length; i++) {
-				for(int j=0; j<score.length; j++) if(score[i][0]+score[i][1]>=score[j][0]+score[j][1]) num--;
-				answer[i] = num;
-				num=score.length+1;
-			}
-	        return answer;
-	   }
-
+	      int s = solution(ingredient);
+	      
+	    	  System.out.println(s);
+	      
+	      
+	}
+	public static int solution(int[] ingredient) {
+        int answer = 0;
+        int h = 0;
+        for(int i=0; i<ingredient.length; i++) {
+            h=0;
+            for(int j=1; j<6; j++) {
+                while(ingredient[i]==0) {
+                    i++;
+                }
+                if(ingredient[i]==j%4) {
+                    if(i<ingredient.length-1){
+                        i++;
+                        h++;
+                    }
+                }
+            }
+            if(h==4) {
+                answer++;
+                for(int n=i-4; n<i; n++){
+                    ingredient[n] = 0;
+                    }
+                i=0;    
+            }else{
+                 i-=h;
+            }
+        }
+        for(int i : ingredient) {
+        System.out.println(i);
+        }
+        return answer;
+    }
 }

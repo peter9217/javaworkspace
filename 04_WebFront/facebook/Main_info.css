@@ -1,6 +1,7 @@
 
 button{
     border:0;
+    background-color: white;
 }
 .upper{
     background-color: black;
@@ -395,7 +396,6 @@ div li{
 
 .info-lia{
     text-decoration: none;
-    color : hwb(0 40% 60%);
     font-size:15px;
     font-weight: bold;
     border-radius:5px;
