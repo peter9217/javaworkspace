@@ -36,7 +36,6 @@ public class asdasd3 {
         			if((l.get(i+2)) ==3) {
         				if((l.get(i+3)) ==1) {
         					answer+=1;
-        					
         					for(int n=0; n<4; n++) {
         						l.remove(i);
         					}
@@ -45,7 +44,6 @@ public class asdasd3 {
         						System.out.print(g);
         					}
         					System.out.println();
-        					
         					if(i<=1) {
         						i=-1;
         						System.out.println("i -1 설정");
@@ -58,7 +56,6 @@ public class asdasd3 {
         		}
         	}
         	System.out.println(i +"ddaaa");
-        	
         }
         return answer;
     }
