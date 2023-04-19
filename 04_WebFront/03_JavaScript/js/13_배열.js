@@ -20,7 +20,6 @@ document.getElementById("btn1").addEventListener("click", () =>{
     arr1[4] = true;     // boolean
     arr1[5] = {"id":"user01", "pw":"pass01"};     // boolean
     console.log(arr1)
-
 })
 
 document.getElementById("btn2").addEventListener("click", () => {

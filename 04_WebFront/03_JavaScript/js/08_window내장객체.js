@@ -59,7 +59,7 @@ const openPopup2 = document.getElementById("openPopup2");
 const openPopup3 = document.getElementById("openPopup3");
 
 openPopup1.addEventListener("click", () => {
-    window.open("07_함수.html"); // ㅠㅏ일 경로x ->  새탭에서 브라우저에 보이는 주소
+    window.open("07_함수.html"); // 파일 경로x ->  새탭에서 브라우저에 보이는 주소
 });
 
 openPopup2.addEventListener("click", ()=>{
@@ -69,8 +69,8 @@ openPopup2.addEventListener("click", ()=>{
 });
     // 새창의 크기를 너비 400px, 높이  600px로 지정
     // 열리는 위치는 위에서 100px, 오른쪽에서 100px 떨어진 위치에서 열기
-    openPopup3.addEventListener("click", ()=>{
-        window.open("07_함수.html", "_blank", "width=300, height=400, top=50, right=50");
+openPopup3.addEventListener("click", ()=>{
+    window.open("07_함수.html", "_blank", "width=300, height=400, top=50, right=50");
     
 });
 
