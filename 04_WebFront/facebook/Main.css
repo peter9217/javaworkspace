@@ -95,6 +95,7 @@
 }
 
 
+
 .item1{ 
     background-color: white;
 }
@@ -265,6 +266,7 @@ nav a:hover{
     width: 150px;
     background-color: rgb(199, 228, 247);
     color: blue;
+    flex: 0 1 75px;
 }
 
 div li{

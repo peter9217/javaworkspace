@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>main</title>
-    <link rel="stylesheet" href="Main.css">
+    <link rel="stylesheet" href="Main_info.css">
     <ul>
         <ui class="upper">d</ui>
     </ul>
@@ -37,12 +37,11 @@
                 </div>
             </div>
             
-            <div class="main-line"></div>
             <nav class="item5">
-                <li class="table"><a href="Main.html"> 게시물</a></ㅣ>
-                <li class="table"><a href="Main_info.html">정보</a></ㅣ>
-                <li class="table"><a href="#">친구</a></ㅣ>
-                <li class="table"><a href="#">사진</a></ㅣ>
+                <li class="main-li pick"><a class="main-li" href="Main.html"> 게시물</a></ㅣ>
+                <li class="main-li"><a class="main-li " href="Main_info.html">정보</a></ㅣ>
+                <li class="main-li"><a class="main-li" href="#">친구</a></ㅣ>
+                <li class="main-li"><a class="main-li" href="#">사진</a></ㅣ>
                 <div></div>
             </nav>
         </div>
@@ -55,28 +54,28 @@
                         <div class="who-pic">사진</div>
                         <div class="who-name">&nbsp;&nbsp;<strong>이름</strong></div>
                         <div class="add-friend">
-                            <li ><a class="add-friend2" href="">친구 추가</a></li>
+                            <li ><button class="add-friend2" href="">친구 추가</button></li>
                         </div>
                     </div>
                     <div class="who">
                         <div class="who-pic">사진</div>
                         <div class="who-name">&nbsp;&nbsp;<strong>이름</strong></div>
                         <div class="add-friend">
-                            <li ><a class="add-friend2" href="">친구 추가</a></li>
+                            <li ><button class="add-friend2" href="">친구 추가</button></li>
                         </div>
                     </div>
                     <div class="who">
                         <div class="who-pic">사진</div>
                         <div class="who-name">&nbsp;&nbsp;<strong>이름</strong></div>
                         <div class="add-friend">
-                            <li ><a class="add-friend2" href="">친구 추가</a></li>
+                            <li ><button class="add-friend2" href="">친구 추가</button></li>
                         </div>
                     </div>
                     <div class="who">
                         <div class="who-pic">사진</div>
                         <div class="who-name">&nbsp;&nbsp;<strong>이름</strong></div>
                         <div class="add-friend">
-                            <li ><a class="add-friend2" href="">친구 추가</a></li>
+                            <li ><button class="add-friend2" onclick="addfriend">친구 추가</button></li>
                         </div>
                     </div>
                 </nav>
@@ -86,17 +85,35 @@
                     <div class="item2-2-1">
                         <div class="so"><h3>&nbsp;&nbsp;소개</h3></div>
                         <div>
-                            <div>asdf</div>
-                            <a class="intro-1" href="">소개수정</a></div>
+                            <div id="intro-my">dd</div>
+                            <div id="input-intro">
+                                <form action="">
+                                    <textarea name="" id="intro-text" cols="50" rows="3"></textarea><br>
+                                    <div id="texta"></div>
+                                    <div id="public">
+                                        <div>&nbsp;전체 공개</div>
+                                        <div id="btn-set">
+                                        <button class="in-btn" id="intro-can" type="button" onclick="infoCan()">취소</button>
+                                        <button class="in-btn" id="intro-save" type="button" >저장</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <br>
+                            <button class="intro-1" onclick="infoMy()">소개수정</button></div>
                         <div>
-                            <div>asdf</div>
-                            <a class="intro-1" href="">상제정보 수정</a></div>
+                            <br>
+                            <div>asdf</div><br>
+                            <button class="intro-1" href="">상제정보 수정</button></div><br>
                         <div>
-                            <div>asdf</div>
-                            <a class="intro-1" href="">취미 수정</a></div>
+                            <div id="intro-hobby">취미</div>
+                            <div id="input-hobby"></button>
+                            </div>
+                            <br>
+                            <button class="intro-1" id="hobby-btn" >취미 수정</button></div>
                         <div>
-                            
-                            <a class="intro-1" href="">대표 사진 추가</a></div>
+                            <br>
+                            <button class="intro-1" href="">대표 사진 추가</button></div>
                         </div>
                         <br>
                     <div class="item2-2-2">
@@ -124,6 +141,7 @@
             </div>
             </div>
     </div>
+    <script src="../facebook/Main_info.js"></script>
 </header>
 </body>
 </html>

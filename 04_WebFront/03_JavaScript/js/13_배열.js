@@ -61,5 +61,4 @@ document.getElementById("btn2").addEventListener("click", () => {
         console.log("값 : "+ value);
     })
 
-
 })

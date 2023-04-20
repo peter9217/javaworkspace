@@ -163,31 +163,26 @@ button{
 
 }
 
-div>nav {
-    display: flex;
-    /* li 태그 앞에 기호 삭제 */
-    list-style: none;
-    height: 100%;
-}
 
-nav li{
-    flex: 0 1 75px;
-}
-
-nav a{
+.main-li{
     text-decoration: none;
     color : black;
     font-size:15px;
     font-weight: bold;
     display:block;
-    text-align:center; 
-    border-radius:5px;
-    padding : 11px 0;
-    
-    
+    text-align: center; 
+    border-radius:5px 5px 0 0;
+    flex: 0 0 70px;
+    margin-top: 7px;
 }
+
+
+.pick{
+    border-bottom: 3px solid blue;
+}
+
 /* border 바텀 주기 */
-nav a:hover{
+.main-li:hover{
     background-color: #ccc;
     transition-duration: 0.1s;
 }
@@ -198,9 +193,7 @@ nav a:hover{
     display: flex;
 
 }
-.item1-3-1{
 
-}
 .item1-2{
     display: flex;
     background-color: white;
@@ -251,24 +244,25 @@ nav a:hover{
 }
 .add-friend{
     height: 20%;
-    width: 200;
+    width: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
+    list-style: none;
 
     background-color: white;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
 .add-friend2{
-    width: 150px;
+    display: flex;
     background-color: rgb(199, 228, 247);
     color: blue;
+    text-decoration: none;
+    padding: 10px 20px;
 }
 
-div li{
-    flex: 0 1 75px;
-}
+
 
 .grid-container{
     background-color: #ccc;
@@ -340,8 +334,47 @@ div li{
 
 .intro-1{
     background-color: #ccc;
-    margin : 20px
+    display: inline-block;
+    padding : 7px 0;
+    text-decoration: none;
+    width: 95%;
+    border-radius: 5px;
 }
+
+#input-intro{
+    display: none;
+}
+
+#intro-text{
+    
+    background-color: hsl(210, 26%, 91%);
+    border-radius: 5px;
+    border: 1px solid hsl(0, 3%, 62%);
+    resize: none;
+    width: 440px;
+    padding:10px
+}
+#intro-
+
+#public{
+    display:flex;
+    justify-content: space-between;
+}
+#btn-set{
+    margin-right: 13px;
+    margin-bottom: 5px;
+}
+.in-btn{
+    width: 54px;
+    height: 36px;
+    background-color: red;
+    margin: 1px;
+    border-radius: 7px;
+}
+
+#intro-save{
+}
+
 .intro-1:hover {
     background-color: hsl(0, 3%, 62%);
 }
@@ -401,60 +434,61 @@ div li{
     border-radius:5px;
     display: flex;
     padding : 10px;
+    color: black;
     margin: 5px;
 
 }
 .info-lia:hover{
     background-color: #f0f2f3;
-    margin: 5px;
+    width: 97%;
 }
 
 .info-2-1{
     display : flex;
     flex-direction: row;
     color: hsl(212, 80%, 52%);
-    padding:10px;
     font-weight: bold;
     font-size: 15px;
-    
 }
-.info-outline{
-    text-decoration: none;
-    color : rgb(9, 83, 219);
-    background-color: hwb(212 80% 3%);
-    font-size:15px;
-    font-weight: bold;
-    border-radius:5px;
-    display: flex;
-    padding : 10px;
-    margin: 5px;
 
-}
-.info-outline-1{
-    display : none;
-    color : hsl(212, 80%, 52%);
+
+.info-experience-1{
     padding :10px;
     font-weight : bold;
     font-size : 15px;
-    
 }
-
-
-.info-experience{
-    text-decoration: none;
-    color : hwb(0 40% 60%);
-    /* background-color: hwb(212 80% 3%); */
-    font-size:15px;
-    font-weight: bold;
-    border-radius:5px;
-    display: flex;
-    padding : 10px;
-    margin: 5px;
-
-}
-.info-experience-1{
+.info-experience-2{
     display : none;
-    color : hsl(212, 80%, 52%);
+    padding :10px;
+    font-weight : bold;
+    font-size : 15px;
+}
+.info-experience-3{
+    display : none;
+    padding :10px;
+    font-weight : bold;
+    font-size : 15px;
+}
+.info-experience-4{
+    display : none;
+    padding :10px;
+    font-weight : bold;
+    font-size : 15px;
+}
+.info-experience-5{
+    display : none;
+    padding :10px;
+    font-weight : bold;
+    font-size : 15px;
+}
+.info-experience-6{
+    display : none;
+    padding :10px;
+    font-weight : bold;
+    font-size : 15px;
+}
+.info-experience-7{
+    display : none;
     padding :10px;
     font-weight : bold;
     font-size : 15px;
