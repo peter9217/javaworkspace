@@ -79,3 +79,78 @@ document.getElementById("hobby-btn").addEventListener("click", () => {
         <input type="checkbox" name="skill" id="html" value="HTML5"><br>
         <button>제출</button>
     </form> */
+
+
+
+    import { useState } from 'react';
+    import ModalBasic from '../src/common/ModalBasic';
+    
+    // 모달을 노출하는 페이지
+    function Modal() {
+        // 모달창 노출 여부 state
+        const [modalOpen, setModalOpen] = useState(false);
+    
+        // 모달창 노출
+        const showModal = () => {
+            setModalOpen(true);
+        };
+    
+        return (
+            <div>
+                <button onClick={showModal}>모달 띄우기</button>
+                {modalOpen && <ModalBasic setModalOpen={setModalOpen} />}
+            </div>
+        );
+    }
+    
+    export default Modal;
+     
+    
+    
+    import styles from './ModalBasic.module.css';
+    
+    function ModalBasic({ setModalOpen, id, title, content, writer }: PropsType) {
+        // 모달 끄기 
+        const closeModal = () => {
+            setModalOpen(false);
+        };
+    
+        return (
+            <div className={styles.container}>
+                <button className={styles.close} onClick={closeModal}>
+                    X
+                </button>
+                <p>모달창입니다.</p>
+            </div>
+        );
+    }
+    export default ModalBasic;
+    
+    /* 모달창을 화면 중앙. 최상단에 노출 */
+    .container {
+      /* 모달창 크기 */
+      width: 300px;
+      height: 200px;
+    
+      /* 최상단 위치 */
+      z-index: 999;
+      
+      /* 중앙 배치 */
+      /* top, bottom, left, right 는 브라우저 기준으로 작동한다. */
+      /* translate는 본인의 크기 기준으로 작동한다. */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    
+      /* 모달창 디자인 */
+      background-color: gray;
+      border: 1px solid black;
+      border-radius: 8px;
+    }
+    
+    .close {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+    }
