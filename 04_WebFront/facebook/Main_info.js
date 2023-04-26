@@ -33,7 +33,7 @@ function info(num){
             break;
     }
 }
-
+const infoInput = document.getElementById("info-input")
 const intro = document.getElementById("intro-my")
 const introArea = document.getElementById("input-intro")
 function infoMy(){
@@ -68,17 +68,9 @@ document.getElementById("intro-text").addEventListener("input", ()=>{
 })
 
 
-document.getElementById("login").addEventListener('click',function(){
-    document.getElementsByClassName('black-bg')[0].classList.add('show-modal');
+document.querySelector(".info-2-1").addEventListener("click", () => {
+    infoInput.style.display = "block";
+
 })
 
-document.getElementById('close').addEventListener('click',function(){
-    document.getElementsByClassName('black-bg')[0].classList.remove('show-modal');
-})
-
-
-
-$("login").on("click", function(){
-    $('black-bg').a('show-modal')
-})
 
