@@ -52,3 +52,10 @@ AND MEMBER_PW = 'pass01'
 ;
 
 SELECT * FROM "MEMBER";
+
+SELECT * FROM "V$VERSION";
+
+
+
+ALTER USER project IDENTIFIED BY "project1234";
+

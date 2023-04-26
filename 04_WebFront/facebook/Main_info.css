@@ -354,7 +354,6 @@ button{
     width: 440px;
     padding:10px
 }
-#intro-
 
 #public{
     display:flex;
@@ -499,3 +498,17 @@ button{
 
 
 /* *******************반응형************************************* */
+.black-bg {
+    width : 100%;
+    height : 100%;
+    position : fixed;
+    background : rgba(0,0,0,0.5);
+    z-index : 5;
+    padding:30px;
+    visibility: hidden
+  }
+.white-bg {
+    background: white;
+    border-radius: 5px;
+    padding: 30px;
+} 

@@ -66,6 +66,19 @@ document.getElementById("intro-text").addEventListener("input", ()=>{
         texta.innerText = 100 - strLength + "자 초과 ";
     }
 })
-document.getElementById("hobby-btn").addEventListener("click", () => {
-    window.open()
+
+
+document.getElementById("login").addEventListener('click',function(){
+    document.getElementsByClassName('black-bg')[0].classList.add('show-modal');
 })
+
+document.getElementById('close').addEventListener('click',function(){
+    document.getElementsByClassName('black-bg')[0].classList.remove('show-modal');
+})
+
+
+
+$("login").on("click", function(){
+    $('black-bg').a('show-modal')
+})
+
