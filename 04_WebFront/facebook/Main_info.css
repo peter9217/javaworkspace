@@ -363,6 +363,7 @@ button{
 }
 /* hobby 모달창 */
 .hobby-center{
+    margin-left: 12px;
     display : flex;
     justify-items: center;
     align-items: center;
@@ -383,15 +384,15 @@ button{
     transform: translate(-50%, -50%) scale(0.5);
     background: #fff;
     flex-direction: column;
-    width : 300px;
-    height: 200px;
+    width : 500px;
+    height: 400px;
     z-index: 100;
     opacity: 0;
     pointer-events: none;
 
 }
 .hobby-box .hobby-btn{
-    margin: 10px 0;
+    margin: 10px ;
 }
 
 #add-hobby:checked ~ .hobby-box{
@@ -401,13 +402,13 @@ button{
     transition: all .4s;
     transition-delay: 0.1s;
 }
-/* 
+
 .hobby-overlay{
     position: fixed;
     top:0; left:0;
     width: 100vw;
     height: 100vh;
-    background: #000;
+    background: black;
     opacity: 0;
     z-index:10;
     transform:scale(0.5);
@@ -420,7 +421,23 @@ button{
     transform: scale(1);
     transition: all .4s;
     pointer-events: visible;
-} */
+}
+
+#hobby-choose {
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+}
+/* dddddddddddddddddddddddddd */
+
+.hobby-check{
+    /* display: none; */
+}
+
+
+
+
+
 
 
 #input-intro{

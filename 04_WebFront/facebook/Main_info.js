@@ -73,9 +73,12 @@ document.querySelector(".info-2-1").addEventListener("click", () => {
 
 })
 
-const imset = document.getElementById("imgset")
-document.getElementById("imBtn").addEventListener("click" () => {
+// const imset = document.getElementById("imgset")
+// document.getElementById("imBtn").addEventListener("click" () => {
     
     
+// })
 
+document.getElementById("hobby-checked").addEventListener("click", () => {
+    document.getElementById("add-hobby").removeAttribute('checked');
 })

@@ -122,19 +122,32 @@
                             <div>
                                 <div id="intro-hobby">취미</div>
                                 <div class="hobby-main hobby-center">
-                                    <input type="checkbox" id="add-hobby">
+                                    <input type="checkbox" id="add-hobby" checked>
                                     <label class="intro-1 hobby-btn" id="login" for="add-hobby">취미 수정</label>
                             
                                     <div class="hobby-box hobby-center">
-                                    <form action="">
-                                            asd
-                                            <button>확인</button>
+                                    <form action="" id="hobby-choose">
+                                            <h2>취미</h2>
+                                            <div>
+                                                <input class="hobby-check" type="checkbox" id="hobby-baseball">
+                                                <label for="baseball">baseball</label>
+                                                <input class="hobby-check" type="checkbox" id="hobby-game">
+                                                <label for="game">game</label>
+                                                <input class="hobby-check" type="checkbox" id="hobby-read">
+                                                <label for="read">read</label>
+                                                <input class="hobby-check" type="checkbox" id="hobby-run">
+                                                <label for="run">run</label>
+                                                <input class="hobby-check" type="checkbox" id="hobby-java">
+                                                <label for="java">java</label>
+                                            </div>
+                                            <div><button id="hobby-checked">확인</button>
                                             <label for="add-hobby" class="hobby-btn">
                                                 <a>닫기</a>
                                             </label>
+                                        </div>
                                         </form>
                                     </div>
-                                    <div class="hobby-overlay"></div>
+                                    <label class="hobby-overlay" for="add-hobby"></label>
                                 </div>
                             
                             <button class="intro-1" href="">대표 사진 추가</button></div>
