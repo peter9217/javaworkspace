@@ -1,5 +1,5 @@
-const strLength = document.getElementById("intro-text")
-const texta = document.getElementById("texta")
+const strLength = document.getElementById("intro-text");
+const texta = document.getElementById("texta");
 
 
 function info(num){
@@ -33,19 +33,20 @@ function info(num){
             break;
     }
 }
-const infoInput = document.getElementById("info-input")
-const intro = document.getElementById("intro-my")
-const introArea = document.getElementById("input-intro")
+
+const infoInput = document.getElementById("info-input");
+const intro = document.getElementById("intro-my");
+const introArea = document.getElementById("input-intro");
 function infoMy(){
     intro.style.display = "none";
     introArea.style.display = "block";
 }
 
 function infoCan(){
-
     introArea.style.display = "none";
     intro.style.display = "block";
 }
+
 document.getElementById("intro-save").addEventListener("click", ()=>{
     if(strLength.value.length<100){
         intro.innerText=document.getElementById("intro-text").value;
@@ -66,23 +67,24 @@ document.getElementById("intro-text").addEventListener("input", ()=>{
         texta.innerText = 100 - strLength + "자 초과 ";
     }
 })
-document.getElementById("hobby-checked").addEventListener("click", () => {
-    document.getElementById("add-hobby").removeAttribute('checked');
-})
+
 
 
 
 document.getElementById("asd").addEventListener("click", () => {
-    return document.getElementById("info-job").innerText = red;
+    alert('asd')
 })
 
 
 
 // function info(){
-//     document.getElementById("info-job").innerText = "red";
+    //     document.getElementById("info-job").innerText = "red";
 // }
 // const imset = document.getElementById("imgset")
 // document.getElementById("imBtn").addEventListener("click" () => {
     
     
-// })
+
+    document.getElementById("hobby-checked").addEventListener("click", () => {
+        document.getElementById("add-hobby").removeAttribute('checked');
+    })
