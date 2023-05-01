@@ -64,3 +64,11 @@ UPDATE "MEMBER" SET MEMBER_PW = '$2a$10$gOLfTWbpLAr0miRMzKfexedbC.8qiI9Psg/AQvCA
 
 ALTER USER project IDENTIFIED BY "project1234";
 
+-- 회원 번호가 일치하는 회원의 비밀번호 조회
+SELECT MEMBER_PW FROM "MEMBER" WHERE MEMBER_NO=4;
+
+-- 회원 번호가 일치하는 회원의 비밀번호 변경
+UPDATE "MEMBER" SET MEMBER_PW='ASDASD' WHERE MEMBER_NO=4;
+
+SELECT * FROM "MEMBER";
+

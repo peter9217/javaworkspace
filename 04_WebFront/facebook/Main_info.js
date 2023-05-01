@@ -66,19 +66,23 @@ document.getElementById("intro-text").addEventListener("input", ()=>{
         texta.innerText = 100 - strLength + "자 초과 ";
     }
 })
-
-
-document.querySelector(".info-2-1").addEventListener("click", () => {
-    infoInput.style.display = "block";
-
+document.getElementById("hobby-checked").addEventListener("click", () => {
+    document.getElementById("add-hobby").removeAttribute('checked');
 })
 
+
+
+document.getElementById("asd").addEventListener("click", () => {
+    return document.getElementById("info-job").innerText = red;
+})
+
+
+
+// function info(){
+//     document.getElementById("info-job").innerText = "red";
+// }
 // const imset = document.getElementById("imgset")
 // document.getElementById("imBtn").addEventListener("click" () => {
     
     
 // })
-
-document.getElementById("hobby-checked").addEventListener("click", () => {
-    document.getElementById("add-hobby").removeAttribute('checked');
-})
