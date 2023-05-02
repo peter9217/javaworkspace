@@ -27,6 +27,10 @@
                 <h3>로그인 된 회원 정보</h3>
 
                 ${sessionScope.loginMember}
+                <h3>닉네임이 일치하는</h3>
+                <input type="text" id="inputNickname">
+                <button id="btn1">조회</button>
+                <h4 id="result1">0</h4>
 
             </section>
 

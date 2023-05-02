@@ -432,6 +432,7 @@ button{
 }
 
 .hobby-overlay{
+
     position: fixed;
     top:0; left:0;
     width: 100vw;
@@ -441,6 +442,11 @@ button{
     z-index:10;
     transform:scale(0.5);
     pointer-events: none;
+
+}
+
+.info-modali{
+
 
 }
 
@@ -687,6 +693,98 @@ button{
     justify-content: space-between;
 }
 
+
+
+
+
+
+
+#info-modal{
+    display: none;
+    position: fixed;
+    top:0; left:0;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    opacity: 0;
+    z-index:10;
+    transform:scale(0.5);
+    pointer-events: none;
+    opacity: 0.9;
+    transform: scale(1);
+    transition: all .4s;
+    pointer-events: visible;
+}
+
+#info-modali{
+    display: none;
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    background: #fff;
+    width : 300px;
+    height: 200px;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    border-radius: 5px;
+    border : 5px solid #56A8C5 ;
+    opacity : 1;
+    pointer-events: visible;
+    transform: translate(-50%, -50%)scale(1);
+    transition: all .4s;
+    transition-delay: 0.1s;
+}
+
+#info-modali{
+    padding : 10px
+}
+
+#what-hobby{
+    font-size: 30px;
+    margin: 10px 0 30px 20px;
+}
+
+#hobby-input{
+    height: 50px;
+    width: 270px;
+    margin-left: 10px;
+    border-radius: 7px;
+    background-color: beige;
+    
+}
+
+#hbtn-set{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+#hobby-asd{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+
+}
+.info-addbtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 54px;
+    height: 36px;
+    background-color: beige;
+    margin: 4px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+#info-confirm{
+    background-color: #56A8C5;
+}
+
+
 .black-bg {
     width : 100%;
     height : 100%;
@@ -701,3 +799,71 @@ button{
     border-radius: 5px;
     padding: 30px;
 } 
+
+
+/* 슬라이드 */
+#fr-border{
+    position: relative;
+    margin: 50px auto;
+    overflow: hidden;   
+    /*리스트 형식으로 이미지를 일렬로 
+    정렬할 것이기 때문에, 500px 밖으로 튀어 나간 이미지들은
+    hidden으로 숨겨줘야됨*/
+  }
+  
+  
+  .item1-3{
+    left: 0;
+    top: 0;
+    transition: left 0.5s ease-out; 
+    /*ease-out: 처음에는 느렸다가 점점 빨라짐*/
+  }
+  
+  /* 첫 번째 슬라이드 가운데에 정렬하기위해
+  첫번째 슬라이드만 margin-left조정 */
+  .item1-3 div:first-child{
+  }
+  
+  /* 슬라이드들 옆으로 정렬 */
+  .item1-3 div:not(:last-child){
+    float: left;
+  }
+  
+  .item1-3 div{
+    float: left;
+  }
+  .controller span{
+    position:absolute;
+    background-color: transparent;
+    color: black;
+    text-align: center;
+    border-radius: 50%;
+    padding: 10px 20px;
+    top: 50%;
+    font-size: 1.3em;
+    cursor: pointer;
+  }
+  /* 이전, 다음 화살표에 마우스 커서가 올라가 있을때 */
+  .controller span:hover{
+    background-color: rgba(128, 128, 128, 0.11);
+  }
+  
+  .prev{
+    left: 10px;
+  }
+  
+  /* 이전 화살표에 마우스 커서가 올라가 있을때 
+  이전 화살표가 살짝 왼쪽으로 이동하는 효과*/
+  .prev:hover{
+    transform: translateX(-10px);
+  }
+  
+  .next{
+    right: 10px;
+  }
+  
+  /* 다음 화살표에 마우스 커서가 올라가 있을때 
+  이전 화살표가 살짝 오른쪽으로 이동하는 효과*/
+  .next:hover{
+    transform: translateX(10px);
+  }

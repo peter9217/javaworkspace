@@ -110,5 +110,6 @@
         }).open();
     }
 </script>
+<script src="/recources/js/myPage/myPage.js"></script>
 </body>
 </html>
