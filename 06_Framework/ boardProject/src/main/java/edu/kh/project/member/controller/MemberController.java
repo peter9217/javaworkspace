@@ -115,7 +115,6 @@ public class MemberController {
 		// *** @ModelAttribute 어노테이션은 생략이 가능하다!
 		// *** @ModelAttribute를 이용해 값이 필드에 세팅된 객체를 "커맨드 객체"라고 한다
 		
-		System.out.println(inputMember);
 		return "redirect:/";
 	}
 	

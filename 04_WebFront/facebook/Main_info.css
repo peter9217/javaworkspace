@@ -218,7 +218,11 @@ button{
     display: flex;
     height: 341px;
     width: 1186px;
-    
+    position: absolute;
+    user-select:none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select:none;
 }
 .who{
     display: flex;
@@ -272,6 +276,7 @@ button{
 
 
 #fr-border{
+    height: 390px;
     border-radius : 15px;
     border-radius: 15px;
     background-color: white;
@@ -804,7 +809,7 @@ button{
 /* 슬라이드 */
 #fr-border{
     position: relative;
-    margin: 50px auto;
+    margin: 10px ;
     overflow: hidden;   
     /*리스트 형식으로 이미지를 일렬로 
     정렬할 것이기 때문에, 500px 밖으로 튀어 나간 이미지들은
@@ -814,8 +819,8 @@ button{
   
   .item1-3{
     left: 0;
-    top: 0;
-    transition: left 0.5s ease-out; 
+    top: 5;
+    transition: left 0.7s ease-out; 
     /*ease-out: 처음에는 느렸다가 점점 빨라짐*/
   }
   

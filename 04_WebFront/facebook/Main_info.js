@@ -88,21 +88,20 @@ function jsSearch(str, target){
     // alert((target.innerText).substring(4));
 };    
 
-document.getElementById("info-modal").addEventListener("click", () => {
-    document.getElementById("info-modal").style.display="none";
-    document.getElementById("info-modali").style.display="none";
-})
-document.getElementById("info-cancel").addEventListener("click", () => {
-    document.getElementById("info-modal").style.display="none";
-    document.getElementById("info-modali").style.display="none";
-})
-document.getElementById("info-confirm").addEventListener("click", () => {
-    document.getElementById("info-modal").style.display="none";
-    document.getElementById("info-modali").style.display="none";
+// document.getElementById("info-modal").addEventListener("click", () => {
+//     document.getElementById("info-modal").style.display="none";
+//     document.getElementById("info-modali").style.display="none";
+// })
+// document.getElementById("info-cancel").addEventListener("click", () => {
+//     document.getElementById("info-modal").style.display="none";
+//     document.getElementById("info-modali").style.display="none";
+// })
+// document.getElementById("info-confirm").addEventListener("click", () => {
+//     document.getElementById("info-modal").style.display="none";
+//     document.getElementById("info-modali").style.display="none";
+// })
 
 
-
-})
 // function info(){
     //     document.getElementById("info-job").innerText = "red";
 // }
@@ -116,8 +115,8 @@ document.getElementById("info-confirm").addEventListener("click", () => {
     })
 
 
-    슬라이드
-const slides = document.querySelector('#fr-border'); //전체 슬라이드 컨테이너
+    // 슬라이드
+const slides = document.querySelector('.item1-3'); //전체 슬라이드 컨테이너
 const slideImg = document.querySelectorAll('.who'); //모든 슬라이드들
 let currentIdx = 0; //현재 슬라이드 index
 const slideCount = slideImg.length; // 슬라이드 개수
@@ -127,7 +126,7 @@ const slideWidth = 202; //한개의 슬라이드 넓이
 const slideMargin = 20; //슬라이드간의 margin 값
 
 //전체 슬라이드 컨테이너 넓이 설정
-slides.style.width = (slideWidth + slideMargin) * slideCount + 'px';
+// slides.style.width = (slideWidth + slideMargin) * slideCount + 'px';
 
 function moveSlide(num) {
   slides.style.left = -num * 400 + 'px';
@@ -140,15 +139,150 @@ prev.addEventListener('click', function () {
   currentIdx !==0일때만 moveSlide 함수 불러옴 */
 
   if (currentIdx !== 0) moveSlide(currentIdx - 1);
-});
+})
+
+;
 
 next.addEventListener('click', function () {
     /* 마지막 슬라이드로 표시 됐을때는 
     다음 버튼 눌러도 아무런 반응 없게 하기 위해
     currentIdx !==slideCount - 1 일때만 
-  moveSlide 함수 불러옴 */
+    moveSlide 함수 불러옴 */
     if (currentIdx !== slideCount - 1) {
-    moveSlide(currentIdx + 1);
+        moveSlide(currentIdx + 1);
     }
 });
 
+const slide = document.getElementsByClassName("item1-3")[0];
+let startPoint = 0;
+let endPoint = 0;
+
+// PC 클릭 이벤트 (드래그)
+slide.addEventListener("mousedown", (e) => {
+  startPoint = e.pageX; // 마우스 드래그 시작 위치 저장
+});
+
+slide.addEventListener("mouseup", (e) => {
+  endPoint = e.pageX; // 마우스 드래그 끝 위치 저장
+  if (startPoint < endPoint) {
+    // 마우스가 오른쪽으로 드래그 된 경우
+    moveSlideDrag(startPoint - endPoint)
+  } else if (startPoint > endPoint) {
+    // 마우스가 왼쪽으로 드래그 된 경우
+    moveSlideDrag(endPoint - startPoint)
+  }
+});
+
+function moveSlideDrag(num) {
+    slides.style.left = num + 'px';
+}
+
+// slide.addEventListener("mousedown", (e) => {
+
+//     let shiftX = event.clientX - slide.getBoundingClientRect().left;
+  
+//     document.body.append(ball);
+  
+//     moveAt(event.pageX);
+  
+//     // 초기 이동을 고려한 좌표 (pageX, pageY)에서
+//     // 공을 이동합니다.
+//     function moveAt(pageX) {
+//       slide.style.left = pageX - shiftX + 'px';
+//     }
+  
+//     function onMouseMove(event) {
+//       moveAt(event.pageX);
+//     }
+  
+//     // mousemove로 공을 움직입니다.
+//     document.addEventListener('mousemove', onMouseMove);
+  
+//     // 공을 드롭하고, 불필요한 핸들러를 제거합니다.
+//     slide.onmouseup = function() {
+//       document.removeEventListener('mousemove', onMouseMove);
+//       slide.onmouseup = null;
+//     };
+  
+//   });
+  
+//   slide.ondragstart = function() {
+//     return false;
+// };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*next.addEventListener("click", () => {
+    // 요소 만들기 document.createElement("태그명")
+    // 요소에 속성, 값 추가 : 요소.classList.add("속성명", "값");
+    // 요소에 속성, 값 추가 : 요소.classList.remove("속성명", "값");
+    // 요소에 속성, 값 추가 : 요소.setAttrubute("속성명", "값");
+    // 요소에 속성 제거 : 요소.removeAttrubute("속성명");
+
+
+    // 부모 요소.append(자식 요소) :
+    // 부모 요소의 마지막 자식으로 자식 요소를 추가(덧붙이기)
+    
+    // 부모 요소.prepend(자식 요소) :
+    // 부모 요소의 첫 번째 자식으로 자식 요소를 추가
+
+    // A.after(B) : A의 다음 요소로 B를 추가
+    
+    // A.before(B) : A의 이전 요소로 B를 추가
+    
+    // div 요소 만들기
+    const div = document.createElement("div");
+    div.classList.add("row");
+    // input 요소 만들기
+    const input = document.createElement("input")
+    input.classList.add("in")
+    input.setAttribute("type", "number"); // input에 속성 부여
+
+    //span 요소 만들기
+    const span = document.createElement("span");
+    span.classList.add("remove-row");
+    span.innerHTML="&times;";
+    // 만들어진 span 요소에 이벤트리스너 추가
+    span.addEventListener("click", e => {
+        // 클릭된 요소의 부모 요소를 삭제 == row 삭제
+        e.target.parentElement.remove();
+    });
+
+    //--------------------------------------------------------
+    //div의 자식으로 input 추가
+    // div.append(input);
+    div.prepend(input);
+
+    //div의 마지막 자식으로 span 추가
+    div.append(span);
+
+    // ----------------------------------------------------
+
+    // .container의 마지막 자식으로 div 추가
+    document.querySelector(".container").append(div)
+
+
+});*/
