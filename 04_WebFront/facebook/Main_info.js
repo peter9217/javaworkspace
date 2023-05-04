@@ -129,7 +129,9 @@ const slideMargin = 20; //슬라이드간의 margin 값
 // slides.style.width = (slideWidth + slideMargin) * slideCount + 'px';
 
 function moveSlide(num) {
-  slides.style.left = -num * 400 + 'px';
+    let slideNum = 0;
+    slideNum  = -num * 800;
+    slides.style.left = slideNum+ 'px';
     currentIdx = num;
 }
 
@@ -153,62 +155,11 @@ next.addEventListener('click', function () {
     }
 });
 
-const slide = document.getElementsByClassName("item1-3")[0];
-let startPoint = 0;
-let endPoint = 0;
+document.getElementById("info-cancel").addEventListener("click", () => {
+    document.getElementById("info-modali").style.display = none;
 
-// PC 클릭 이벤트 (드래그)
-slide.addEventListener("mousedown", (e) => {
-  startPoint = e.pageX; // 마우스 드래그 시작 위치 저장
-});
 
-slide.addEventListener("mouseup", (e) => {
-  endPoint = e.pageX; // 마우스 드래그 끝 위치 저장
-  if (startPoint < endPoint) {
-    // 마우스가 오른쪽으로 드래그 된 경우
-    moveSlideDrag(startPoint - endPoint)
-  } else if (startPoint > endPoint) {
-    // 마우스가 왼쪽으로 드래그 된 경우
-    moveSlideDrag(endPoint - startPoint)
-  }
-});
-
-function moveSlideDrag(num) {
-    slides.style.left = num + 'px';
-}
-
-// slide.addEventListener("mousedown", (e) => {
-
-//     let shiftX = event.clientX - slide.getBoundingClientRect().left;
-  
-//     document.body.append(ball);
-  
-//     moveAt(event.pageX);
-  
-//     // 초기 이동을 고려한 좌표 (pageX, pageY)에서
-//     // 공을 이동합니다.
-//     function moveAt(pageX) {
-//       slide.style.left = pageX - shiftX + 'px';
-//     }
-  
-//     function onMouseMove(event) {
-//       moveAt(event.pageX);
-//     }
-  
-//     // mousemove로 공을 움직입니다.
-//     document.addEventListener('mousemove', onMouseMove);
-  
-//     // 공을 드롭하고, 불필요한 핸들러를 제거합니다.
-//     slide.onmouseup = function() {
-//       document.removeEventListener('mousemove', onMouseMove);
-//       slide.onmouseup = null;
-//     };
-  
-//   });
-  
-//   slide.ondragstart = function() {
-//     return false;
-// };
+})
 
 
 
