@@ -106,7 +106,7 @@ public class EmailServicelmpl implements EmailService {
         int result = dao.updateAuthKey(map);
         
         if(result == 0) {
-        	result = dao.insertAuthKey(map);
+            result = dao.insertAuthKey(map);
         }
         
 

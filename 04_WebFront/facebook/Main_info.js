@@ -114,7 +114,7 @@ function jsSearch(str, target){
         document.getElementById("add-hobby").removeAttribute('checked');
     })
 
-
+text
     // 슬라이드
 const slides = document.querySelector('.item1-3'); //전체 슬라이드 컨테이너
 const slideImg = document.querySelectorAll('.who'); //모든 슬라이드들

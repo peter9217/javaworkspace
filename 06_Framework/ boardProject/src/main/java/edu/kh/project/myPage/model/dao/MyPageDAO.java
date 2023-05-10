@@ -71,6 +71,16 @@ public class MyPageDAO {
 		
 		
 		return sqlSession.update("myPageMapper.del", member);
+	}
+
+
+
+	/** 프로필 이미지 수정
+	 * @param loginMember
+	 * @return 
+	 */
+	public int updateProfileImage(Member loginMember) {
+		return sqlSession.update("myPageMapper.updateProfileImage", loginMember);
 	} 
 
 }

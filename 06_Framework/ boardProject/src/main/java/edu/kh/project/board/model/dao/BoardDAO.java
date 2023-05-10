@@ -11,6 +11,10 @@ import org.springframework.stereotype.Repository;
 import edu.kh.project.board.model.dto.Board;
 import edu.kh.project.board.model.dto.Pagination;
 
+/**
+ * @author user1
+ *
+ */
 @Repository
 public class BoardDAO {
 
@@ -56,7 +60,51 @@ public class BoardDAO {
 		
 		return sqlSession.selectList("boardMapper.selectBoardList", boardCode, rowBounds);
 	}
+
+	/** 게시글 상세조회
+	 * @param map
+	 * @return
+	 */
+	public Board selectBoard(Map<String, Object> map) {
+		
+		return sqlSession.selectOne("boardMapper.selectBoard", map);
+	}
+
+	public int boardLikeCheck(Map<String, Object> map) {
+		return sqlSession.selectOne("boardMapper.boardLikeCheck", map);
+	}
+
+	/** 좋아요 삽입
+	 * @param paramMap
+	 * @return
+	 */
+	public int insertBoardLike(Map<String, Integer> paramMap) {
+		
+		return sqlSession.insert("boardMapper.insertBoardLike", paramMap);
+	}
+
+	/** 좋아요 삭제
+	 * @param paramMap
+	 * @return
+	 */
+	public int deleteBoardLike(Map<String, Integer> paramMap) {
+		
+		return sqlSession.delete("boardMapper.deleteBoardLike", paramMap);
+	}
+
+	public int countBoardLike(Integer integer) {
+		return sqlSession.selectOne("boardMapper.countBoardLike", integer);
+	}
 	
+	
+
+	/** 조회 수 증가
+	 * @param boardNo
+	 * @return
+	 */
+	public int updateReadCount(int boardNo) {
+		return sqlSession.update("boardMapper.updateReadCount", boardNo);
+	}
 	
 	
 }

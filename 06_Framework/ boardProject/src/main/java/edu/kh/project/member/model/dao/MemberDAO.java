@@ -17,8 +17,8 @@ public class MemberDAO {
 	 * @param inputMember
 	 * @return 회원 정보 또는 null
 	 */
+	
 	public Member login(Member inputMember) {
-
 		// 마이바티스를 이용해서 1행 조회(selectOne)
 		// sqlSession.selectOne("namespace값.id값", 전달할 값);
 		// -> namespace가 일치하는 매퍼에서 id가 일치하는 SQL구문을 수행 후 결과를 1행(dto, 기본 자료형) 반환
