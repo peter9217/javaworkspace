@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 // 클라이언트 -> Filter -> Dispatcher Servlet
 
 //@WebFilter("/LoginFilter") : 해당 클래스를 필터로 등록하고 지정된 주소 요청이 올 때 마다 동작
-@WebFilter(filterName = "loginFilter", urlPatterns = {"/myPage/*"})
+@WebFilter(filterName = "loginFilter", urlPatterns = {"/myPage/*", "/board2/*"})
 public class LoginFilter implements Filter {
 	public void init(FilterConfig fConfig) throws ServletException {
 		// 서버가 켜질 때, 필터 코드가 변경 되었을 때 필터가 생성됨
