@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.Cookie;
@@ -72,14 +73,25 @@ public class BoardController {
 	
 	@GetMapping("/{boardCode:[0-9]+}") // boardCode는 1자리 이상 숫자 
 	public String selectBoardList(@PathVariable("boardCode") int boardCode, @RequestParam(value="cp", required=false, defaultValue="1") int cp
-			, Model model) {
+			, Model model
+			, @RequestParam Map<String, Object> paramMap // 파라미터 전부 다 담겨있음
+			) {
 //		System.out.println("보코 : " + boardCode);
 		
-		// 게시글 목록 조회 서비스 호출
-		Map<String, Object> map = service.selectBoardList(boardCode, cp); 
+		if(paramMap.get("key") == null) { // 검색어가 없을 때(검색 X)
+			// 게시글 목록 조회 서비스 호출
+			Map<String, Object> map = service.selectBoardList(boardCode, cp); 
+			
+			// 조회 결과를 request scope에 세팅 후 forward
+			model.addAttribute("map", map);
+		}else { //검색어가 있을 때 (검색 O)
+			
+			paramMap.put("boardCode", boardCode);
 		
-		// 조회 결과를 request scope에 세팅 후 forward
-		model.addAttribute("map", map);
+			Map<String, Object> map = service.selectBoardList(paramMap, cp); // 오버로딩
+		
+			model.addAttribute("map", map);
+		}
 		return "board/boardList";
 	}
 	
@@ -225,6 +237,15 @@ public class BoardController {
 		return service.like(paramMap);
 	}
 	
+	 // 헤더 검색
+    @GetMapping(value="/headerSearch", produces = "application/json; charset=UTF-8")
+    @ResponseBody
+    public List<Map<String, Object>> headerSearch(String query){
+    	return service.headerSearch(query);
+    }
+    
+
+
 	
 	
 	
