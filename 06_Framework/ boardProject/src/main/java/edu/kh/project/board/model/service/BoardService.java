@@ -36,4 +36,6 @@ public interface BoardService {
 	 */
 	List<Map<String, Object>> headerSearch(String query);
 
+	List<String> selectImageList();
+
 }
