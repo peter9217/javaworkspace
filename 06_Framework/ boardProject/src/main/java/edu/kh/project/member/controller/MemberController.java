@@ -135,7 +135,7 @@ public class MemberController {
 	 */
 	@PostMapping("/login")
 	public String login(Member inputMember, Model model
-			, @RequestHeader(value="referer") String referer,@RequestParam(value="saveId", required=false) String saveId
+			, @RequestHeader(value="referer", required=false) String referer,@RequestParam(value="saveId", required=false) String saveId
 			, HttpServletResponse resp, RedirectAttributes ra) {
 		
 		// Member inputMember : 커맨드 객체(필드에 파라미터 담겨있음)
