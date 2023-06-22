@@ -80,7 +80,7 @@
                                         <td>${board.readCount}</td>
                                         <td>${board.likeCount}</td>
                                     </tr>
-                        </c:forEach>
+                                </c:forEach>
 
                            </c:otherwise>
                         </c:choose>
@@ -117,21 +117,18 @@
 					
                     <!-- 특정 페이지로 이동 -->
                     <c:forEach var="i" begin="${pagination.startPage}"
-                                            end="${pagination.endPage}" step="1">
-                                            <c:choose>
-                                               <c:when test="${i == pagination.currentPage}">
-                                                <%-- 현재 보고 있는 페이지 --%>
-                                                <li><a class="current">${i}</a></li>
+                        end="${pagination.endPage}" step="1">
+                        <c:choose>
+                            <c:when test="${i == pagination.currentPage}">
+                            <%-- 현재 보고 있는 페이지 --%>
+                            <li><a class="current">${i}</a></li>
 
-                                               </c:when>
-                                            
-                                               <c:otherwise>
-                                               <li><a href="/board/${boardCode}?cp=${i}${sp}">${i}</a></li>
-                                               </c:otherwise>
-                                            </c:choose>
-
-                                            
-
+                            </c:when>
+                        
+                            <c:otherwise>
+                            <li><a href="/board/${boardCode}?cp=${i}${sp}">${i}</a></li>
+                            </c:otherwise>
+                        </c:choose>
                     </c:forEach>
                     
                     <!-- 다음 목록 시작 번호로 이동 -->
