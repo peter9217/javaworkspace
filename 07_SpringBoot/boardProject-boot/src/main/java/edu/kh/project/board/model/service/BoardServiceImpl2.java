@@ -207,8 +207,8 @@ public class BoardServiceImpl2 implements BoardService2 {
 	                  // 파일로 변환
 	                  String rename = uploadList.get(i).getImageReName();
 	                  
-	                  images.get(index).transferTo( new File(filePath + rename)  );                    
-	               }
+	                  images.get(index).transferTo(new File(filePath + rename));                    
+	            }
 			}
 
 		}
