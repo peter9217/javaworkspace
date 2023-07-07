@@ -57,8 +57,8 @@ public class MemberController {
 //		 매개 변수에 적으면 왜 사용 가능? >> Spring Framework가 제공하는 Argument Resolver(매개 변수 해결사)가 해결해줘서
 		String inputEmail = req.getParameter("inputEmail");
 		String inputPw = req.getParameter("inputPw");
-		System.out.println(inputEmail);
-		System.out.println(inputPw);
+		//system.out.println(inputEmail);
+		//system.out.println(inputPw);
 		
 		
 		return "redirect:/";
@@ -88,8 +88,8 @@ public class MemberController {
 
 		   // defaultValue : 파라미터 중 일치하는 name 속성 값이 없을 경우에 대입할 값 지정.
 		   // -> required = false인 경우 사용
-		System.out.println(inputEmail);
-		System.out.println(inputPw);
+		//system.out.println(inputEmail);
+		//system.out.println(inputPw);
 
 		return "redirect:/";
 	}	
@@ -144,10 +144,10 @@ public class MemberController {
 		// HttpServletResponse resp : 서버 -> 클라이언트 응답 방법을 가지고 있는 객체
 		
 		
-		System.out.println(saveId);
+		//system.out.println(saveId);
 		// 로그인 서비스 호출
 		Member loginMember = service.login(inputMember);
-//		System.out.println(loginMember);
+//		//system.out.println(loginMember);
 		
 		//로그인 결과에 따라 리다이렉트 경로를 다르게 지정
 		String path = "redirect:";

@@ -95,7 +95,6 @@ public class BoardController {
             ) {
       
       // boardCode 확인
-      //System.out.println("boardCode : " + boardCode);
       
       if(paramMap.get("key") == null) { // 검색어가 없을 때(검색x)
          
@@ -286,7 +285,7 @@ public class BoardController {
    @PostMapping("/like")
    @ResponseBody // 반환되는 값이 비동기 요청한 곳으로 돌아가게 함
    public int like(@RequestBody Map<String, Integer> paramMap) {
-      // System.out.println(paramMap);
+      // //system.out.println(paramMap);
       return service.like(paramMap);
    }
    

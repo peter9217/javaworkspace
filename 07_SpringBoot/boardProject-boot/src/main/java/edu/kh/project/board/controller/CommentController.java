@@ -24,7 +24,7 @@ public class CommentController {
 	
 	@GetMapping(value="/comment", produces="application/json; charset=UTF-8")
 	public List<Comment> select(int boardNo) {
-		System.out.println(boardNo);
+		//system.out.println(boardNo);
 		return service.select(boardNo); // HttpMessageConverter List >> JSON 변환
 	}
 	
@@ -39,7 +39,7 @@ public class CommentController {
 	// 댓글 삭제
 	@DeleteMapping("/comment")
 	public int delete(@RequestBody int commentNo) {
-		System.out.println("123");
+		//system.out.println("123");
 			//ajax 요청 시 body에 담겨있는 하나 밖에 없느 ㄴ데이터는 매개 변수 int commentNo 담기게 된다.
 		return service.delete(commentNo);
 	}

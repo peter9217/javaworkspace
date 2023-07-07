@@ -49,7 +49,7 @@ public class ChattingWebsocketHandler extends TextWebSocketHandler{
         sessions.add(session);
     
         //logger.info("{}연결됨", session.getId());
-//      System.out.println(session.getId() + "연결됨");
+//      //system.out.println(session.getId() + "연결됨");
     }
     
     
@@ -66,7 +66,7 @@ public class ChattingWebsocketHandler extends TextWebSocketHandler{
         
         Message msg = objectMapper.readValue( message.getPayload(), Message.class);
         // Message 객체 확인
-        System.out.println(msg); 
+        //system.out.println(msg); 
         
         // DB 삽입 서비스 호출
         int result = service.insertMessage(msg);

@@ -37,7 +37,7 @@ public class MemberServiceImpl implements MemberService{
 		
 		
 		//암호화 추가 예정
-//		System.out.println("암호화 확인 : " +bcrypt.encode(inputMember.getMemberPw()));
+//		//system.out.println("암호화 확인 : " +bcrypt.encode(inputMember.getMemberPw()));
 		
 		// bcrypt 암호화는 salt가 추가되기 때문에 계속 비밀번호가 바뀌게되어 DB에서 비교 불가능!!
 		// -> 별도로 제공해주는 matches(평문, 암호문)을 이용해 비교
