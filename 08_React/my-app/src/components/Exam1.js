@@ -11,6 +11,7 @@ class Exam1 extends Component{
         super(props);
         this.state = {count : 0};
     }
+    
 
     handleClick = () => {
         this.setState ({count :this.state.count + 1});

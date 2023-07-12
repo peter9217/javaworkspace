@@ -1,0 +1,20 @@
+#root{text-align: center;}
+
+#test1{
+  display: flex;
+}
+
+#test1 > button:nth-child(1){
+  background-color: cyan;
+  border-radius: 5px;
+}
+#test1 > button:nth-child(2){
+  background-color: magenta;
+  border-radius: 5px;
+}
+
+#test2{
+  border: 1px solid black;
+  width: 80%;
+  margin : 20px auto;
+}

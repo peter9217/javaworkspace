@@ -26,8 +26,8 @@ function App() {
       {/* <Ex1 /> */}
       
       {/* <Ex2 /> */}
-
-      {/* <PropsEx name={'홍길동'}/>
+{/* 
+      <PropsEx name={'홍길동'}/>
       <PropsEx name={'김길동'}/>
       <PropsEx name={'강호동'}/> */}
 
@@ -39,14 +39,14 @@ function App() {
       
       {/* R04_state3 */}
       {/* <hr/> */}
-      {/* <State3 /> */}
+      <State3 />
 
 
 
       {/* {<TodoList1/>} */}
 
       {/* <R06_context/> */}
-      <ContextApi/>
+      {/* <ContextApi/> */}
     </>
 
   );
